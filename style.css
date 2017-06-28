@@ -12,6 +12,7 @@ body {
 
 div.page {
             min-height: 93%;
+            width: 100%;
             padding-top: 60px;
             background-color: black;
             margin: 0 0 0 0;
