@@ -99,10 +99,10 @@ img.small {
 }
 
 img.bio  {
-            width: 30%;
+            width: 100%;
             display: block;
-            float: right;
-            margin: 0 0 20px 20px;
+            float: center;
+            margin-bottom: 20px;
             border: white solid 1px;
 }
 
