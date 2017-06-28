@@ -309,19 +309,18 @@ div.video {
 
 
 /* Contact Form */
-input[type=text], select, textarea {
+input[type=text], input[type=email], textarea {
     width: 100%; /* Full width */
-    padding: 12px; /* Some padding */  
-    border: 1px solid white; 
-    
+    padding: 12px; /* Some padding */
+    border: 1px solid white;
     box-sizing: border-box; /* Make sure that padding and width stays in place */
     margin-top: 6px; /* Add a top margin */
     margin-bottom: 16px; /* Bottom margin */
-    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+    resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
 }
 
 /* Style the submit button with a specific background color etc */
-input[type=submit] {
+button {
     background-color: black;
     color: white;
     padding: 12px 20px;
