@@ -3,10 +3,14 @@ body {
     background-color: white;
     color: #d1d1d1;
     font-family: Verdana, Geneva, sans-serif;
+
+
+
+}
+
+html {
     max-width: 100%;
     overflow-x: hidden;
-
-
 }
 
 
