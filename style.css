@@ -16,6 +16,7 @@ html {
 
 
 div.page {
+            position: static;
             min-height: 93%;
             width: 100%;
             padding-top: 60px;
