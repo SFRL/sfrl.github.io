@@ -1,6 +1,7 @@
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="origin">
 <title>Sebastian Lobbers</title>
 <link rel="stylesheet" type="text/css" href="style.css">
 <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -305,11 +306,13 @@ function navi() {
 
 
    <div class="form border left">
-       <form method="POST" action="http://formspree.io/sebastian.lobbers@gmail.com">
-           <input type="email" name="email" placeholder="Your email">
-           <textarea name="message" placeholder="Your message"></textarea>
-           <button type="submit">Send</button>
+       <form action="https://formspree.io/sebastian.lobbers@gmail.com" method="POST" target="_blank">
+           <input type="text" id="name" name="name" placeholder="Your Name...">
+           <input type="email" id="email" name="_replyto" placeholder="Your E-Mail...">
+           <textarea id="subject" name="subject" placeholder="Your Message..." style="height:200px"></textarea>
+           <input type="submit" value="Submit">
        </form>
+
    </div>
 
    <div class="form">

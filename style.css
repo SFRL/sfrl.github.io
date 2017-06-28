@@ -320,12 +320,11 @@ input[type=text], input[type=email], textarea {
 }
 
 /* Style the submit button with a specific background color etc */
-button {
+input[type=submit] {
     background-color: black;
     color: white;
     padding: 12px 20px;
     border: 1px solid white;
-    
     cursor: pointer;
 }
 
