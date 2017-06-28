@@ -226,9 +226,10 @@ function navi() {
 <!-- Biography !-->
 
 <div class="title">Bio</div>
-<div class="page" id="bio" >
+    <div class="page" id="bio" >
 
-  <div class="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+  <div class="form left"><img src="bio.jpg" alt="Bio" class="bio"></div>
+  <div class="form">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
       Pellentesque feugiat turpis quis mauris viverra, eget dignissim tellus vulputate. 
       Sed libero purus, posuere in vestibulum nec, euismod quis velit. 
       Cras justo tortor, tempus non volutpat iaculis, elementum sit amet dui. Mauris quis scelerisque dolor, sit amet porta nunc. 
@@ -294,13 +295,27 @@ function navi() {
 
        
   </div>
-<div class="bio"><img src="bio.jpg" alt="Bio" class="bio"></div>
+
 </div>
 
 <!-- Contact !-->
 
 <div class="title">Contact</div>
-<div class="page" id="contact" >
+    <div class="page" id="contact" >
+
+
+   <div class="form border left">
+            <form action="https://formspree.io/sebastian.lobbers@gmail.com" method="POST" enctype="text/plain">
+                <label for="name">Name</label>
+                <input type="text" id="email" name="name" placeholder="Your name...">
+                <label for="email">E-Mail</label>
+                <input type="text" id="email" name="email" placeholder="youremail@example.com">
+                <label for="text">Text</label>
+                <textarea id="text" name="text" placeholder="Write something.." style="height:200px"></textarea>
+                <input type="submit" value="Submit">
+            </form>
+   </div>
+
    <div class="form">
       Pellentesque feugiat turpis quis mauris viverra, eget dignissim tellus vulputate. 
       Sed libero purus, posuere in vestibulum nec, euismod quis velit. 
@@ -318,22 +333,7 @@ function navi() {
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
   </div>
      
-<div class="form border">
-  <form action="mailto:sebastian.lobbers@gmail.com" method="post" enctype="text/plain">
 
-    <label for="email">E-Mail</label>
-    <input type="text" id="email" name="email" placeholder="youremail@example.com">
-
-
-
-    <label for="text">Text</label>
-    <textarea id="text" name="text" placeholder="Write something.." style="height:200px"></textarea>
-
-    <input type="submit" value="Submit">
-
-  </form>
-
-</div>
 
 </div>
 
