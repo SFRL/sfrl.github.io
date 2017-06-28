@@ -16,7 +16,7 @@ html {
 
 
 div.page {
-            min-height: 93%;
+            min-height: 100%;
             width: 100%;
             padding-top: 60px;
             background-color: black;
