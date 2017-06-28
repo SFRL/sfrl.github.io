@@ -73,8 +73,9 @@ img.title   {
             width: 85%;
 }
 img.small {
-            height: 320px;
-            width: 320px;
+            
+            max-width: 320px;
+            width: 90%;
             
 }
 
