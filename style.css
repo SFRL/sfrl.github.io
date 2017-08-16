@@ -1,6 +1,6 @@
 body {
     margin:0;
-    background-color: white;
+    background-color: black;
     color: #d1d1d1;
     font-family: Verdana, Geneva, sans-serif;
 
@@ -13,99 +13,152 @@ html {
     overflow-x: hidden;
 }
 
+div.center {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    font-family: Courier, monospace;
+    font-variant: small-caps;
+    font-size: 30px;
+    color: white;
+}
+
+
+
 
 
 div.page {
-            min-height: 100%;
-            width: 100%;
-            padding-top: 60px;
-            background-color: black;
+    max-width: 1297px;
+    min-height: 98%;
+    margin: auto;
+    background-color: black;
+    }
 
-            border: white solid;
-            border-width: 4px 0;
-            content: "";
-            clear: both;
-            display: table;
+/*always center content, for all window sizes*/
+@media screen and (max-width: 1300px) {
+
+    div.page {
+        max-width: 973px;
+    }
 }
-            
+
+@media screen and (max-width: 974px) {
+
+    div.page {
+        max-width: 647px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+
+    div.page {
+        max-width: 320px;
+    }
+}
 
 
 div.title {
-            width: 100%;
-            height: 50px;
-            clear: left;
-            background-color: black;
-            font-family: Courier, monospace;
-            font-variant: small-caps;
-            font-size: 20px;
-            color: white;
-            text-indent: 20px; 
-            display: block;
-            vertical-align: middle;
-            line-height: 50px;
-            
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    clear: left;
+    background-color: black;
+    font-family: Courier, monospace;
+    font-variant: small-caps;
+    font-size: 20px;
+    color: white;
+    text-indent: 20px;
+    display: block;
+    vertical-align: middle;
+    line-height: 42px;
+    border: white solid;
+    border-width: 4px 0;
+    margin: 20px 0;
 }
 
 div.footer {
-            height: 50px;
-
-            font-family: Courier, monospace;
-            font-variant: small-caps;
-            font-size: 18px;
-            vertical-align: middle;
-            line-height: 50px;
-
-            display: block;
-            position:absolute;
-            right: 25px;
-            color: black;
-
+    height: 50px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: white;
+    font-family: Courier, monospace;
+    font-variant: small-caps;
+    font-size: 18px;
+    vertical-align: middle;
+    line-height: 50px;
+    display: block;
+    position: absolute;
+    text-align: right;
+    color: black;
+    padding: 0 20px;
 }
 
 div.form {
-            
-            display: inline-block;
-            position: relative;
-            width: 45%;
-            min-width: 320px;
-            box-sizing: border-box;
-            text-align: justify;
-            padding: 20px;
-            margin-bottom: 40px;
-            background-color: black;
-            line-height: 200%;
+    display: inline;
+    position: relative;
+    width: 45%;
+    min-width: 320px;
+    box-sizing: border-box;
+    text-align: justify;
+    padding: 20px;
+    margin-bottom: 40px;
+    background-color: black;
+    line-height: 200%;
+    flex-shrink: 0;
+
+
 }
 
-div.right {
-            float: right;
+div.flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
 }
 
-div.left {
-            float: left;
+table, th, td {
+    
+    border-spacing: 5px;
+    min-width: 100px;
+    padding: 10px 5px;
+    vertical-align: top;
+}
+
+tr {
+
+    margin-bottom: 10px;
 }
 
 
 
-img.title   {
-            display: block;
-            min-width: 320px;
-            margin: 0 auto;
-            width: 85%;
+
+
+
+img.title {
+    display: block;
+    width: 50%;
+    margin: auto;
+
 }
+
+
 img.small {
             
-            max-width: 320px;
-            width: 90%;
+    max-width: 320px;
+    width: 90%;
             
 }
 
 img.bio  {
-            width: 100%;
-            display: block;
-            float: center;
-            margin-bottom: 20px;
-            border: white solid 1px;
+    width: 100%;
+    display: block;
+    margin: auto;
+    border: white solid 1px;
 }
+
+
 
 
 
@@ -148,6 +201,7 @@ a.right {
 .topnav a:hover:not(.active) {
     background-color: white;
     color: black;
+
 }
 
 .active {
@@ -172,8 +226,8 @@ a.right {
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
 @media screen and (max-width: 750px) {
   .topnav.responsive {
-                        position: fixed;
-                        height: 430px;
+     position: fixed;
+     height: 430px;
   }
   .topnav.responsive a.icon {
     position: absolute;
@@ -190,13 +244,13 @@ a.right {
 
 /* Image Overlay */
 .container {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  margin-bottom: 20px;
-  margin-left: 20px;
-display: inline-block;
-  
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+    display: inline-block;
+    
+
 }
 
 .image {
@@ -206,16 +260,17 @@ display: inline-block;
 }
 
 .overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: .5s ease;
-  background-color: black;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: black;
+
 }
 
 .container:hover .overlay {

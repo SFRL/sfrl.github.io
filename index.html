@@ -13,7 +13,7 @@
   <a href="#home" class="left">Home</a>
   <a href="#art" class="left" onclick="navi()">Projects</a>
   <a href="#comp" class="left" onclick="navi()">Composition</a>
-  <a href="#bio" class="left" onclick="navi()">Bio</a></li>
+  <a href="#bio" class="left" onclick="navi()">Bio</a>
   <a href="#contact" class="left" onclick="navi()">Contact</a>
   <a href="https://www.instagram.com/sebastianlobbers/" class="fa fa-instagram right" target="_blank" onclick="navi()"></a>
   <a href="https://soundcloud.com/sebastian-l-bbers" class="fa fa-soundcloud right" target="_blank" onclick="navi()"></a>
@@ -32,280 +32,323 @@ function navi() {
 }
 </script>
 
-<!-- Title Page !-->
-<div class="page" id="home"><img class="title" src="title.png" alt="SFRL"></div>
+    <!-- Title Page !-->
+
+    <div class="page center" id="home"><<img class="title" src="title.png" alt="SFRL">
+    Sebastian L&ouml;bbers - Audio-Visual Art
+    </div>
 
 <!-- Art Projects !-->
  
-<div class="title">Projects</div>
+<div class="title" id="art">Projects</div>
 
-    <div class="page" id="art">
-            <!-- Dorothy !-->
-            <div class="container" onclick="">
-                <img src="tile1.jpg" alt="Tile" class="image">
-                <div class="overlay">
-                    <div class="text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Pellentesque feugiat turpis quis mauris viverra, eget dignissim tellus vulputate.
-                        Sed libero purus, posuere in vestibulum nec, euismod quis velit.
-                        Cras justo tortor, tempus non volutpat iaculis, elementum sit amet dui. Mauris quis scelerisque dolor, sit amet porta nunc.
-                        Etiam cursus, turpis a aliquam feugiat, ligula sem interdum dui, at vulputate ipsum turpis sit amet ante.
-                        Integer eget mauris non ante faucibus tempor.
-                        Aliquam ut efficitur erat. Duis non fringilla justo.
-                    </div>
-                    <!-- Trigger/Open The Modal Dorothy!-->
-                    <div class="link">
-                        <a href="#art" id="dorothy" class="fa fa-vimeo" onclick="dorothymodal.style.display='block'"></a>
-                    </div>
-                </div>
-            </div>
-            <!-- SquareDance !-->
-            <div class="container" onclick="">
-                <img src="tile5.jpg" alt="Tile" class="image">
-                <div class="overlay">
-                    <div class="text">
-                        <i>Square_Dance</i> is an interactive dance piece. The dance movements are captured by a <i>Microsoft Kinect</i> and control a digital cube.
-                        Its surface is mapped out as a musical interface. The piece contrasts the traditional hierachy of dance following music and puts the dancer in charge of the
-                        composition.
-
-
-                    </div>
-                    <!-- Trigger/Open The Modal SquareDance-->
-                    <div class="link">
-                        <a href="#art" id="square" class="fa fa-vimeo" onclick="squaremodal.style.display='block'"></a>
-                        <a href="https://www.instagram.com/p/BTHsf81FXVg/?taken-by=sebastianlobbers" target="_blank" id="squareinsta" class="fa fa-instagram"></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Darkblue !-->
-            <div class="container" onclick="">
-                <img src="tile3.jpg" alt="Tile" class="image">
-                <div class="overlay">
-                    <div class="text">
-                        <i>D A R K B L U E</i> is an interactive music performance. The structure and individual tracks of a pre-recorded composition are modified with hand movements
-                        that are captured with a <i>Microsoft Kinect</i>. The performer is not bound to a physical interface with sliders and knobs but has a more intimate control over the sound.
-                    </div>
-                    <!-- Trigger/Open The Modal Darkblue!-->
-                    <div class="link">
-                        <a href="#art" id="darkblue" class="fa fa-vimeo" onclick="darkbluemodal.style.display='block'"></a>
-                        <a href="https://www.instagram.com/p/BS7oLF3F_EB/?taken-by=sebastianlobbers" target="_blank" id="darkblueinsta" class="fa fa-instagram"></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Piano Modulation !-->
-            <div class="container" onclick="">
-                <img src="tile2.jpg" alt="Tile" class="image">
-                <div class="overlay">
-                    <div class="text">
-                        <i>Piano Modulation</i> juxtaposes analogue and digital sounds. 
-                        The source material – a recorded piano theme – is digitally modulated within a custom Max/MSP patch. 
-                        It explores a possible mode by which a simple sound recording deconstructs and re-arranges itself into a convoluted electronic soundscape.
-                    </div>
-                    <!-- Trigger/Open The Modal Piano!-->
-                    <div class="link">
-                        <a href="#art" id="piano" class="fa fa-soundcloud" onclick="pianomodal.style.display='block'"></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Raute8x8 !-->
-            <div class="container" onclick="">
-                <img src="tile4.jpg" alt="Tile" class="image">
-                <div class="overlay">
-                    <div class="text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Pellentesque feugiat turpis quis mauris viverra, eget dignissim tellus vulputate.
-                        Sed libero purus, posuere in vestibulum nec, euismod quis velit.
-                        Cras justo tortor, tempus non volutpat iaculis, elementum sit amet dui. Mauris quis scelerisque dolor, sit amet porta nunc.
-                        Etiam cursus, turpis a aliquam feugiat, ligula sem interdum dui, at vulputate ipsum turpis sit amet ante.
-                        Integer eget mauris non ante faucibus tempor.
-                        Aliquam ut efficitur erat. Duis non fringilla justo.
-                    </div>
-                    <!-- Trigger/Open The Modal Raute8x8!-->
-                    <div class="link">
-                        <a href="#art" id="raute" class="fa fa-youtube" onclick="rautemodal.style.display='block'"></a>
-                    </div>
-                </div>
-            </div>
-        
-    </div>
-
-
-
-<!-- Composition !-->
-
-<div class="title">Composition</div>
-
-<div class="page" id="comp" >
-
-<!-- Production Music !-->
-<div class="container" onclick="">
-  <img src="production.jpg" alt="Tile" class="image">
-  <div class="overlay">
-    <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-      Pellentesque feugiat turpis quis mauris viverra, eget dignissim tellus vulputate. 
-      Sed libero purus, posuere in vestibulum nec, euismod quis velit. 
-      Cras justo tortor, tempus non volutpat iaculis, elementum sit amet dui. Mauris quis scelerisque dolor, sit amet porta nunc. 
-      Etiam cursus, turpis a aliquam feugiat, ligula sem interdum dui, at vulputate ipsum turpis sit amet ante. 
-      Integer eget mauris non ante faucibus tempor. 
-      Aliquam ut efficitur erat. Duis non fringilla justo.
-    </div>
-        <div class="link">
-          <a href="https://soundcloud.com/sebastian-l-bbers/sets/production-music-show-reel" target="_blank" id="production" class="fa fa-soundcloud" ></a>
-        </div> 
-    
-  </div>
-</div>
-
-
-<!-- Nepenthis !-->
-<div class="container" onclick="">
-  <img src="tile.jpg" alt="Tile" class="image">
-  <div class="overlay">
-    <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-      Pellentesque feugiat turpis quis mauris viverra, eget dignissim tellus vulputate. 
-      Sed libero purus, posuere in vestibulum nec, euismod quis velit. 
-      Cras justo tortor, tempus non volutpat iaculis, elementum sit amet dui. Mauris quis scelerisque dolor, sit amet porta nunc. 
-      Etiam cursus, turpis a aliquam feugiat, ligula sem interdum dui, at vulputate ipsum turpis sit amet ante. 
-      Integer eget mauris non ante faucibus tempor. 
-      Aliquam ut efficitur erat. Duis non fringilla justo.
-    </div>
-        <div class="link">
-          <a href="https://nepenthis.bandcamp.com" target="_blank" id="nepenthis" class="fa fa-bandcamp" ></a>
-        </div> 
-    
-  </div>
-</div>
-
-
-<!-- Enderal !-->
-<div class="container" onclick="">
-  <img src="enderal.jpg" alt="Tile" class="image">
-  <div class="overlay">
-    <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-      Pellentesque feugiat turpis quis mauris viverra, eget dignissim tellus vulputate. 
-      Sed libero purus, posuere in vestibulum nec, euismod quis velit. 
-      Cras justo tortor, tempus non volutpat iaculis, elementum sit amet dui. Mauris quis scelerisque dolor, sit amet porta nunc. 
-      Etiam cursus, turpis a aliquam feugiat, ligula sem interdum dui, at vulputate ipsum turpis sit amet ante. 
-      Integer eget mauris non ante faucibus tempor. 
-      Aliquam ut efficitur erat. Duis non fringilla justo.
-    </div>
-                <!-- Trigger/Open The Modal Enderal-->
-      <div class="link">
-        <a href="#comp" id="enderal" class="fa fa-youtube" onclick="enderalmodal.style.display='block'"></a>
-      </div>
-    
-  </div>
-</div>
-
-<!-- Videokills !-->
-<div class="container" onclick="">
-  <img src="videokills.jpg" alt="Tile" class="image">
-  <div class="overlay">
-    <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-      Pellentesque feugiat turpis quis mauris viverra, eget dignissim tellus vulputate. 
-      Sed libero purus, posuere in vestibulum nec, euismod quis velit. 
-      Cras justo tortor, tempus non volutpat iaculis, elementum sit amet dui. Mauris quis scelerisque dolor, sit amet porta nunc. 
-      Etiam cursus, turpis a aliquam feugiat, ligula sem interdum dui, at vulputate ipsum turpis sit amet ante. 
-      Integer eget mauris non ante faucibus tempor. 
-      Aliquam ut efficitur erat. Duis non fringilla justo.
-    </div>
-                <!-- Trigger/Open The Modal Enderal-->
-      <div class="link">
-        <a href="#comp" id="videokills" class="fa fa-youtube" onclick="videokillsmodal.style.display='block'"></a>
-      </div>
-    
-  </div>
-</div>
-
-</div>
-
-<!-- Biography !-->
-
-<div class="title">Bio</div>
-
-        <div class="page" id="bio">
+        <div class="page" >
             
-            <div class="form left">
+                <!-- Dorothy !-->
+                <div class="container" onclick="">
+                    <img src="tile1.jpg" alt="Tile" class="image">
+                    <div class="overlay">
+                        <div class="text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Pellentesque feugiat turpis quis mauris viverra, eget dignissim tellus vulputate.
+                            Sed libero purus, posuere in vestibulum nec, euismod quis velit.
+                            Cras justo tortor, tempus non volutpat iaculis, elementum sit amet dui. Mauris quis scelerisque dolor, sit amet porta nunc.
+                            Etiam cursus, turpis a aliquam feugiat, ligula sem interdum dui, at vulputate ipsum turpis sit amet ante.
+                            Integer eget mauris non ante faucibus tempor.
+                            Aliquam ut efficitur erat. Duis non fringilla justo.
+                        </div>
+                        <!-- Trigger/Open The Modal Dorothy!-->
+                        <div class="link">
+                            <a href="#art" id="dorothy" class="fa fa-vimeo" onclick="dorothymodal.style.display='block'"></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- SquareDance !-->
+                <div class="container" onclick="">
+                    <img src="tile5.jpg" alt="Tile" class="image">
+                    <div class="overlay">
+                        <div class="text">
+                            <i>Square_Dance</i> is an interactive dance piece. The dance movements are captured by a <i>Microsoft Kinect</i> and control a digital cube.
+                            Its surface is mapped out as a musical interface. The piece contrasts the traditional hierachy of dance following music and puts the dancer in charge of the
+                            composition.
+
+
+                        </div>
+                        <!-- Trigger/Open The Modal SquareDance-->
+                        <div class="link">
+                            <a href="#art" id="square" class="fa fa-vimeo" onclick="squaremodal.style.display='block'"></a>
+                            <a href="https://www.instagram.com/p/BTHsf81FXVg/?taken-by=sebastianlobbers" target="_blank" id="squareinsta" class="fa fa-instagram"></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Darkblue !-->
+                <div class="container" onclick="">
+                    <img src="tile3.jpg" alt="Tile" class="image">
+                    <div class="overlay">
+                        <div class="text">
+                            <i>D A R K B L U E</i> is an interactive music performance. The structure and individual tracks of a pre-recorded composition are modified with hand movements
+                            that are captured with a <i>Microsoft Kinect</i>. The performer is not bound to a physical interface with sliders and knobs but has a more intimate control over the sound.
+                        </div>
+                        <!-- Trigger/Open The Modal Darkblue!-->
+                        <div class="link">
+                            <a href="#art" id="darkblue" class="fa fa-vimeo" onclick="darkbluemodal.style.display='block'"></a>
+                            <a href="https://www.instagram.com/p/BS7oLF3F_EB/?taken-by=sebastianlobbers" target="_blank" id="darkblueinsta" class="fa fa-instagram"></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Piano Modulation !-->
+                <div class="container" onclick="">
+                    <img src="tile2.jpg" alt="Tile" class="image">
+                    <div class="overlay">
+                        <div class="text">
+                            <i>Piano Modulation</i> juxtaposes analogue and digital sounds.
+                            The source material – a recorded piano theme – is digitally modulated within a custom Max/MSP patch.
+                            It explores a possible mode by which a simple sound recording deconstructs and re-arranges itself into a convoluted electronic soundscape.
+                        </div>
+                        <!-- Trigger/Open The Modal Piano!-->
+                        <div class="link">
+                            <a href="#art" id="piano" class="fa fa-soundcloud" onclick="pianomodal.style.display='block'"></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Raute8x8 !-->
+                <div class="container" onclick="">
+                    <img src="tile4.jpg" alt="Tile" class="image">
+                    <div class="overlay">
+                        <div class="text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Pellentesque feugiat turpis quis mauris viverra, eget dignissim tellus vulputate.
+                            Sed libero purus, posuere in vestibulum nec, euismod quis velit.
+                            Cras justo tortor, tempus non volutpat iaculis, elementum sit amet dui. Mauris quis scelerisque dolor, sit amet porta nunc.
+                            Etiam cursus, turpis a aliquam feugiat, ligula sem interdum dui, at vulputate ipsum turpis sit amet ante.
+                            Integer eget mauris non ante faucibus tempor.
+                            Aliquam ut efficitur erat. Duis non fringilla justo.
+                        </div>
+                        <!-- Trigger/Open The Modal Raute8x8!-->
+                        <div class="link">
+                            <a href="#art" id="raute" class="fa fa-youtube" onclick="rautemodal.style.display='block'"></a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+        <!-- Composition !-->
+        <div class="title" id="comp">Composition</div>
+        <div class="page">
+           
+                <!-- Production Music !-->
+                <div class="container" onclick="">
+                    <img src="production.jpg" alt="Tile" class="image">
+                    <div class="overlay">
+                        <div class="text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Pellentesque feugiat turpis quis mauris viverra, eget dignissim tellus vulputate.
+                            Sed libero purus, posuere in vestibulum nec, euismod quis velit.
+                            Cras justo tortor, tempus non volutpat iaculis, elementum sit amet dui. Mauris quis scelerisque dolor, sit amet porta nunc.
+                            Etiam cursus, turpis a aliquam feugiat, ligula sem interdum dui, at vulputate ipsum turpis sit amet ante.
+                            Integer eget mauris non ante faucibus tempor.
+                            Aliquam ut efficitur erat. Duis non fringilla justo.
+                        </div>
+                        <div class="link">
+                            <a href="https://soundcloud.com/sebastian-l-bbers/sets/production-music-show-reel" target="_blank" id="production" class="fa fa-soundcloud"></a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Nepenthis !-->
+                <div class="container" onclick="">
+                    <img src="tile.jpg" alt="Tile" class="image">
+                    <div class="overlay">
+                        <div class="text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Pellentesque feugiat turpis quis mauris viverra, eget dignissim tellus vulputate.
+                            Sed libero purus, posuere in vestibulum nec, euismod quis velit.
+                            Cras justo tortor, tempus non volutpat iaculis, elementum sit amet dui. Mauris quis scelerisque dolor, sit amet porta nunc.
+                            Etiam cursus, turpis a aliquam feugiat, ligula sem interdum dui, at vulputate ipsum turpis sit amet ante.
+                            Integer eget mauris non ante faucibus tempor.
+                            Aliquam ut efficitur erat. Duis non fringilla justo.
+                        </div>
+                        <div class="link">
+                            <a href="https://nepenthis.bandcamp.com" target="_blank" id="nepenthis" class="fa fa-bandcamp"></a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Enderal !-->
+                <div class="container" onclick="">
+                    <img src="enderal.jpg" alt="Tile" class="image">
+                    <div class="overlay">
+                        <div class="text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Pellentesque feugiat turpis quis mauris viverra, eget dignissim tellus vulputate.
+                            Sed libero purus, posuere in vestibulum nec, euismod quis velit.
+                            Cras justo tortor, tempus non volutpat iaculis, elementum sit amet dui. Mauris quis scelerisque dolor, sit amet porta nunc.
+                            Etiam cursus, turpis a aliquam feugiat, ligula sem interdum dui, at vulputate ipsum turpis sit amet ante.
+                            Integer eget mauris non ante faucibus tempor.
+                            Aliquam ut efficitur erat. Duis non fringilla justo.
+                        </div>
+                        <!-- Trigger/Open The Modal Enderal-->
+                        <div class="link">
+                            <a href="#comp" id="enderal" class="fa fa-youtube" onclick="enderalmodal.style.display='block'"></a>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Videokills !-->
+                <div class="container" onclick="">
+                    <img src="videokills.jpg" alt="Tile" class="image">
+                    <div class="overlay">
+                        <div class="text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Pellentesque feugiat turpis quis mauris viverra, eget dignissim tellus vulputate.
+                            Sed libero purus, posuere in vestibulum nec, euismod quis velit.
+                            Cras justo tortor, tempus non volutpat iaculis, elementum sit amet dui. Mauris quis scelerisque dolor, sit amet porta nunc.
+                            Etiam cursus, turpis a aliquam feugiat, ligula sem interdum dui, at vulputate ipsum turpis sit amet ante.
+                            Integer eget mauris non ante faucibus tempor.
+                            Aliquam ut efficitur erat. Duis non fringilla justo.
+                        </div>
+                        <!-- Trigger/Open The Modal Enderal-->
+                        <div class="link">
+                            <a href="#comp" id="videokills" class="fa fa-youtube" onclick="videokillsmodal.style.display='block'"></a>
+                        </div>
+
+                        </div>
+                    </div>
+
+            </div>
+      
+        <!-- Biography !-->
+        <div class="title" id="bio">Bio</div>
+            
+    <div class="page flex">
+        
+            <div class="form">
                 <img src="bio.jpg" alt="Bio" class="bio">
                 Sebastian L&ouml;bbers is a German sound artist with a background in classical and jazz piano performance.
-                He attended the Dr. Hoch’s Conservatory in Frankfurt and later studied Music Technology and Electrical Engineering at the Technical University in Munich. 
-                He holds a BA in Music Technology from the University of West London and a MMus in Sonic Arts at Goldsmiths, University of London. 
-                He was the pianist and guitarist for Bavarian black metal band Waldwind, which toured through Europe and South America. 
+                He attended the Dr. Hoch’s Conservatory in Frankfurt and later studied Music Technology and Electrical Engineering at the Technical University in Munich.
+                He holds a BA in Music Technology from the University of West London and a MMus in Sonic Arts at Goldsmiths, University of London.
+                He was the pianist and guitarist for Bavarian black metal band Waldwind, which toured through Europe and South America.
                 His current work explores music computing and audio- visual relationships with a focus on generative and algorithmic digital art.
             </div>
             <div class="form">
-                Cras justo tortor, tempus non volutpat iaculis, elementum sit amet dui. Mauris quis scelerisque dolor, sit amet porta nunc.
-                Etiam cursus, turpis a aliquam feugiat, ligula sem interdum dui, at vulputate ipsum turpis sit amet ante.
-                Integer eget mauris non ante faucibus tempor.
-                Aliquam ut efficitur erat. Duis non fringilla justo.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Pellentesque feugiat turpis quis mauris viverra, eget dignissim tellus vulputate.
-                Sed libero purus, posuere in vestibulum nec, euismod quis velit.
-                Cras justo tortor, tempus non volutpat iaculis, elementum sit amet dui. Mauris quis scelerisque dolor, sit amet porta nunc.
-                Etiam cursus, turpis a aliquam feugiat, ligula sem interdum dui, at vulputate ipsum turpis sit amet ante.
-                Integer eget mauris non ante faucibus tempor.
-                Aliquam ut efficitur erat. Duis non fringilla justo.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Pellentesque feugiat turpis quis mauris viverra, eget dignissim tellus vulputate.
-                Sed libero purus, posuere in vestibulum nec, euismod quis velit.
-                Cras justo tortor, tempus non volutpat iaculis, elementum sit amet dui. Mauris quis scelerisque dolor, sit amet porta nunc.
-                Etiam cursus, turpis a aliquam feugiat, ligula sem interdum dui, at vulputate ipsum turpis sit amet ante.
-                Integer eget mauris non ante faucibus tempor.
-                Aliquam ut efficitur erat. Duis non fringilla justo.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Pellentesque feugiat turpis quis mauris viverra, eget dignissim tellus vulputate.
-                Sed libero purus, posuere in vestibulum nec, euismod quis velit.
-                Cras justo tortor, tempus non volutpat iaculis, elementum sit amet dui. Mauris quis scelerisque dolor, sit amet porta nunc.
-                Etiam cursus, turpis a aliquam feugiat, ligula sem interdum dui, at vulputate ipsum turpis sit amet ante.
-                Integer eget mauris non ante faucibus tempor.
-                Aliquam ut efficitur erat. Duis non fringilla justo.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Pellentesque feugiat turpis quis mauris viverra, eget dignissim tellus vulputate.
-                Sed libero purus, posuere in vestibulum nec, euismod quis velit.
-                Cras justo tortor, tempus non volutpat iaculis, elementum sit amet dui. Mauris quis scelerisque dolor, sit amet porta nunc.
-                Etiam cursus, turpis a aliquam feugiat, ligula sem interdum dui, at vulputate ipsum turpis sit amet ante.
-                Integer eget mauris non ante faucibus tempor.
-                Aliquam ut efficitur erat. Duis non fringilla justo.
+                <b>Performances</b><br><br>
+                <table style="width:100%">
+                    <tr>
+                        <td>23/07/11 - </td>
+                        <td>BBOA Festival - Bavaria, Germany - Live concert with Waldwind</td>
+
+                    </tr>
+                    <tr>
+                        <td>26/07/11 -</td>
+                        <td>Free&amp;Easy Festival - Munich, Germany - Live concert with Waldwind</td>
+                    </tr>
+
+                    <tr>
+                        <td>01/06/12 - </td>
+                        <td>Metalfest Open Air - Mining, Austria - Live concert with Waldwind</td>
+                    </tr>
+
+                    <tr>
+                        <td>26/12-28/12/12 - </td>
+                        <td>Rauhnacht Tour - Munich, Germany | Travagliato, Italy | Lucerne, Switzerland - European tour with Waldwind</td>
+                    </tr>
+
+                    <tr>
+                        <td>07/02/13 - </td>
+                        <td>Asyl der kleinen K&uuml;nste - Munich, Germany - Solo piano performance</td>
+                    </tr>
+
+                    <tr>
+                        <td>09/05/14 - </td>
+                        <td>BBOA Festival - Bavaria, Germany - Live concert with Waldwind</td>
+                    </tr>
+
+                    <tr>
+                        <td>29/06/14 - </td>
+                        <td>Videokills presented by Filmfest M&uuml;nchen - Munich, Germany - Live performance for silent film with members of Waldwind and Nebelkr&auml;he</td>
+                    </tr>
+
+                    <tr>
+                        <td>01/12/16 - </td>
+                        <td>Goldsmiths Sonic Art concert - London, UK - Audio-visual performance</td>
+                    </tr>
+                    <tr>
+                        <td>07/03/17 - </td>
+                        <td>Goldsmiths EMS concert - London, UK - <i>Piano Modulation</i> performance</td>
+                    </tr>
+
+                    <tr>
+                        <td>21/04-22/04/17 - </td>
+                        <td>The Rough Sketches Project - London, UK - composition for live dance performance by Sarah Poekert</td>
+                    </tr>
+
+                    <tr>
+                        <td>29/04/17 - </td>
+                        <td>Overground Resistance - London, UK - <i>DARKBLUE</i> performance</td>
+                    </tr>
+
+                    <tr>
+                        <td>10/05/17 - </td>
+                        <td>Interactive and Generative Music concert - London, UK - <i>Square_Dance</i> performance with Megan Miller</td>
+                    </tr>
+
+                    <tr>
+                        <td>27/05/17 - </td>
+                        <td>Dorothy Vallens Blues - London, UK - Live visual experiment</td>
+                    </tr>
+                    <tr>
+                        <td>02/07/17 - </td>
+                        <td>Electronik Netwerk - London, UK - Electronic live performance with Ecem Ozkan</td>
+                    </tr>
+
+
+                </table>
             </div>
-        
-    </div>
-        <!-- Contact !-->
-        <div class="title">Contact</div>
-        <div class="page" id="contact">
-            <div class="form left">
-                Pellentesque feugiat turpis quis mauris viverra, eget dignissim tellus vulputate.
-                Sed libero purus, posuere in vestibulum nec, euismod quis velit.
-                Cras justo tortor, tempus non volutpat iaculis, elementum sit amet dui. Mauris quis scelerisque dolor, sit amet porta nunc.
-                Etiam cursus, turpis a aliquam feugiat, ligula sem interdum dui, at vulputate ipsum turpis sit amet ante.
-                Integer eget mauris non ante faucibus tempor.
-                Aliquam ut efficitur erat. Duis non fringilla justo.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Pellentesque feugiat turpis quis mauris viverra, eget dignissim tellus vulputate.
-                Sed libero purus, posuere in vestibulum nec, euismod quis velit.
-                Cras justo tortor, tempus non volutpat iaculis, elementum sit amet dui. Mauris quis scelerisque dolor, sit amet porta nunc.
-                Etiam cursus, turpis a aliquam feugiat, ligula sem interdum dui, at vulputate ipsum turpis sit amet ante.
-                Integer eget mauris non ante faucibus tempor.
-                Aliquam ut efficitur erat. Duis non fringilla justo.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </div>
-            <div class="form border">
-                <form action="https://formspree.io/sebastian.lobbers@gmail.com" method="POST" target="_blank">
-                    <input type="text" id="name" name="name" placeholder="Your Name...">
-                    <input type="email" id="email" name="_replyto" placeholder="Your E-Mail...">
-                    <textarea id="subject" name="subject" placeholder="Your Message..." style="height:200px"></textarea>
-                    <input type="submit" value="Submit">
-                </form>
-
-            </div>
-
-
-
         </div>
+        
+   
+        <!-- Contact !-->
+    <div class="title" id="contact">Contact</div>
+   
+    <div class="page flex">
+        
+            <div class="form">
+                Pellentesque feugiat turpis quis mauris viverra, eget dignissim tellus vulputate.
+                Sed libero purus, posuere in vestibulum nec, euismod quis velit.
+                Cras justo tortor, tempus non volutpat iaculis, elementum sit amet dui. Mauris quis scelerisque dolor, sit amet porta nunc.
+                Etiam cursus, turpis a aliquam feugiat, ligula sem interdum dui, at vulputate ipsum turpis sit amet ante.
+                Integer eget mauris non ante faucibus tempor.
+                Aliquam ut efficitur erat. Duis non fringilla justo.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Pellentesque feugiat turpis quis mauris viverra, eget dignissim tellus vulputate.
+                Sed libero purus, posuere in vestibulum nec, euismod quis velit.
+                Cras justo tortor, tempus non volutpat iaculis, elementum sit amet dui. Mauris quis scelerisque dolor, sit amet porta nunc.
+                Etiam cursus, turpis a aliquam feugiat, ligula sem interdum dui, at vulputate ipsum turpis sit amet ante.
+                Integer eget mauris non ante faucibus tempor.
+                Aliquam ut efficitur erat. Duis non fringilla justo.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </div>
+                <div class="form border">
+                     <form action="https://formspree.io/sebastian.lobbers@gmail.com" method="POST" target="_blank">
+                        <input type="text" id="name" name="name" placeholder="Your Name...">
+                        <input type="email" id="email" name="_replyto" placeholder="Your E-Mail...">
+                        <textarea id="subject" name="subject" placeholder="Your Message..." style="height:200px"></textarea>
+                        <input type="submit" value="Submit">
+                      </form>
+
+                </div>
+     </div>
+
+    
 
 
         <div class="footer">
             &copy; Sebastian L&ouml;bbers 2017
         </div>
+
+
         <!-- The Modal SquareDance-->
         <div id="squaremodal" class="modal">
             <!-- Modal content Dorothy-->
@@ -376,7 +419,9 @@ function navi() {
                     <iframe id="videokillsyoutube" width="80%" height="80%" src="https://www.youtube.com/embed/UwSiz4bL7cI" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
-        </div>
+            </div>
+
+
         <script>
   function stop(videoname){
     var iframe = document.getElementById(videoname);
