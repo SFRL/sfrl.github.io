@@ -159,8 +159,16 @@ img.bio  {
 }
 
 
+a.logo {
+            padding: 5px;
+}
 
 
+img.logo {
+            height: 38px;
+
+
+}
 
 /* Navigation Bar */
 .topnav {
