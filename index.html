@@ -42,7 +42,7 @@ function navi() {
 
                 <p>Sebastian L&ouml;bbers - Musician and Digital Artist</p> 
 
-    </div>
+        </div>
     </div>
 
 <!-- Art Projects !-->
@@ -136,7 +136,7 @@ function navi() {
                     <img src="tile4.jpg" alt="Tile" class="image">
                     <div class="overlay">
                         <div class="text">
-                            <i>RAUTE8x8</i> is an audio-visual art installation that explores the movement of sound within a modelled space inspired by physical systems. 
+                            <i>RAUTE8X8</i> is an audio-visual art installation that explores the movement of sound within a modelled space inspired by physical systems. 
                             It is generated live within Max/MSP/Jitter. 
                             The composition takes Gy&ouml;rgy Ligeti’s concept of micropolyphony into a digital space where the combination of sine waves, 
                             noise and live processing create sound in the aesthetics of Noise and Glitch music.
@@ -166,7 +166,18 @@ function navi() {
         <!-- Composition !-->
         <div class="title" id="comp">Composition</div>
         <div class="page">
-           
+            <!-- You should know better !-->
+            <div class="container" onclick="">
+                <img src="know.jpg" alt="Tile" class="image">
+                <div class="overlay">
+                    <div class="text">
+                        <i>You should know better</i> is a commissioned composition for a short film of the same name by Rory Cargrill. It was first screened in July, 2017 at the Curzon Cinema in New Cross, London.  
+                    </div>
+                    <div class="link">
+                        <a href="#comp" id="piano" class="fa fa-soundcloud" onclick="youmodal.style.display='block'"></a>
+                    </div>
+                </div>
+            </div>
                 <!-- Production Music !-->
                 <div class="container" onclick="">
                     <img src="production.jpg" alt="Tile" class="image">
@@ -180,6 +191,20 @@ function navi() {
 
                     </div>
                 </div>
+
+            <!-- It just sort of happens one day !-->
+            <div class="container" onclick="">
+                <img src="sarah.jpg" alt="Tile" class="image">
+                <div class="overlay">
+                    <div class="text">
+                        This piece was composed for the dance performance <i>It just sort of happens one day</i> by Sarah Poekert. The composition entangles ambient field records of the City of London 
+                        with a simple piano theme thus creating an myterious, ambient soundscape. 
+                    </div>
+                    <div class="link">
+                        <a href="https://www.instagram.com/p/BTM3qXKFfv_/?taken-by=sebastianlobbers" target="_blank" id="sarah" class="fa fa-instagram"></a>
+                    </div>
+                </div>
+            </div>
 
                 <!-- Nepenthis !-->
                 <div class="container" onclick="">
@@ -453,7 +478,17 @@ function navi() {
                     <iframe id="videokillsyoutube" width="80%" height="80%" src="https://www.youtube.com/embed/UwSiz4bL7cI" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
+        </div>
+    <!-- The Modal You should know better -->
+    <div id="youmodal" class="modal">
+        <!-- Modal content You should know better-->
+        <div class="modal-content">
+            <span class="close" onclick="stop('yousoundcloud');youmodal.style.display='none'">&times;</span>
+            <div class="video">
+                <iframe id="yousoundcloud" width="80%" height="80%" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/339486414&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true" frameborder="0" allowfullscreen></iframe>
             </div>
+        </div>
+    </div>
 
 
         <script>
