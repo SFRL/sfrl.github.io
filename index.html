@@ -34,8 +34,15 @@ function navi() {
 
     <!-- Title Page !-->
 
-    <div class="page center" id="home"><img class="title" src="title.png" alt="SFRL">
-    Sebastian L&ouml;bbers - Audio-Visual Art
+    <div class="page center" id="home">
+        <div style="display: block"> 
+            
+                
+            <img class="title" src="title.png" alt="SFRL">
+
+                <p>Sebastian L&ouml;bbers - Musician and Digital Artist</p> 
+
+    </div>
     </div>
 
 <!-- Art Projects !-->
@@ -43,7 +50,23 @@ function navi() {
 <div class="title" id="art">Projects</div>
 
         <div class="page" >
-            
+            <!-- AQ=209 !-->
+            <div class="container" onclick="">
+                <img src="aq.jpg" alt="Tile" class="image">
+                <div class="overlay">
+                    <div class="text">
+                        <i>AQ=209</i> is an interactive audio-visual environment created in Max/MSP/Jitter based on an essay by Megan Miller. 
+                        Taking Reza Negarestani's definition of puppetry in 'Cyclonopedia: complicity with anonymous materials', the project seeks to excavate references to string theory and pataphysics, 
+                        illustrating the entanglment of fiction, theory, and science practice in Earthly narrations.
+                    </div>
+                    <!-- Trigger/Open The Modal Dorothy!-->
+                    <div class="link">
+                        <a href="#art" id="dorothy" class="fa fa-vimeo" onclick="aqmodal.style.display='block'"></a>
+                    </div>
+                </div>
+            </div>
+
+
                 <!-- Dorothy !-->
                 <div class="container" onclick="">
                     <img src="tile1.jpg" alt="Tile" class="image">
@@ -98,11 +121,12 @@ function navi() {
                     <div class="overlay">
                         <div class="text">
                             <i>Piano Modulation</i> juxtaposes analogue and digital sounds.
-                            The source material – a recorded piano theme – is digitally modulated within a custom Max/MSP patch.
+                            The source material – a recorded piano theme – is digitally modulated within a custom Max/MSP/Jitter patch.
                             It explores a possible mode by which a simple sound recording deconstructs and re-arranges itself into a convoluted electronic soundscape.
                         </div>
                         <!-- Trigger/Open The Modal Piano!-->
                         <div class="link">
+                            <a href="#art" id="pianovimeo" class="fa fa-vimeo" onclick="pianovimeomodal.style.display='block'"></a>
                             <a href="#art" id="piano" class="fa fa-soundcloud" onclick="pianomodal.style.display='block'"></a>
                         </div>
                     </div>
@@ -123,6 +147,20 @@ function navi() {
                         </div>
                     </div>
                 </div>
+            <!-- Technosonggenerator !-->
+            <div class="container" onclick="">
+                <img src="techno.jpg" alt="Tile" class="image">
+                <div class="overlay">
+                    <div class="text">
+                        <i>Technosonggenerator</i> is a generative music system realised in Max/MSP. Based on a complex set of rules, the programme builds a song in the style of modern EDM music and
+                        explores the future of music making where composers might write down an algorithm rather than sheet music. 
+                    </div>
+                    <!-- Trigger/Open The Modal Raute8x8!-->
+                    <div class="link">
+                        <a href="#art" id="techno" class="fa fa-youtube" onclick="technomodal.style.display='block'"></a>
+                    </div>
+                </div>
+            </div>
                 </div>
 
         <!-- Composition !-->
@@ -279,6 +317,10 @@ function navi() {
                         <td>Electronik Netwerk - London, UK - Electronic live performance with Ecem Ozkan</td>
                     </tr>
 
+                    <tr>
+                        <td>25/08/17 - </td>
+                        <td>Electrolights II - London, UK - Interactive dance performance with Megan Miller</td>
+                    </tr>
 
                 </table>
             </div>
@@ -311,10 +353,19 @@ function navi() {
             &copy; Sebastian L&ouml;bbers 2017
         </div>
 
-
+    <!-- The Modal AQ=209-->
+    <div id="aqmodal" class="modal">
+        <!-- Modal content AQ=209-->
+        <div class="modal-content">
+            <span class="close" onclick="stop('aqvimeo');aqmodal.style.display='none'">&times;</span>
+            <div class="video">
+                <iframe id="aqvimeo" src="https://player.vimeo.com/video/229718728" width="80%" height="80%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
         <!-- The Modal SquareDance-->
         <div id="squaremodal" class="modal">
-            <!-- Modal content Dorothy-->
+            <!-- Modal content SqaureDance-->
             <div class="modal-content">
                 <span class="close" onclick="stop('squarevimeo');squaremodal.style.display='none'">&times;</span>
                 <div class="video">
@@ -353,6 +404,16 @@ function navi() {
                 </div>
             </div>
         </div>
+    <!-- The Modal Piano Modulation Vimeo-->
+    <div id="pianovimeomodal" class="modal">
+        <!-- Modal content Piano Modulation Vimeo-->
+        <div class="modal-content">
+            <span class="close" onclick="stop('pvimeo');pianovimeomodal.style.display='none'">&times;</span>
+            <div class="video">
+                <iframe id="pvimeo" width="80%" height="80%" scrolling="no" frameborder="no" src="https://player.vimeo.com/video/230164800"></iframe>
+            </div>
+        </div>
+    </div>
         <!-- The Modal Raute8x8-->
         <div id="rautemodal" class="modal">
             <!-- Modal content Piano Modulation-->
@@ -363,6 +424,16 @@ function navi() {
                 </div>
             </div>
         </div>
+    <!-- The Modal Technosonggenerator-->
+    <div id="technomodal" class="modal">
+        <!-- Modal content Piano Modulation-->
+        <div class="modal-content">
+            <span class="close" onclick="stop('technoyoutube');technomodal.style.display='none'">&times;</span>
+            <div class="video">
+                <iframe id="technoyoutube" width="80%" height="80%" src="https://www.youtube.com/embed/IxazMDFOIso" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
         <!-- The Modal Enderal -->
         <div id="enderalmodal" class="modal">
             <!-- Modal content Piano Modulation-->
