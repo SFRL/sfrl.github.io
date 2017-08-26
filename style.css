@@ -287,7 +287,8 @@ a.right {
 }
 
 .text {
-  font-size: 13px;
+  font-size: 14px;
+  line-height: 22px;
   position: absolute;
   padding: 10px;
   }
