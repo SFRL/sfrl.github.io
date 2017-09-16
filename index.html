@@ -49,7 +49,25 @@ function navi() {
  
 <div class="title" id="art">Projects</div>
 
-        <div class="page" >
+    <div class="page" >
+
+        <!-- Dance !-->
+        <div class="container" onclick="">
+            <img src="Dance.jpg" alt="Tile" class="image">
+            <div class="overlay">
+                <div class="text">
+                    <i>`•†• ́</i> is an interactive dance and live-coding piece that explores various levels of computer communication. 
+                    The piece borrows its aesthetics from the operating system MS- DOS and Newskool ASCII art. 
+                    The piece attempts to ‘blur’ the boundaries between human and digital communication by embedding one within the other; 
+                    the human dancer becomes digitised through a Microsoft Kinect while the live-coding triggers the sound composition, each component feeding off of each other to form a cohesive machine.
+                </div>
+                <!-- Trigger/Open The Modal Dance!-->
+                <div class="link">
+                    <a href="#art" id="dance" class="fa fa-vimeo" onclick="dancemodal.style.display='block'"></a>
+                </div>
+            </div>
+        </div>
+
             <!-- AQ=209 !-->
             <div class="container" onclick="">
                 <img src="aq.jpg" alt="Tile" class="image">
@@ -61,7 +79,7 @@ function navi() {
                     </div>
                     <!-- Trigger/Open The Modal Dorothy!-->
                     <div class="link">
-                        <a href="#art" id="dorothy" class="fa fa-vimeo" onclick="aqmodal.style.display='block'"></a>
+                        <a href="#art" id="aq" class="fa fa-vimeo" onclick="aqmodal.style.display='block'"></a>
                     </div>
                 </div>
             </div>
@@ -347,6 +365,12 @@ function navi() {
                         <td>Electrolights II - London, UK - Interactive dance performance with Megan Miller</td>
                     </tr>
 
+                    <tr>
+                        <td>11/09/17 - </td>
+                        <td>MMus Degree Show - London, UK - Audio-Visual collaboration with Ecem Ozkan and Chiyou Ding and `•†• ́ performance with Yeonsoo Do</td>
+                       
+                    </tr>
+
                 </table>
             </div>
         </div>
@@ -378,7 +402,16 @@ function navi() {
         <div class="footer">
             &copy; Sebastian L&ouml;bbers 2017
         </div>
-
+    <!-- The Modal Dance-->
+    <div id="dancemodal" class="modal">
+        <!-- Modal content Dance-->
+        <div class="modal-content">
+            <span class="close" onclick="stop('dancevimeo');dancemodal.style.display='none'">&times;</span>
+            <div class="video">
+                <iframe id="dancevimeo" src="https://player.vimeo.com/video/234080192" width="80%" height="80%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
     <!-- The Modal AQ=209-->
     <div id="aqmodal" class="modal">
         <!-- Modal content AQ=209-->
