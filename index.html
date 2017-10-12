@@ -10,66 +10,68 @@
     <script type="application/javascript">
 
 
-        var timer = null;
-
-        var x = 300;
-        var y = 300;
-
-        var a = 0;
-        var atarget = 0;
-        var b = 0;
-        var sign = 1;
-        var oldsign = 1;
-
-        function init() {
-
-            setInterval(animation, 30);
-
-            }
 
 
-            function animation() {
+    var x = 300;
+    var y = 300;
+    var a = 0;
+    var atarget = 0;
+    var b = 0;
+    var sign = 1;
+    var oldsign = 1;
 
-            var canvas = document.getElementById("canvas");
-            var context = canvas.getContext("2d");
+    function init() {
 
-            sign = Math.sign(a - atarget);
+        setInterval(animation, 30);
 
-            if (sign != oldsign) {
-                             atarget = Math.random() * 20;
-                                }
-
-        context.beginPath();
-        context.moveTo(x,y);
-
-        for (var t = 0.0; t < 15; t += 0.1)
-        {
-
-            x = Math.sin(t)*200 + 300;
-            y = Math.sin(a * t + b)*200 + 300;
-            context.lineTo(x, y);
-            context.strokeStyle = "white";
-        context.fillStyle = "black";
-        context.lineWidth = 2.5;
+        }
 
 
+        function animation() {
 
-            }
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
 
-            context.fillRect(0,0, canvas.width, canvas.height);
-            context.closePath();
-            context.stroke();
+        sign = Math.sign(a - atarget);
 
-            b += 0.01;
-            if (a<atarget) {
-                    a += 0.02;
-            }
-            else {
-                    a -= 0.02;
-            }
-            oldsign = sign;
+        if (sign != oldsign) {
+                         atarget = Math.random() * 8;
+                            }
 
-            }
+    context.beginPath();
+    context.moveTo(x,y);
+
+    for (var t = 0.0; t < 15; t += 0.1)
+    {
+
+        x = Math.sin(t)*200 + 300;
+        y = Math.sin(a * t + b)*200 + 300;
+        context.lineTo(x, y);
+        context.strokeStyle = "white";
+    context.fillStyle = "black";
+    context.lineWidth = 2.5;
+
+
+
+        }
+
+        context.fillRect(0,0, canvas.width, canvas.height);
+        context.closePath();
+        context.stroke();
+
+        b += 0.01;
+        if (a<atarget) {
+                a += 0.02;
+        }
+        else {
+                a -= 0.02;
+        }
+        oldsign = sign;
+        var w = window.innerWidth;
+
+
+
+        }
 
 
 
@@ -110,8 +112,7 @@ function navi() {
                 
             <canvas id="canvas" width="600" height="600"></canvas>
 
-                <p>Sebastian L&ouml;bbers - Musician and Digital Artist</p> 
-
+              <div class="headline"><p>Sebastian L&ouml;bbers - Musician and Digital Artist</p></div> 
         </div>
     </div>
 

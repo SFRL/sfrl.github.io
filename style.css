@@ -36,6 +36,10 @@ div.page {
     margin: auto;
     background-color: black;
     }
+div.headline {
+    max-width: 800px;
+    margin: auto;
+}
 
 /*always center content, for all window sizes*/
 @media screen and (max-width: 1300px) {
@@ -50,11 +54,19 @@ div.page {
     div.page {
         max-width: 647px;
     }
+
+    div.headline {
+        max-width: 647px;
+    }
+
 }
 
 @media screen and (max-width: 650px) {
 
     div.page {
+        max-width: 320px;
+    }
+    div.headline {
         max-width: 320px;
     }
 }
