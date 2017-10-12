@@ -4,9 +4,79 @@
     <meta name="referrer" content="origin">
 <title>Sebastian L&ouml;bbers - Musician and Digital Artist</title>
 <link rel="stylesheet" type="text/css" href="style.css">
-<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Intro Animation!-->
+    <script type="application/javascript">
+
+
+        var timer = null;
+
+        var x = 300;
+        var y = 300;
+
+        var a = 0;
+        var atarget = 0;
+        var b = 0;
+        var sign = 1;
+        var oldsign = 1;
+
+        function init() {
+
+            setInterval(animation, 30);
+
+            }
+
+
+            function animation() {
+
+            var canvas = document.getElementById("canvas");
+            var context = canvas.getContext("2d");
+
+            sign = Math.sign(a - atarget);
+
+            if (sign != oldsign) {
+                             atarget = Math.random() * 20;
+                                }
+
+        context.beginPath();
+        context.moveTo(x,y);
+
+        for (var t = 0.0; t < 15; t += 0.1)
+        {
+
+            x = Math.sin(t)*200 + 300;
+            y = Math.sin(a * t + b)*200 + 300;
+            context.lineTo(x, y);
+            context.strokeStyle = "white";
+        context.fillStyle = "black";
+        context.lineWidth = 2.5;
+
+
+
+            }
+
+            context.fillRect(0,0, canvas.width, canvas.height);
+            context.closePath();
+            context.stroke();
+
+            b += 0.01;
+            if (a<atarget) {
+                    a += 0.02;
+            }
+            else {
+                    a -= 0.02;
+            }
+            oldsign = sign;
+
+            }
+
+
+
+    </script>
+
 </head>
-<body>
+<body onload="init();">
 
   <!-- Navigation Bar !-->
   <div id="nav" class="topnav">
@@ -38,7 +108,7 @@ function navi() {
         <div style="display: block"> 
             
                 
-            <img class="title" src="title.png" alt="SFRL">
+            <canvas id="canvas" width="600" height="600"></canvas>
 
                 <p>Sebastian L&ouml;bbers - Musician and Digital Artist</p> 
 
