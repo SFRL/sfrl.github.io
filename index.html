@@ -15,60 +15,75 @@
     var x = 300;
     var y = 300;
     var a = 0;
-    var atarget = 0;
-    var b = 0;
-    var sign = 1;
-    var oldsign = 1;
+    var b = 1;
+    var sign_a = 4;
+    var a_limit = 1;
+    var sign_b = 1;
+    var b_limit = 5;
+    var x_offset = 0;
+    var y_offset = 0;
 
     function init() {
 
-        setInterval(animation, 30);
+        setInterval(animation, 50);
 
         }
 
-
         function animation() {
+
+
+        if (a > a_limit)
+        {
+            sign_a = -1;
+
+
+        }
+        if (a < 0)
+        {
+            sign_a = 1;
+            a_limit = Math.random() * 100;
+
+        }
+
+        if (b > b_limit)
+        {
+            sign_b = -1;
+
+
+        }
+        if (b < 0)
+        {
+            sign_b = 1;
+            b_limit = Math.random() * 100;
+        }
+
+
+
+        a += 0.1 * sign_a;
+        b += 0.1 * sign_b;
 
         var canvas = document.getElementById("canvas");
         var context = canvas.getContext("2d");
 
-        sign = Math.sign(a - atarget);
+        context.beginPath();
 
-        if (sign != oldsign) {
-                         atarget = Math.random() * 8;
-                            }
+        for (var t = 0.0; t < 0.5; t += 0.005)
 
-    context.beginPath();
-    context.moveTo(x,y);
+        {
+        x_offset += sign_a * 0.001;
+        y_offset += sign_b * 0.001;
 
-    for (var t = 0.0; t < 15; t += 0.1)
-    {
-
-        x = Math.sin(t)*200 + 300;
-        y = Math.sin(a * t + b)*200 + 300;
-        context.lineTo(x, y);
+        x = Math.sin(b * t + x_offset)*200 + 300;
+        y = Math.sin(a * t + y_offset)*200 + 300;
+        context.lineTo(x,y);
         context.strokeStyle = "white";
-    context.fillStyle = "black";
-    context.lineWidth = 2.5;
-
-
+        context.fillStyle = "black";
+        context.lineWidth = 2.5;
 
         }
 
         context.fillRect(0,0, canvas.width, canvas.height);
-        context.closePath();
         context.stroke();
-
-        b += 0.01;
-        if (a<atarget) {
-                a += 0.02;
-        }
-        else {
-                a -= 0.02;
-        }
-        oldsign = sign;
-        var w = window.innerWidth;
-
 
 
         }
@@ -131,9 +146,16 @@ function navi() {
                     The piece attempts to ‘blur’ the boundaries between human and digital communication by embedding one within the other; 
                     the human dancer becomes digitised while the live-coding triggers the sound composition, each component feeding off of each other to form a cohesive machine.
                 </div>
-                <!-- Trigger/Open The Modal Dance!-->
+
                 <div class="link">
+
+                    <!-- Trigger/Open The Modal Dance Korea!-->
+                    <a href="#art" id="dancekorea" class="fa fa-vimeo" onclick="dancekoreamodal.style.display='block'"></a>
+
+                    <!-- Trigger/Open The Modal Dance!-->
                     <a href="#art" id="dance" class="fa fa-vimeo" onclick="dancemodal.style.display='block'"></a>
+                
+                
                 </div>
             </div>
         </div>
@@ -254,6 +276,23 @@ function navi() {
         <!-- Composition !-->
         <div class="title" id="comp">Composition</div>
         <div class="page">
+        <!-- The cold Red -->
+        <div class="container" onclick="">
+            <img src="red.jpg" alt="Tile" class="image">
+            <div class="overlay">
+                <div class="text">
+                    <i>The Cold Red</i> is a commissioned 30 minute composition for the dance performance <i>Finding Ego</i> by South Korean dancer and choreographer Yeonsoo Do. The piece consists of three parts that explore different styles of contemporary electronic music.
+                </div>
+
+
+                <div class="link">
+                    <!-- Open link to soundcloud playlist-->
+                    <a href="https://soundcloud.com/sebastian-l-bbers/sets/the-cold-red" target="_blank" id="redsoundcloud" class="fa fa-soundcloud"></a>
+                    <!-- Trigger/Open The Modal Red-->
+                    <a href="#comp" id="red" class="fa fa-youtube" onclick="redmodal.style.display='block'"></a>
+                </div>
+            </div>
+        </div>
             <!-- You should know better !-->
             <div class="container" onclick="">
                 <img src="know.jpg" alt="Tile" class="image">
@@ -336,7 +375,7 @@ function navi() {
                             For the <i>Filmfest M&uuml;nchen</i> members of the German metal bands Waldwind and Nebelkr&auml;he formed the music project This Is Not Metal. 
                             Together they composed a piece to the silent short film <i>Backwards</i> by Susanne Steinmassl and performed it during a screening at the filmfest. 
                         </div>
-                        <!-- Trigger/Open The Modal Enderal-->
+                        <!-- Trigger/Open The Modal Videokills-->
                         <div class="link">
                             <a href="#comp" id="videokills" class="fa fa-youtube" onclick="videokillsmodal.style.display='block'"></a>
                         </div>
@@ -350,100 +389,252 @@ function navi() {
         <div class="title" id="bio">Bio</div>
             
     <div class="page flex">
-        
-            <div class="form">
-                <img src="bio.jpg" alt="Bio" class="bio">
-                Sebastian L&ouml;bbers is a German sound artist with a background in classical and jazz piano performance.
-                He attended the Dr. Hoch’s Conservatory in Frankfurt and later studied Music Technology and Electrical Engineering at the Technical University in Munich.
-                He holds a BA in Music Technology from the University of West London and a MMus in Sonic Arts at Goldsmiths, University of London.
-                He was the pianist and guitarist for Bavarian black metal band Waldwind, which toured through Europe and South America.
-                His current work explores music computing and audio- visual relationships with a focus on generative and algorithmic digital art.
+        <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'About')" id="defaultOpen">About</button>
+            <button class="tablinks" onclick="openCity(event, 'Education')">Education</button>
+            <button class="tablinks" onclick="openCity(event, 'Professional')">Professional</button>
+            <button class="tablinks" onclick="openCity(event, 'Performances')">Performances</button>
+        </div>
+        <div id="About" class="tabcontent">
+            <!-- <img src="bio.jpg" alt="Bio" class="bio"> Can be re-activated later -->
+            <div class="biobar">About</div>
+            <div class="biocontent">Sebastian L&ouml;bbers is a sound artist with a background in classical and jazz piano performance.
+            He attended the Dr. Hoch’s Conservatory in Frankfurt and later studied Music Technology and Electrical Engineering at the Technical University in Munich.
+            He holds a BA in Music Technology from the University of West London and a MMus in Sonic Arts at Goldsmiths, University of London.
+            He was the pianist and guitarist for Bavarian black metal band Waldwind, which toured through Europe and South America.
+            His current work explores music computing and audio-visual relationships with a focus on generative and interactive digital art.
+            In September 2018 he started his PhD in Media and Art Technology at Queen Mary University in London.<br></div>
+
+
+        </div>
+        <div id="Education" class="tabcontent">
+            <div class="collapsible" id="defaultOpenEduButton">
+                PhD Media and Art Technology 
             </div>
-            <div class="form">
-                <b>Performances</b><br><br>
-                <table style="width:100%">
-                    <tr>
-                        <td>23/07/11 - </td>
-                        <td>BBOA Festival - Bavaria, Germany - Live concert with Waldwind</td>
+            <div class="collapsecontent" id="defaultOpenEdu">
+                Queen Mary, University of London <br>
+                Sept. '18 - ongoing  <br><br>
+                Thesis: Augmented Movement: revealing the mechanisms behind human-machine interaction
+                Research conducted at the Centre for Digital Music (C4DM) that is part of the Department of Computer Science<br>
+            </div>
+            <div class="collapsible">
+                MMus Sonic Arts
+            </div>
+            <div class="collapsecontent">
+                Goldsmiths, University of London<br>
+                Sept. '16 - Oct. '17 <br><br>
+                Thesis: Human machine interaction in audio-visual systems <br>
+                Studies in contemporary sound art and theory, interactive and generative music and composition to moving image<br>
+            </div>
+            <div class="collapsible">
+                BA Music Technology
+            </div>
+            <div class="collapsecontent">
+                University of West London <br>
+                Sept. '15 - Sept. '16 <br><br>
+                Thesis: Generative electronic dance music <br>
+                Studies in future media, experimental music, acoustic and recording techniques, music industry and music education<br>
+            </div>
+            <div class="collapsible">
+                BSc Electrical Engineering
+            </div>
+            <div class="collapsecontent">
+                Technische Universit&auml;t M&uuml;nchen <br>
+                Oct. 2010 – Sept. 2015 <br><br>
+                Incomplete - proceeded to graduate from Music Technology <br>
+                Studies in higher algebra, circuit theory, algorithms and data structure<br>
+            </div>
+            
+        </div>
+        <div id="Professional" class="tabcontent">
+            <div class="collapsible" id="defaultOpenProfButton">
+                Sound Designer and Electronics Developer 
+            </div>
+            <div class="collapsecontent" id="defaultOpenProf">
+                Gebr. M&auml;rklin & Cie. GmbH <br>
+                G&ouml;ppingen <br>
+                Dec. '17 - Sept. '18  <br><br>
+                Sound design for model trains including research for authenticity, programming train decoders, 
+                improvement and development of playback logic, development of live synthesis for sound effects (Max/MSP), 
+                administration of the sound library, sound branding; working in a team of sound designer, engineers and programmers<br>
+            </div>
+            <div class="collapsible">
+                Composition, Recording and Performance
+            </div>
+            <div class="collapsecontent">
+                Freelance <br>
+                UK and Germany <br>
+                Since 2013 <br><br>
+                Composition for film, dance and video games: live/studio recording and session musician; 
+                Pianist and guitarist for Bavarian Metal Band Waldwind touring through Europe; 
+                live session musician for Infinum and Dorothy Vallens
+                Solo and collaborative performances with custom digital musical instruments and human- machine interfaces<br>
+            </div>
 
-                    </tr>
-                    <tr>
-                        <td>26/07/11 -</td>
-                        <td>Free&amp;Easy Festival - Munich, Germany - Live concert with Waldwind</td>
-                    </tr>
 
-                    <tr>
-                        <td>01/06/12 - </td>
-                        <td>Metalfest Open Air - Mining, Austria - Live concert with Waldwind</td>
-                    </tr>
+        </div>
+        <div id="Performances" class="tabcontent">
 
+            <div class="collapsible" id="defaultOpenYearButton">2018</div>
+            <div class="collapsecontent" id="defaultOpenYear">
+                <table>
                     <tr>
-                        <td>26/12-28/12/12 - </td>
-                        <td>Rauhnacht Tour - Munich, Germany | Travagliato, Italy | Lucerne, Switzerland - European tour with Waldwind</td>
-                    </tr>
-
-                    <tr>
-                        <td>07/02/13 - </td>
-                        <td>Asyl der kleinen K&uuml;nste - Munich, Germany - Solo piano performance</td>
-                    </tr>
-
-                    <tr>
-                        <td>09/05/14 - </td>
-                        <td>BBOA Festival - Bavaria, Germany - Live concert with Waldwind</td>
-                    </tr>
-
-                    <tr>
-                        <td>29/06/14 - </td>
-                        <td>Videokills presented by Filmfest M&uuml;nchen - Munich, Germany - Live performance for silent film with members of Waldwind and Nebelkr&auml;he</td>
-                    </tr>
-
-                    <tr>
-                        <td>01/12/16 - </td>
-                        <td>Goldsmiths Sonic Art concert - London, UK - Audio-visual performance</td>
+                        <td>12/07/18 - </td>
+                        <td>Trinity Laban Graduate Show Case - London, UK - Composition for live dance performance by Yeonsoo Do</td>
                     </tr>
                     <tr>
-                        <td>07/03/17 - </td>
-                        <td>Goldsmiths EMS concert - London, UK - <i>Piano Modulation</i> performance</td>
+                        <td>04/05/18 - </td>
+                        <td>Butterfly Effect: 2018 Voices of Korean Contemporary Artists - London, UK - Composition for live dance performance by Yeonsoo Do</td>
                     </tr>
-
+                </table>
+            </div>
+            <div class="collapsible">2017</div>
+            <div class="collapsecontent">
+                <table>
                     <tr>
-                        <td>21/04-22/04/17 - </td>
-                        <td>The Rough Sketches Project - London, UK - composition for live dance performance by Sarah Poekert</td>
+                        <td>16/12/17 - </td>
+                        <td>WeSA Festival - Seoul, South Korea - `•†• ́ performance with Yeonsoo Do</td>
                     </tr>
-
                     <tr>
-                        <td>29/04/17 - </td>
-                        <td>Overground Resistance - London, UK - <i>DARKBLUE</i> performance</td>
+                        <td>11/09/17 - </td>
+                        <td>MMus Degree Show - London, UK - Audio-Visual collaboration with Ecem Ozkan and Chiyou Ding and `•†• ́ performance with Yeonsoo Do</td>
                     </tr>
-
                     <tr>
-                        <td>10/05/17 - </td>
-                        <td>Interactive and Generative Music concert - London, UK - <i>Square_Dance</i> performance with Megan Miller</td>
-                    </tr>
-
-                    <tr>
-                        <td>27/05/17 - </td>
-                        <td>Dorothy Vallens Blues - London, UK - Live visual experiment</td>
+                        <td>23/08/17 - </td>
+                        <td>Electrolights II - London, UK - Interactive dance performance with Megan Miller</td>
                     </tr>
                     <tr>
                         <td>02/07/17 - </td>
                         <td>Electronik Netwerk - London, UK - Electronic live performance with Ecem Ozkan</td>
                     </tr>
-
                     <tr>
-                        <td>23/08/17 - </td>
-                        <td>Electrolights II - London, UK - Interactive dance performance with Megan Miller</td>
+                        <td>27/05/17 - </td>
+                        <td>Dorothy Vallens Blues - London, UK - Live visual experiment</td>
                     </tr>
-
                     <tr>
-                        <td>11/09/17 - </td>
-                        <td>MMus Degree Show - London, UK - Audio-Visual collaboration with Ecem Ozkan and Chiyou Ding and `•†• ́ performance with Yeonsoo Do</td>
-                       
+                        <td>10/05/17 - </td>
+                        <td>Interactive and Generative Music concert - London, UK - <i>Square_Dance</i> performance with Megan Miller</td>
                     </tr>
-
+                    <tr>
+                        <td>29/04/17 - </td>
+                        <td>Overground Resistance - London, UK - <i>DARKBLUE</i> performance</td>
+                    </tr>
+                    <tr>
+                        <td>21/04-22/04/17 - </td>
+                        <td>The Rough Sketches Project - London, UK - composition for live dance performance by Sarah Poekert</td>
+                    </tr>
+                    <tr>
+                        <td>07/03/17 - </td>
+                        <td>Goldsmiths EMS concert - London, UK - <i>Piano Modulation</i> performance</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="collapsible">2016</div>
+            <div class="collapsecontent">
+                <table>
+                    <tr>
+                        <td>01/12/16 - </td>
+                        <td>Goldsmiths Sonic Art concert - London, UK - Audio-visual performance</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="collapsible">2014</div>
+            <div class="collapsecontent">
+                <table>
+                    <tr>
+                        <td>29/06/14 - </td>
+                        <td>Videokills presented by Filmfest M&uuml;nchen - Munich, Germany - Live performance for silent film with members of Waldwind and Nebelkr&auml;he</td>
+                    </tr>
+                    <tr>
+                        <td>09/05/14 - </td>
+                        <td>BBOA Festival - Bavaria, Germany - Live concert with Waldwind</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="collapsible">2013</div>
+            <div class="collapsecontent">
+                <table>
+                    <tr>
+                        <td>07/02/13 - </td>
+                        <td>Asyl der kleinen K&uuml;nste - Munich, Germany - Solo piano performance</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="collapsible">2012</div>
+            <div class="collapsecontent">
+                <table>
+                    <tr>
+                        <td>26/12-28/12/12 - </td>
+                        <td>Rauhnacht Tour - Munich, Germany | Travagliato, Italy | Lucerne, Switzerland - European tour with Waldwind</td>
+                    </tr>
+                    <tr>
+                        <td>01/06/12 - </td>
+                        <td>Metalfest Open Air - Mining, Austria - Live concert with Waldwind</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="collapsible">2011</div>
+            <div class="collapsecontent">
+                <table>
+                    <tr>
+                        <td>26/07/11 -</td>
+                        <td>Free&amp;Easy Festival - Munich, Germany - Live concert with Waldwind</td>
+                    </tr>
+                    <tr>
+                        <td>23/07/11 - </td>
+                        <td>BBOA Festival - Bavaria, Germany - Live concert with Waldwind</td>
+                    </tr>
                 </table>
             </div>
         </div>
+            <script>
+
+                    // Get the element with id="defaultOpen" and click on it
+                    document.getElementById("defaultOpen").click();
+                    document.getElementById("defaultOpenYear").style.display = "block";
+                    document.getElementById("defaultOpenYearButton").classList.toggle("collapseactive");
+                    document.getElementById("defaultOpenProf").style.display = "block";
+                    document.getElementById("defaultOpenProfButton").classList.toggle("collapseactive");
+                    document.getElementById("defaultOpenEdu").style.display = "block";
+                    document.getElementById("defaultOpenEduButton").classList.toggle("collapseactive");
+
+                    var coll = document.getElementsByClassName("collapsible");
+                    var i;
+
+                    for (i = 0; i < coll.length; i++) {
+                        coll[i].addEventListener("click", function() {
+                        this.classList.toggle("collapseactive");
+                        var content = this.nextElementSibling;
+                        if (content.style.display === "block") {
+                            content.style.display = "none";
+                        } else {
+                            content.style.display = "block";
+                        }
+                        });
+                        }
+
+
+
+
+                    function openCity(evt, cityName) {
+                    var i, tabcontent, tablinks;
+                    tabcontent = document.getElementsByClassName("tabcontent");
+                    for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                        }
+                    tablinks = document.getElementsByClassName("tablinks");
+                    for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                        }
+                    document.getElementById(cityName).style.display = "block";
+                    evt.currentTarget.className += " active";
+                        }
+
+
+        </script>
+        </div>
+
+            
         
    
         <!-- Contact !-->
@@ -470,8 +661,12 @@ function navi() {
 
 
         <div class="footer">
-            &copy; Sebastian L&ouml;bbers 2017
+            &copy; Sebastian L&ouml;bbers 2018
         </div>
+
+
+    <!-- All Modals -->
+
     <!-- The Modal Dance-->
     <div id="dancemodal" class="modal">
         <!-- Modal content Dance-->
@@ -479,6 +674,16 @@ function navi() {
             <span class="close" onclick="stop('dancevimeo');dancemodal.style.display='none'">&times;</span>
             <div class="video">
                 <iframe id="dancevimeo" src="https://player.vimeo.com/video/234080192" width="80%" height="80%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- The Modal Dance Korea-->
+    <div id="dancekoreamodal" class="modal">
+        <!-- Modal content Dance-->
+        <div class="modal-content">
+            <span class="close" onclick="stop('dancekoreavimeo');dancekoreamodal.style.display='none'">&times;</span>
+            <div class="video">
+                <iframe id="dancekoreavimeo" src="https://player.vimeo.com/video/255499739" width="80%" height="80%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -560,6 +765,16 @@ function navi() {
             <span class="close" onclick="stop('technoyoutube');technomodal.style.display='none'">&times;</span>
             <div class="video">
                 <iframe id="technoyoutube" width="80%" height="80%" src="https://www.youtube.com/embed/IxazMDFOIso" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- The Modal Red -->
+    <div id="redmodal" class="modal">
+        <!-- Modal Red-->
+        <div class="modal-content">
+            <span class="close" onclick="stop('redyoutube');redmodal.style.display='none'">&times;</span>
+            <div class="video">
+                <iframe id="redyoutube" width="80%" height="80%" src="https://www.youtube.com/embed/W0mIOXJaibI" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </div>
