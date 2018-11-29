@@ -17,9 +17,10 @@ var cube = [];
 function setup() {
 
   var canvas = createCanvas(canvasWidth, canvasHeight, WEBGL);
-  background(0);
+    background(0);
 
   canvas.parent('cubes');
+    
 
     
   for (var i=0; i<amount; i++)
@@ -88,15 +89,15 @@ function draw() {
     for (var b = 0; b<=boxframe; b++) {
       for (var c = 0; c<=boxframe; c++) {
                 
-        if (boxes[a+b*10+c*100]>0) {
+        if (boxes[(c*(boxframe+1)+b)*(boxframe+1)+a]>0) {
           push();
-          fill(int(boxes[a+b*10+c*100]/trail) * 255);
+          fill(int(boxes[(c*(boxframe+1)+b)*(boxframe+1)+a]/trail) * 255);
                     //noFill();
           stroke(255);
           translate(boxsize*(a-boxframe/2), boxsize*(b-boxframe/2), boxsize*(c-boxframe/2));
           box(boxsize);
           pop(); 
-                    boxes[a+b*10+c*100]--;
+                    boxes[(c*(boxframe+1)+b)*(boxframe+1)+a]--;
         }
                 
       }
@@ -194,7 +195,7 @@ class Box {
             var c = this.z;
             
             
-      if (boxes[a+b*10+c*100] > 0)
+      if (boxes[(c*(boxframe+1)+b)*(boxframe+1)+a] > 0)
       {
         this.flag = true;
         this.x -= this.velocity.x;
@@ -205,7 +206,7 @@ class Box {
       else
       {
         this.flag = false; 
-        boxes[a+b*10+c*100] = trail;
+        boxes[(c*(boxframe+1)+b)*(boxframe+1)+a] = trail;
       }
 
         }     
