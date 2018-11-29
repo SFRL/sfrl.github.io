@@ -6,9 +6,91 @@
 <link rel="stylesheet" type="text/css" href="style.css">
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- Intro Animation -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
-    <script src="cubes.js"></script>
+    <!--Intro Animation!-->
+    <script type="application/javascript">
+
+
+
+
+    var x = 300;
+    var y = 300;
+    var a = 0;
+    var b = 1;
+    var sign_a = 4;
+    var a_limit = 1;
+    var sign_b = 1;
+    var b_limit = 5;
+    var x_offset = 0;
+    var y_offset = 0;
+
+    function init() {
+
+        setInterval(animation, 50);
+
+        }
+
+        function animation() {
+
+
+        if (a > a_limit)
+        {
+            sign_a = -1;
+
+
+        }
+        if (a < 0)
+        {
+            sign_a = 1;
+            a_limit = Math.random() * 100;
+
+        }
+
+        if (b > b_limit)
+        {
+            sign_b = -1;
+
+
+        }
+        if (b < 0)
+        {
+            sign_b = 1;
+            b_limit = Math.random() * 100;
+        }
+
+
+
+        a += 0.1 * sign_a;
+        b += 0.1 * sign_b;
+
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        context.beginPath();
+
+        for (var t = 0.0; t < 0.5; t += 0.005)
+
+        {
+        x_offset += sign_a * 0.001;
+        y_offset += sign_b * 0.001;
+
+        x = Math.sin(b * t + x_offset)*200 + 300;
+        y = Math.sin(a * t + y_offset)*200 + 300;
+        context.lineTo(x,y);
+        context.strokeStyle = "white";
+        context.fillStyle = "black";
+        context.lineWidth = 2.5;
+
+        }
+
+        context.fillRect(0,0, canvas.width, canvas.height);
+        context.stroke();
+
+
+        }
+
+
+
+    </script>
 
 </head>
 <body onload="init();">
@@ -42,8 +124,8 @@ function navi() {
     <div class="page center" id="home">
         <div style="display: block"> 
             
-               <div id="cubes"></div> 
-
+                
+            <canvas id="canvas" width="600" height="600"></canvas>
 
               <div class="headline"><p>Sebastian L&ouml;bbers - Musician and Digital Artist</p></div> 
         </div>
