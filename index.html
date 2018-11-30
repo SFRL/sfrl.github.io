@@ -11,7 +11,7 @@
     <script src="cubes.js"></script>
 
 </head>
-<body onload="init();">
+<body>
 
   <!-- Navigation Bar !-->
   <div id="nav" class="topnav">
@@ -34,7 +34,8 @@ function navi() {
     } else {
         x.className = "topnav";
     }
-}
+    }
+
 </script>
 
     <!-- Title Page !-->
@@ -42,7 +43,7 @@ function navi() {
     <div class="page center" id="home">
         <div style="display: block"> 
             
-               <div id="cubes"></div> 
+               <div id="cubes" class="canvas center"><div id="loading" class="loader"></div></div> 
 
 
               <div class="headline"><p>Sebastian L&ouml;bbers - Musician and Digital Artist</p></div> 

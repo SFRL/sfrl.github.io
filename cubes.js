@@ -64,19 +64,26 @@ function setup() {
   stroke(255);
   strokeWeight(2);
 
+  removeLoading();
+ 
+
 }
 
+function removeLoading() {
+var loading = document.getElementById("loading");
+loading.style.display = "none";
+
+}
 
 function draw() {
     
-        if (counter < speed) {
-      counter++;
+    if (counter < speed) {
+          counter++;
         }
     else {
       counter = 0;
 
   background(0);
-  //lights();
   
   
   for (i=0; i<amount; i++)
@@ -97,7 +104,7 @@ function draw() {
           translate(boxsize*(a-boxframe/2), boxsize*(b-boxframe/2), boxsize*(c-boxframe/2));
           box(boxsize);
           pop(); 
-                    boxes[(c*(boxframe+1)+b)*(boxframe+1)+a]--;
+          boxes[(c*(boxframe+1)+b)*(boxframe+1)+a]--;
         }
                 
       }
@@ -124,9 +131,7 @@ class Box {
 
     update() {
             
-            var sign = 0;
-        
-
+      var sign = 0;
       sign = int(random(2));
       if (sign == 0) {
         sign = -1;
