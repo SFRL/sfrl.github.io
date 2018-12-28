@@ -56,6 +56,23 @@ function navi() {
 
     <div class="page" >
 
+        <!-- Blobbox !-->
+        <div class="container" onclick="">
+            <img src="blobbox.jpg" alt="Tile" class="image">
+            <div class="overlay">
+                <div class="text">
+                    <i>BLOBBOX</i> is an ongoing project that explores human-machine interaction. The user can place their hands inside of a physical box
+                    to interact with a digital blob-shaped object. This blob can be moved around, deformed, torn apart and reconstructed while producing sound according to its current state.
+                </div>
+                <div class="link">
+                    <!-- Trigger/Open The Modal Blobbox !-->
+                    <a href="#art" id="blobbox" class="fa fa-youtube" onclick="blobboxmodal.style.display='block'"></a>
+
+
+                </div>
+            </div>
+        </div>
+
         <!-- Dance !-->
         <div class="container" onclick="">
             <img src="Dance.jpg" alt="Tile" class="image">
@@ -585,6 +602,17 @@ function navi() {
 
 
     <!-- All Modals -->
+
+    <!-- The Modal Blobbox-->
+    <div id="blobboxmodal" class="modal">
+        <!-- Modal content Blobbox-->
+        <div class="modal-content">
+            <span class="close" onclick="stop('blobboxyoutube');blobboxmodal.style.display='none'">&times;</span>
+            <div class="video">
+                <iframe id="blobboxyoutube" width="80%" height="80%" src="https://www.youtube.com/embed/LvlyQzGB4rI" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
 
     <!-- The Modal Dance-->
     <div id="dancemodal" class="modal">
