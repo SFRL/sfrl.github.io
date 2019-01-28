@@ -4,7 +4,7 @@
     <title>Chatbot Study</title>
 
     <script src="Eliza.js"></script>
-
+    
     <style>
         /* General Stuff */
         body {
@@ -12,7 +12,7 @@
             color: black;
             font-family: Verdana, Geneva, sans-serif;
 
-
+        
         }
 
         /* Slideshow container */
@@ -45,6 +45,11 @@
             padding: 0 5%;
         }
 
+        /* Hide welcome windows in the beginning*/
+        .myWelcome {
+            display: none;
+        }
+
         .numbertext {
             font-weight: bold;
             font-size: 22px;
@@ -58,7 +63,15 @@
             color: white;
         }
 
-        #greeting, #farewell {
+        .greeting {
+            font-weight: bold;
+            font-size: 22px;
+            font-variant: small-caps;
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 25px;
+            border-bottom-style: solid;
+            color: white;
             background-color: white;
             color: black;
             width: 96%;
@@ -70,7 +83,8 @@
         .start {
             cursor: pointer;
             padding: 4px 8px;
-            width: 50px;
+            text-align: center;
+            max-width: 100px;
             background-color: black;
             color: white;
             font-variant: small-caps;
@@ -121,32 +135,137 @@
 
         }
 
+        /* Forms */
+        form {
+
+           padding: 30px
+        }
+
+        /* Slider Design */
+        .slider {
+        
+            -webkit-appearance: none;
+            width: 200px;
+            height: 15px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        .slider:hover {
+            opacity: 1;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 25px;
+            background: black;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 15px;
+            height: 25px;
+            background: black;
+            cursor: pointer;
+        }
+        
+
     </style>
 </head>
 <body onload="setup()">
 
     <div class="slideshow-container">
 
-
+        <!-- WELCOME SCREEN -->
         <div class="iframe-container" id="welcome">
-            <div class="numbertext" id="greeting">Welcome</div>
-            <div class="start-text">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-                <div class="start" onclick="startStudy()">Start</div>
+            <div class="myWelcome" id="firstWelcome">
+
+                <div class="greeting">Welcome</div>
+                <div class="start-text">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <div class="start" onclick="nextWelcome()">Next</div>
+                </div>
+            </div>
+
+            <div class="myWelcome">
+                <div class="greeting">Disclaimer</div>
+                <div class="start-text">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <p id="randomArray"></p>
+                    <div class="start" onclick="nextWelcome()">I agree</div>
+                </div>
+            </div>
+
+            <div class="myWelcome">
+                <div class="greeting">Personal Information</div>
+                <div class="start-text">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <form action="/action_page.php" name="forms">
+                        <b>Gender</b><br>
+                        <input type="radio" name="gender" id="male" value="male">
+                        <label for="male">Male</label><br>
+
+
+                        <input type="radio" name="gender" id="female" value="female">
+                        <label for="female">Female</label><br>
+
+                        <input type="radio" name="gender" id="other" value="other">
+                        <label for="other">Other</label><br>
+
+                        <input type="radio" name="gender" id="prefernottosay" value="prefernottosay">
+                        <label for="other">Prefer not to Say</label><br><br>
+
+                        <b>Age</b><br>
+                        <select name="age">
+                            <option value="1">18-25</option>
+                            <option value="2">25-32</option>
+                            <option value="3">32-45</option>
+                            <option value="4">45+</option>
+                        </select><br><br>
+
+                        <b>Is English your native language?</b><br>
+                        <input type="radio" name="language" id="yesEng" value="yes">
+                        <label for="yesClever">Yes</label><br>
+
+                        <input type="radio" name="language" id="noEng" value="no">
+                        <label for="noClever">No</label><br><br>
+
+
+                    </form>
+                    <div class="start" onclick="startStudy()">Start</div>
+                </div>
             </div>
         </div>
 
-
+        <!-- BOTS AND SURVEY -->
         <div class="iframe-container" id="bots">
 
+
+            <!-- ELIZA -->
+            <!-- BOT -->
             <div class="mySlides">
 
-                <div class="numbertext">1/3</div>
+                <div class="numbertext" id="bot1">1/3</div>
 
                 <div class="start-text">
                     <table cellspacing="0" cellpadding="2" border="0" align="center" class="neurotoy">
@@ -170,56 +289,222 @@
 
             </div>
 
+            <!-- SURVEY -->
             <div class="mySlides">
 
-                <div class="numbertext">2/3</div>
+                <div class="numbertext" id="survey1">1/3</div>
+                <form action="/action_page.php" name="forms">
+
+                    <b>Conversational ability score </b> <p> 0 = ‘poor’ machinelike, 50 = ‘good’ (but machinelike), 100 = humanlike)</p>
+                    <input type="range" class="slider" id="sliderEliza" min="0" max="100" value=""><p>Value: <span id="slideroutputEliza"></span></p><br>
+
+                    <script>
+                        var sliderEliza = document.getElementById("sliderEliza");
+                        var outputEliza = document.getElementById("slideroutputEliza");
+                        outputEliza.innerHTML = sliderEliza.value;
+
+                        sliderEliza.oninput = function() {
+                        outputEliza.innerHTML = this.value;
+                            }
+                    </script>
+
+                    <b>Did the entity express emotions appropriately? </b><br>
+                    <input type="radio" name="emotion" id="yesEliza" value="yes">
+                    <label for="yesEliza">Yes</label><br>
+
+                    <input type="radio" name="emotion" id="noEliza" value="no">
+                    <label for="noEliza">No</label><br><br>
+
+                    <b>Comments</b><br>
+                    <textarea rows="14" cols="55" id="commentEliza"></textarea><br>
+
+
+
+                </form>
+
+            </div>
+
+
+            <!-- CLEVERBOT -->
+            <!-- BOT -->
+            <div class="mySlides">
+
+                <div class="numbertext" id="bot2">2/3</div>
 
                 <iframe src="https://www.cleverbot.com/en/basic.php" style="margin-top: -200px">
                     <p>Your browser does not support iframes.</p>
                 </iframe>
             </div>
 
+            <!-- SURVEY -->
             <div class="mySlides">
 
-                <div class="numbertext">3/3</div>
+                <div class="numbertext" id="survey2">2/3</div>
+                <form action="/action_page.php" name="forms">
+
+                    <b>Conversational ability score </b> <p> 0 = ‘poor’ machinelike, 50 = ‘good’ (but machinelike), 100 = humanlike)</p>
+                    <input type="range" class="slider" id="sliderClever" min="0" max="100" value=""><p>Value: <span id="slideroutputClever"></span></p><br>
+
+                    <script>
+                        var sliderClever = document.getElementById("sliderClever");
+                        var outputClever = document.getElementById("slideroutputClever");
+                        outputClever.innerHTML = sliderClever.value;
+
+                        sliderClever.oninput = function() {
+                        outputClever.innerHTML = this.value;
+                            }
+                    </script>
+
+                    <b>Did the entity express emotions appropriately? </b><br>
+                    <input type="radio" name="emotion" id="yesClever" value="yes">
+                    <label for="yesClever">Yes</label><br>
+
+                    <input type="radio" name="emotion" id="noClever" value="no">
+                    <label for="noClever">No</label><br><br>
+
+                    <b>Comments</b><br>
+                    <textarea rows="14" cols="55" id="commentClever"></textarea><br>
+
+
+
+                </form>
+
+            </div>
+
+
+            <!-- Mitsuku -->
+
+            <!-- BOT -->
+            <div class="mySlides">
+
+                <div class="numbertext" id="bot3">3/3</div>
 
                 <iframe src="https://kakko.pandorabots.com/pandora/talk?botid=c51abb983e345a1d&skin=ucl">
                     <p>Your browser does not support iframes.</p>
                 </iframe>
             </div>
 
+            <!-- SURVEY -->
             <div class="mySlides">
-                <div class="numbertext" id="farewell">Thank you</div>
-                <div class="start-text">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                </div>
+
+                <div class="numbertext" id="survey3">3/3</div>
+                <form action="/action_page.php" name="forms">
+
+                    <b>Conversational ability score </b> <p> 0 = ‘poor’ machinelike, 50 = ‘good’ (but machinelike), 100 = humanlike)</p>
+                    <input type="range" class="slider" id="sliderMitsuku" min="0" max="100" value=""><p>Value: <span id="slideroutputMitsuku"></span></p><br>
+
+                    <script>
+                        var sliderMitsuku = document.getElementById("sliderMitsuku");
+                        var outputMitsuku = document.getElementById("slideroutputMitsuku");
+                        outputMitsuku.innerHTML = sliderMitsuku.value;
+
+                        sliderMitsuku.oninput = function() {
+                        outputMitsuku.innerHTML = this.value;
+                            }
+                    </script>
+
+                    <b>Did the entity express emotions appropriately? </b><br>
+                    <input type="radio" name="emotion" id="yesMitsuku" value="yes">
+                    <label for="yesMitsuku">Yes</label><br>
+
+                    <input type="radio" name="emotion" id="noMitsuku" value="no">
+                    <label for="noMitsuku">No</label><br><br>
+
+                    <b>Comments</b><br>
+                    <textarea rows="14" cols="55" id="commentMitsuku"></textarea><br>
+
+
+
+                </form>
+
             </div>
+
+
+                <!-- GOODBYE -->
+                <div class="mySlides">
+                    <div class="greeting">Thank you</div>
+                    <div class="start-text">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                        <div class="start" onclick="submitForms()">Submit</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Next/Previous buttons -->
+            <div class="prev" onclick="plusSlides(-1)" id="prev">&#10094;</div>
+            <div class="next" onclick="plusSlides(1)" id="next">&#10095;</div>
+
 
         </div>
 
-        <div class="prev" onclick="plusSlides(-1)" id="prev">&#10094;</div>
-        <div class="next" onclick="plusSlides(1)" id="next">&#10095;</div>
 
-
-    </div>
-
+        <!-- Script vor dynamic behaviour -->
     <script>
         var slideIndex = 1;
+        var welcomeIndex = 1;
+        var random = [0,1,2,3,4,5,6];
 
-
+        //Setup Function
         function setup() {
         //display welcome screen
             document.getElementById("welcome").style.display = "block";
+            document.getElementById("firstWelcome").style.display = "block";
 
         //initialise Eliza
             start();
+
+        //randomise the chatbot order
+        shuffleBots();
+
+        //document.getElementById("randomArray").innerHTML = random;
         }
 
+        //Randomise the chatbot order
+        function shuffleBots() {
+            var slides = document.getElementsByClassName("mySlides");
+            var length = (slides.length - 1) / 2 ;
+            var renumber = document.getElementsByClassName("numbertext");
+            var j, x, i;
+
+
+            for (i = length - 1; i > 0; i--) {
+                j = Math.floor(Math.random() * (i + 1));
+                x = random[2*i];
+                random[2*i] = random[2*j];
+                random[2*i+1] = random[2*i]+1;
+                random[2*j] = x;
+                random[2*j+1] = random[2*j] + 1;
+                }
+
+            //Number the bots in the right order
+            for (i = 0; i<length; i++) {
+                var j = i + 1;
+                renumber[random[2*i]].innerHTML = "Entity " + j + "/" + length;
+                renumber[random[2*i+1]].innerHTML = "Survey " + j + "/" + length;
+            }
+
+        }
+
+        //Next Welcome screen
+        function nextWelcome() {
+            var i;
+            welcomeIndex++;
+            var slides = document.getElementsByClassName("myWelcome");
+
+            for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+            slides[welcomeIndex-1].style.display = "block";
+
+        }
+
+        //Display the chat bots and survey
         function startStudy() {
 
         document.getElementById("welcome").style.display = "none";
@@ -230,6 +515,7 @@
 
         }
 
+        //Next slide
         function plusSlides(n) {
             showSlides(slideIndex += n);
 
@@ -239,6 +525,7 @@
             showSlides(slideIndex = n);
             }
 
+        //Display Slides
         function showSlides(n) {
             var i;
             var slides = document.getElementsByClassName("mySlides");
@@ -260,12 +547,17 @@
             if (n > slides.length) {slideIndex = 1}
             if (n < 1) {slideIndex = slides.length}
             for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
+                slides[random[i]].style.display = "none";
                 }
 
-            slides[slideIndex-1].style.display = "block";
+            slides[random[slideIndex-1]].style.display = "block";
 
             }
+
+        //Submit all survey forms at once
+        function submitForms(){
+            document.forms["forms"].submit();
+        }
     </script>
 </body>
 </html>
