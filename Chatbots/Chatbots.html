@@ -3,16 +3,19 @@
 <head>
     <title>Chatbot Study</title>
 
+    <!-- Eliza Script -->
     <script src="Eliza.js"></script>
-    
+
+    <!-- Google Sheet API -->
+    <script src="//script.sheetsu.com/"></script>
+
+
     <style>
         /* General Stuff */
         body {
             background-color: white;
             color: black;
             font-family: Verdana, Geneva, sans-serif;
-
-        
         }
 
         /* Slideshow container */
@@ -22,7 +25,6 @@
             height: 100vh;
             position: relative;
             margin: auto;
-
         }
 
         /* iFrame container */
@@ -110,7 +112,6 @@
             user-select: none;
             background-color: black;
             display: none;
-
         }
 
         /* Position the "next button" to the right */
@@ -132,18 +133,11 @@
             top: 80px;
             position: absolute;
             border-style: none;
-
         }
 
-        /* Forms */
-        form {
-
-           padding: 30px
-        }
 
         /* Slider Design */
         .slider {
-        
             -webkit-appearance: none;
             width: 200px;
             height: 15px;
@@ -154,27 +148,25 @@
             transition: opacity .2s;
         }
 
-        .slider:hover {
-            opacity: 1;
-        }
+            .slider:hover {
+                opacity: 1;
+            }
 
-        .slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 15px;
-            height: 25px;
-            background: black;
-            cursor: pointer;
-        }
+            .slider::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 15px;
+                height: 25px;
+                background: black;
+                cursor: pointer;
+            }
 
-        .slider::-moz-range-thumb {
-            width: 15px;
-            height: 25px;
-            background: black;
-            cursor: pointer;
-        }
-        
-
+            .slider::-moz-range-thumb {
+                width: 15px;
+                height: 25px;
+                background: black;
+                cursor: pointer;
+            }
     </style>
 </head>
 <body onload="setup()">
@@ -185,26 +177,43 @@
         <div class="iframe-container" id="welcome">
             <div class="myWelcome" id="firstWelcome">
 
-                <div class="greeting">Welcome</div>
+                <div class="greeting">Research study “Chat Study 2019”: information for participants</div>
                 <div class="start-text">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        We would like to invite you to be part of this research project, if you would like to. You should only agree to take part if you want to, it is entirely up to you. If you choose not to take part there won’t be any disadvantages for you and you will hear no more about it.<br>
+                        Please read the following information carefully before you decide to take part; this will tell you why the research is being done and what you will be asked to do if you take part. Please ask if there is anything that is not clear or if you would like more information by contacting Anna Nagele on a.n.nagele@qmul.ac.uk.<br>
+                        If you decide to take part, on the next page you will be asked to tick a box that confirms that you agree.<br>
+                        You are still free to withdraw at any time and without giving a reason by simply leaving the study.<br><br>
+                        We are conducting this research as part of the postgraduate module “Research Methods” at Queen Mary University London. Our task is to recreate a successful study based on the published results. In this study you will be chatting online to a range of entities and will be asked to rate them based on their conversational ability. We will then aggregate the collected data to draw conclusions on the entities’ abilities to have conversations.<br><br>
+                        We do not  take responsibility for the entities’ responses in the conversations. We will not store any content of your conversations but might be recorded by the entities themselves.<br><br><br>
+                        Instructions<br><br>
+                        You will be presented with X entities, one at a time. Please chat to each entity and give them a score from 0 . poor/machinelike 100 . human/humanlike for conversation ability.Please give at least 3 min for each chat, you may have as many interactions with each entity as you wish and time allows you. <br><br>
+                        It is up to you to decide whether or not to take part. If you do decide to take part please click “Next”. You will be asked to confirm your consent on the next page.<br><br>
+                        If you have any questions or concerns about the manner in which the study was conducted please, in the first instance, contact the researchers responsible for the study (Kavaz E. - e.kavaz@se18.qmul.ac.uk, Nagele A.N. - a.n.nagele@qmul.ac.uk, Loebbers S. - s.lobbers@qmul.ac.uk, Zayas Garin L. - l.zayasgarin@qmul.ac.uk).  If this is unsuccessful, or not appropriate, please contact the Secretary at the Queen Mary Ethics of Research Committee, Room W104, Queen’s Building, Mile End Campus, Mile End Road, London or research-ethics@qmul.ac.uk.
                     </p>
                     <div class="start" onclick="nextWelcome()">Next</div>
                 </div>
             </div>
 
             <div class="myWelcome">
-                <div class="greeting">Disclaimer</div>
+                <div class="greeting">Consent agreement</div>
                 <div class="start-text">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Please give your consent below after you have read the Participant Information about the research on the previous page. <br><br>
+                        Title of Study: Chat Study 2019<br>
+                        Queen Mary Ethics of Research Committee Ref: ________________<br><br>
+                                                                                         <ul>
+                                                                                             <li>Thank you for considering taking part in this research. The people organizing the research must explain the project to you before you agree to take part. </li>
+                                                                                             <li>If you have any questions arising from the Participant Information  or other  explanation already given to you, please ask the researchers before you decide whether to join in.</li>
+                                                                                             <li>I understand that if I decide at any other time during the research that I no longer wish to participate in this project, I can withdraw from it immediately by simply closing the page or leaving the survey.</li>
+                                                                                             <li>I consent to the processing of my personal information for the purposes of this research study. I understand that such information will be treated as strictly confidential and handled in accordance with the provisions of the Data Protection Act 1998.</li>
+                                                                                             <li>I confirm to be age 18 or older.</li>
+                                                                                             <li>I agree that the research project named above has been explained to me to my satisfaction and I agree to take part in the study. I have read both the notes written above and the Participant Information on the previous page about the project, and understand what the research study involves.</li>
+
+
+
+
+                                                                                         </ul>
                     </p>
                     <p id="randomArray"></p>
                     <div class="start" onclick="nextWelcome()">I agree</div>
@@ -215,12 +224,9 @@
                 <div class="greeting">Personal Information</div>
                 <div class="start-text">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Please enter some of your personal information below. These are required for analysing the study data. <br>
                     </p>
-                    <form action="/action_page.php" name="forms">
+                    <form name="submit-to-google-sheet" action="mailto:someone@example.com" method="post" enctype="text/plain" id="survey">
                         <b>Gender</b><br>
                         <input type="radio" name="gender" id="male" value="male">
                         <label for="male">Male</label><br>
@@ -250,7 +256,6 @@
                         <input type="radio" name="language" id="noEng" value="no">
                         <label for="noClever">No</label><br><br>
 
-
                     </form>
                     <div class="start" onclick="startStudy()">Start</div>
                 </div>
@@ -270,7 +275,6 @@
                 <div class="start-text">
                     <table cellspacing="0" cellpadding="2" border="0" align="center" class="neurotoy">
                         <tbody>
-
                             <tr>
                                 <td bgcolor="#FFFFFF">
                                     <form name="Eliza" onsubmit="return dialog();">
@@ -293,10 +297,10 @@
             <div class="mySlides">
 
                 <div class="numbertext" id="survey1">1/3</div>
-                <form action="/action_page.php" name="forms">
+                <div class="start-text">
 
                     <b>Conversational ability score </b> <p> 0 = ‘poor’ machinelike, 50 = ‘good’ (but machinelike), 100 = humanlike)</p>
-                    <input type="range" class="slider" id="sliderEliza" min="0" max="100" value=""><p>Value: <span id="slideroutputEliza"></span></p><br>
+                    <input form="survey" type="range" class="slider" name="scoreEliza" id="sliderEliza" min="0" max="100" value=""><p>Value: <span id="slideroutputEliza"></span></p><br>
 
                     <script>
                         var sliderEliza = document.getElementById("sliderEliza");
@@ -309,18 +313,16 @@
                     </script>
 
                     <b>Did the entity express emotions appropriately? </b><br>
-                    <input type="radio" name="emotion" id="yesEliza" value="yes">
+                    <input form="survey" type="radio" name="emotionEliza" id="yesEliza" value="yes">
                     <label for="yesEliza">Yes</label><br>
 
-                    <input type="radio" name="emotion" id="noEliza" value="no">
+                    <input form="survey" type="radio" name="emotionEliza" id="noEliza" value="no">
                     <label for="noEliza">No</label><br><br>
 
                     <b>Comments</b><br>
-                    <textarea rows="14" cols="55" id="commentEliza"></textarea><br>
+                    <textarea form="survey" name="commentEliza" rows="14" cols="55" id="commentEliza"></textarea><br>
 
-
-
-                </form>
+                </div>
 
             </div>
 
@@ -340,10 +342,10 @@
             <div class="mySlides">
 
                 <div class="numbertext" id="survey2">2/3</div>
-                <form action="/action_page.php" name="forms">
+                <div class="start-text">
 
                     <b>Conversational ability score </b> <p> 0 = ‘poor’ machinelike, 50 = ‘good’ (but machinelike), 100 = humanlike)</p>
-                    <input type="range" class="slider" id="sliderClever" min="0" max="100" value=""><p>Value: <span id="slideroutputClever"></span></p><br>
+                    <input form="survey" type="range" class="slider" name="scoreClever" id="sliderClever" min="0" max="100" value=""><p>Value: <span id="slideroutputClever"></span></p><br>
 
                     <script>
                         var sliderClever = document.getElementById("sliderClever");
@@ -356,24 +358,21 @@
                     </script>
 
                     <b>Did the entity express emotions appropriately? </b><br>
-                    <input type="radio" name="emotion" id="yesClever" value="yes">
+                    <input form="survey" type="radio" name="emotionClever" id="yesClever" value="yes">
                     <label for="yesClever">Yes</label><br>
 
-                    <input type="radio" name="emotion" id="noClever" value="no">
+                    <input form="survey" type="radio" name="emotionClever" id="noClever" value="no">
                     <label for="noClever">No</label><br><br>
 
                     <b>Comments</b><br>
-                    <textarea rows="14" cols="55" id="commentClever"></textarea><br>
+                    <textarea form="survey" name="commentClever" rows="14" cols="55" id="commentClever"></textarea><br>
 
-
-
-                </form>
+                </div>
 
             </div>
 
 
             <!-- Mitsuku -->
-
             <!-- BOT -->
             <div class="mySlides">
 
@@ -388,10 +387,10 @@
             <div class="mySlides">
 
                 <div class="numbertext" id="survey3">3/3</div>
-                <form action="/action_page.php" name="forms">
+                <div class="start-text">
 
                     <b>Conversational ability score </b> <p> 0 = ‘poor’ machinelike, 50 = ‘good’ (but machinelike), 100 = humanlike)</p>
-                    <input type="range" class="slider" id="sliderMitsuku" min="0" max="100" value=""><p>Value: <span id="slideroutputMitsuku"></span></p><br>
+                    <input form="survey" type="range" class="slider" name="scoreMitsuku" id="sliderMitsuku" min="0" max="100" value=""><p>Value: <span id="slideroutputMitsuku"></span></p><br>
 
                     <script>
                         var sliderMitsuku = document.getElementById("sliderMitsuku");
@@ -404,51 +403,60 @@
                     </script>
 
                     <b>Did the entity express emotions appropriately? </b><br>
-                    <input type="radio" name="emotion" id="yesMitsuku" value="yes">
+                    <input form="survey" type="radio" name="emotionMitsuku" id="yesMitsuku" value="yes">
                     <label for="yesMitsuku">Yes</label><br>
 
-                    <input type="radio" name="emotion" id="noMitsuku" value="no">
+                    <input form="survey" type="radio" name="emotionMitsuku" id="noMitsuku" value="no">
                     <label for="noMitsuku">No</label><br><br>
 
                     <b>Comments</b><br>
-                    <textarea rows="14" cols="55" id="commentMitsuku"></textarea><br>
+                    <textarea form="survey" rows="14" cols="55" id="commentMitsuku" name="commentMitsuku"></textarea><br>
 
-
-
-                </form>
-
-            </div>
-
-
-                <!-- GOODBYE -->
-                <div class="mySlides">
-                    <div class="greeting">Thank you</div>
-                    <div class="start-text">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
-                        <div class="start" onclick="submitForms()">Submit</div>
-                    </div>
                 </div>
 
             </div>
 
-            <!-- Next/Previous buttons -->
-            <div class="prev" onclick="plusSlides(-1)" id="prev">&#10094;</div>
-            <div class="next" onclick="plusSlides(1)" id="next">&#10095;</div>
 
+            <!-- GOODBYE -->
+            <div class="mySlides">
+                <div class="greeting">Submit</div>
+                <div class="start-text">
+                    <p>
+
+                        When you completed all questions, please click “Submit” and your data will be saved. <br>
+                        You can return to the survey pages and review your rating if you wish.
+                    </p>
+                    <div class="start" onclick="submitForms()">Submit</div>
+                </div>
+            </div>
 
         </div>
 
+        <!-- Next/Previous buttons -->
+        <div class="prev" onclick="plusSlides(-1)" id="prev">&#10094;</div>
+        <div class="next" onclick="plusSlides(1)" id="next">&#10095;</div>
 
-        <!-- Script vor dynamic behaviour -->
+
+    </div>
+
+
+    <!-- Script for dynamic behaviour -->
     <script>
         var slideIndex = 1;
         var welcomeIndex = 1;
         var random = [0,1,2,3,4,5,6];
+
+        /*
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxMnREON59KT9BbZAh8Cvvg7uvmTEPAcmwR3ZubZGFRLeZf4Nc/exec'
+        const form = document.forms['submit-to-google-sheet']
+
+        form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+        */
 
         //Setup Function
         function setup() {
@@ -556,8 +564,24 @@
 
         //Submit all survey forms at once
         function submitForms(){
-            document.forms["forms"].submit();
+        //document.getElementById("survey").submit();
+        /*
+              var data = {
+                        document.getElementById("survey")
+                  };
+
+      Sheetsu.write("https://sheetsu.com/apis/v1.0su/9f9d703acdac", data, {}, function (result) {
+        console.log(result);
+      });
+        */
+
         }
+
+
+
+
     </script>
 </body>
 </html>
+
+
