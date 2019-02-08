@@ -80,6 +80,11 @@
             margin: 0 2%;
         }
 
+        .warning {
+            color: red;
+            display: none;
+        }
+
 
         /* Start Button*/
         .start {
@@ -202,18 +207,14 @@
                         Please give your consent below after you have read the Participant Information about the research on the previous page. <br><br>
                         Title of Study: Chat Study 2019<br>
                         Queen Mary Ethics of Research Committee Ref: ________________<br><br>
-                                                                                         <ul>
-                                                                                             <li>Thank you for considering taking part in this research. The people organizing the research must explain the project to you before you agree to take part. </li>
-                                                                                             <li>If you have any questions arising from the Participant Information  or other  explanation already given to you, please ask the researchers before you decide whether to join in.</li>
-                                                                                             <li>I understand that if I decide at any other time during the research that I no longer wish to participate in this project, I can withdraw from it immediately by simply closing the page or leaving the survey.</li>
-                                                                                             <li>I consent to the processing of my personal information for the purposes of this research study. I understand that such information will be treated as strictly confidential and handled in accordance with the provisions of the Data Protection Act 1998.</li>
-                                                                                             <li>I confirm to be age 18 or older.</li>
-                                                                                             <li>I agree that the research project named above has been explained to me to my satisfaction and I agree to take part in the study. I have read both the notes written above and the Participant Information on the previous page about the project, and understand what the research study involves.</li>
-
-
-
-
-                                                                                         </ul>
+                        <ul>
+                            <li>Thank you for considering taking part in this research. The people organizing the research must explain the project to you before you agree to take part. </li>
+                            <li>If you have any questions arising from the Participant Information  or other  explanation already given to you, please ask the researchers before you decide whether to join in.</li>
+                            <li>I understand that if I decide at any other time during the research that I no longer wish to participate in this project, I can withdraw from it immediately by simply closing the page or leaving the survey.</li>
+                            <li>I consent to the processing of my personal information for the purposes of this research study. I understand that such information will be treated as strictly confidential and handled in accordance with the provisions of the Data Protection Act 1998.</li>
+                            <li>I confirm to be age 18 or older.</li>
+                            <li>I agree that the research project named above has been explained to me to my satisfaction and I agree to take part in the study. I have read both the notes written above and the Participant Information on the previous page about the project, and understand what the research study involves.</li>
+                        </ul>
                     </p>
                     <p id="randomArray"></p>
                     <div class="start" onclick="nextWelcome()">I agree</div>
@@ -227,7 +228,7 @@
                         Please enter some of your personal information below. These are required for analysing the study data. <br>
                     </p>
                     <form name="submit-to-google-sheet" action="mailto:someone@example.com" method="post" enctype="text/plain" id="survey">
-                        <b>Gender</b><br>
+                        <b id="gender">Gender</b><br>
                         <input type="radio" name="gender" id="male" value="male">
                         <label for="male">Male</label><br>
 
@@ -243,13 +244,11 @@
 
                         <b>Age</b><br>
                         <select name="age">
-                            <option value="1">18-25</option>
-                            <option value="2">25-32</option>
-                            <option value="3">32-45</option>
-                            <option value="4">45+</option>
+                            <option value="18-25">18-25</option>
+                            <option value="25+">25+</option>
                         </select><br><br>
 
-                        <b>Is English your native language?</b><br>
+                        <b id="language">Is English your native language?</b><br>
                         <input type="radio" name="language" id="yesEng" value="yes">
                         <label for="yesClever">Yes</label><br>
 
@@ -257,6 +256,7 @@
                         <label for="noClever">No</label><br><br>
 
                     </form>
+                    <div class="warning" id="warning1">Please fill in all the fields!</div>
                     <div class="start" onclick="startStudy()">Start</div>
                 </div>
             </div>
@@ -416,13 +416,56 @@
 
             </div>
 
+            <!-- UltraHal -->
+            <!-- BOT -->
+            <div class="mySlides">
+
+                <div class="numbertext" id="bot4"></div>
+
+                <iframe src="http://www.ultrahal.com/hal/plain/chat">
+                    <p>Your browser does not support iframes.</p>
+                </iframe>
+            </div>
+
+            <!-- SURVEY -->
+            <div class="mySlides">
+
+                <div class="numbertext" id="survey4"></div>
+                <div class="start-text">
+
+                    <b>Conversational ability score </b> <p> 0 = ‘poor’ machinelike, 50 = ‘good’ (but machinelike), 100 = humanlike)</p>
+                    <input form="survey" type="range" class="slider" name="scoreHal" id="sliderHal" min="0" max="100" value=""><p>Value: <span id="slideroutputHal"></span></p><br>
+
+                    <script>
+                        var sliderHal = document.getElementById("sliderHal");
+                        var outputHal = document.getElementById("slideroutputHal");
+                        outputHal.innerHTML = sliderHal.value;
+
+                        sliderHal.oninput = function() {
+                        outputHal.innerHTML = this.value;
+                            }
+                    </script>
+
+                    <b>Did the entity express emotions appropriately? </b><br>
+                    <input form="survey" type="radio" name="emotionHal" id="yesHal" value="yes">
+                    <label for="yesHal">Yes</label><br>
+
+                    <input form="survey" type="radio" name="emotionHal" id="noHal" value="no">
+                    <label for="noHal">No</label><br><br>
+
+                    <b>Comments</b><br>
+                    <textarea form="survey" rows="14" cols="55" id="commentHal" name="commentHal"></textarea><br>
+
+                </div>
+
+            </div>
+
 
             <!-- GOODBYE -->
             <div class="mySlides">
                 <div class="greeting">Submit</div>
                 <div class="start-text">
                     <p>
-
                         When you completed all questions, please click “Submit” and your data will be saved. <br>
                         You can return to the survey pages and review your rating if you wish.
                     </p>
@@ -444,19 +487,7 @@
     <script>
         var slideIndex = 1;
         var welcomeIndex = 1;
-        var random = [0,1,2,3,4,5,6];
-
-        /*
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxMnREON59KT9BbZAh8Cvvg7uvmTEPAcmwR3ZubZGFRLeZf4Nc/exec'
-        const form = document.forms['submit-to-google-sheet']
-
-        form.addEventListener('submit', e => {
-        e.preventDefault()
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => console.log('Success!', response))
-            .catch(error => console.error('Error!', error.message))
-        })
-        */
+        var random = new Array(document.getElementsByClassName("mySlides").length);
 
         //Setup Function
         function setup() {
@@ -464,13 +495,17 @@
             document.getElementById("welcome").style.display = "block";
             document.getElementById("firstWelcome").style.display = "block";
 
+        //fill the random array
+        for (var i=0; i<random.length; i++) {
+            random[i] = i;
+        }
+
         //initialise Eliza
             start();
 
         //randomise the chatbot order
         shuffleBots();
 
-        //document.getElementById("randomArray").innerHTML = random;
         }
 
         //Randomise the chatbot order
@@ -515,13 +550,39 @@
         //Display the chat bots and survey
         function startStudy() {
 
-        document.getElementById("welcome").style.display = "none";
-        document.getElementById("bots").style.display = "block";
-        document.getElementById("next").style.display = "block";
-        showSlides(slideIndex);
-
+        if(checkInfos()) {
+            document.getElementById("welcome").style.display = "none";
+            document.getElementById("warning1").style.display = "none";
+            document.getElementById("bots").style.display = "block";
+            document.getElementById("next").style.display = "block";
+            showSlides(slideIndex);
+        }
+        else {
+            document.getElementById("warning1").style.display = "block";
+        }
 
         }
+
+        //Check if all personal information have been entered
+        function checkInfos() {
+
+            for(var i=0;i<4;i++) {
+                if(document.getElementById("survey").elements.item(i).checked == true) {
+                    if (document.getElementById("survey").elements.item(5).checked == true || document.getElementById("survey").elements.item(6).checked == true )
+                        {
+                            return true;
+                        }
+                    else {return false;};
+                }
+                else if (document.getElementById("survey").elements.item(i).checked == false && i == 3) {
+                    return false;
+                }
+            }
+
+
+            return false;
+        }
+
 
         //Next slide
         function plusSlides(n) {
@@ -564,16 +625,44 @@
 
         //Submit all survey forms at once
         function submitForms(){
-        //document.getElementById("survey").submit();
-        /*
-              var data = {
-                        document.getElementById("survey")
-                  };
 
-      Sheetsu.write("https://sheetsu.com/apis/v1.0su/9f9d703acdac", data, {}, function (result) {
-        console.log(result);
-      });
-        */
+              //Define length of data array, only ticked elements should count but ...elements.length gets the number of all elements
+              var numberofelements = document.getElementById("survey").elements.length;
+              var data = new Array (numberofelements - (document.getElementsByClassName("mySlides").length-1)/2 - 4);
+              var j = 0;
+                    for (var i = 0; i<numberofelements; i++) {
+
+                        var currentItem = document.getElementById("survey").elements.item(i);
+                        var nextItem = document.getElementById("survey").elements.item(i+1);
+
+                        if(currentItem.checked == true || currentItem.tagName == "TEXTAREA" || currentItem.tagName == "SELECT") {
+                            data[j] = currentItem.value;
+                            if(!currentItem.value) {
+                                data[j] = "-";
+                            }
+                            j++;
+                        }
+                        else {
+                            if (currentItem.value >= 0)
+                                {
+                                    data[j] = currentItem.value;
+                                    j++;
+                                }
+                            else if (currentItem.checked == false && nextItem.checked == false && i>6) {
+                                    data[j] = "-";
+                                    j++;
+                                    i++;
+                            }
+                        }
+
+                    }
+
+            alert(data);
+
+      //Sheetsu.write("https://sheetsu.com/apis/v1.0su/9f9d703acdac", data, {}, function (result) {
+        //console.log(result);
+      //});
+
 
         }
 
@@ -583,5 +672,7 @@
     </script>
 </body>
 </html>
+
+
 
 
