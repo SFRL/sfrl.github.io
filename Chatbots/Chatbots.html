@@ -6,9 +6,8 @@
     <!-- Eliza Script -->
     <script src="Eliza.js"></script>
 
-    <!-- Google Sheet API - Does not seem to work :( :( :( :( <script src="//script.sheetsu.com/"></script> -->
-
-
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
 
     <style>
         /* General Stuff */
@@ -16,6 +15,7 @@
             background-color: white;
             color: black;
             font-family: Verdana, Geneva, sans-serif;
+            overflow: hidden;
         }
 
         /* Slideshow container */
@@ -171,7 +171,7 @@
                 height: 25px;
                 background: black;
                 cursor: pointer;
-            }
+            }            
     </style>
 </head>
 <body onload="setup()">
@@ -216,7 +216,7 @@
                             <li>I agree that the research project named above has been explained to me to my satisfaction and I agree to take part in the study. I have read both the notes written above and the Participant Information on the previous page about the project, and understand what the research study involves.</li>
                         </ul>
                     </p>
-                    <p id="randomArray"></p>
+
                     <div class="start" onclick="nextWelcome()">I agree</div>
                 </div>
             </div>
@@ -372,6 +372,8 @@
             </div>
 
 
+
+
             <!-- Mitsuku -->
             <!-- BOT -->
             <div class="mySlides">
@@ -469,7 +471,7 @@
                         When you completed all questions, please click “Submit” and your data will be saved. <br>
                         You can return to the survey pages and review your rating if you wish.
                     </p>
-                    <div class="start" onclick="submitForms()">Submit</div>
+                    <div class="start" onclick="submitForms()" id="submitButton">Submit</div>
                 </div>
             </div>
 
@@ -480,33 +482,56 @@
         <div class="next" onclick="plusSlides(1)" id="next">&#10095;</div>
 
 
-    </div>
+        <div class="iframe-container" id="bye">
+            <div class="myWelcome" id="byeText">
+
+                <div class="greeting">Thank You</div>
+                <div class="start-text">
+                    <p>
+                       Thank you for taking part in our study and for submitting your survey data.
+                    </p>
+                </div>
+            </div>
+
+        </div>
 
 
-    <!-- Script for dynamic behaviour -->
-    <script>
+
+        <!-- Script for dynamic behaviour -->
+        <script>
         var slideIndex = 1;
         var welcomeIndex = 1;
         var random = new Array(document.getElementsByClassName("mySlides").length);
 
         //Setup Function
         function setup() {
-        //display welcome screen
-            document.getElementById("welcome").style.display = "block";
-            document.getElementById("firstWelcome").style.display = "block";
+            //display welcome screen
+                document.getElementById("welcome").style.display = "block";
+                document.getElementById("firstWelcome").style.display = "block";
 
-        //fill the random array
-        for (var i=0; i<random.length; i++) {
-            random[i] = i;
-        }
+            //fill the random array
+            for (var i=0; i<random.length; i++) {
+                random[i] = i;
+            }
 
-        //initialise Eliza
+            //initialise Eliza
             start();
 
-        //randomise the chatbot order
-        shuffleBots();
+            //randomise the chatbot order
+            shuffleBots();
 
         }
+
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyB0hCRQiEMe6IHuIjDdh0vufIMDaG9xyag",
+            authDomain: "chatbotdatabase-da33b.firebaseapp.com",
+            databaseURL: "https://chatbotdatabase-da33b.firebaseio.com",
+            projectId: "chatbotdatabase-da33b",
+            storageBucket: "chatbotdatabase-da33b.appspot.com",
+            messagingSenderId: "510893789563"
+        };
+        firebase.initializeApp(config);
 
         //Randomise the chatbot order
         function shuffleBots() {
@@ -624,6 +649,9 @@
             }
 
         //Submit all survey forms at once
+
+        var messagesRef = firebase.database().ref('data');
+
         function submitForms(){
 
               //Define length of data array, only ticked elements should count but ...elements.length gets the number of all elements
@@ -657,19 +685,26 @@
 
                     }
 
-            alert(data);
+            //Submit data to firebase
+            var newMessageRef = messagesRef.push();
+            newMessageRef.set(data);
 
-      //Sheetsu.write("https://sheetsu.com/apis/v1.0su/9f9d703acdac", data, {}, function (result) {
-        //console.log(result);
-      //});
+            //Hide last
+            document.getElementById("bots").style.display = "none";
+            document.getElementById("next").style.display = "none";
+            document.getElementById("prev").style.display = "none";
 
 
+            //Show submit confirmation
+            document.getElementById("bye").style.display = "block";
+            document.getElementById("byeText").style.display = "block";
+            
         }
 
 
 
 
-    </script>
+        </script>
 </body>
 </html>
 
