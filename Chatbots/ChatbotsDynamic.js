@@ -261,17 +261,17 @@
                     c_Native_English: data[2],
                     d_Chatbot_Order: data[15],
                     e_Eliza_Score: data[3],
-                    f_6_Eliza_Emotion: data[4],
-                    g_7_Eliza_Comment: data[5],
-                    h_8_Cleverbot_Score: data[6],
-                    i_9_Cleverbot_Emotion: data[7],
-                    j_10_Cleverbot_Comment: data[8],
-                    k_11_Mitsuku_Score: data[9],
-                    l_12_Mitsuku_Emotion: data[10],
-                    m_13_Mitsuku_Comment: data[11],
-                    n_14_UltraHal_Score: data[12],
-                    o_15_UltraHal_Emotion: data[13],
-                    p_16_UltraHal_Comment: data[14]
+                    f_Eliza_Emotion: data[4],
+                    g_Eliza_Comment: data[5],
+                    h_Cleverbot_Score: data[6],
+                    i_Cleverbot_Emotion: data[7],
+                    j_Cleverbot_Comment: data[8],
+                    k_Mitsuku_Score: data[9],
+                    l_Mitsuku_Emotion: data[10],
+                    m_Mitsuku_Comment: data[11],
+                    n_UltraHal_Score: data[12],
+                    o_UltraHal_Emotion: data[13],
+                    p_UltraHal_Comment: data[14]
 
                     });
 
