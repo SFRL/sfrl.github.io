@@ -9,172 +9,11 @@
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
 
-    <style>
-        /* General Stuff */
-        body {
-            background-color: white;
-            color: black;
-            font-family: Verdana, Geneva, sans-serif;
-            overflow: hidden;
-        }
+    <!-- Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="Style.css">
 
-        /* Slideshow container */
-        .slideshow-container {
-            width: 100%;
-            max-width: 1200px;
-            height: 100vh;
-            position: relative;
-            margin: auto;
-        }
-
-        /* iFrame container */
-        .iframe-container {
-            display: none;
-            width: 90%;
-            height: 90%;
-            position: relative;
-            overflow: scroll;
-            margin: auto;
-            border-style: solid;
-            border-width: 3px;
-            border-color: black;
-        }
-
-        .start-text {
-            width: 90%;
-            position: relative;
-            margin: auto;
-            padding: 0 5%;
-        }
-
-        /* Hide welcome windows in the beginning*/
-        .myWelcome {
-            display: none;
-        }
-
-        .numbertext {
-            font-weight: bold;
-            font-size: 22px;
-            font-variant: small-caps;
-            text-align: center;
-            width: 100%;
-            padding-top: 20px;
-            padding-bottom: 25px;
-            border-bottom-style: solid;
-            background-color: black;
-            color: white;
-        }
-
-        .greeting {
-            font-weight: bold;
-            font-size: 22px;
-            font-variant: small-caps;
-            text-align: center;
-            padding-top: 20px;
-            padding-bottom: 25px;
-            border-bottom-style: solid;
-            color: white;
-            background-color: white;
-            color: black;
-            width: 96%;
-            margin: 0 2%;
-        }
-
-        .warning {
-            color: red;
-            display: none;
-        }
-
-
-        /* Start Button*/
-        .start {
-            cursor: pointer;
-            padding: 4px 8px;
-            text-align: center;
-            max-width: 100px;
-            background-color: black;
-            color: white;
-            font-variant: small-caps;
-            font-size: 18px;
-            transition: 0.6s ease;
-            border-radius: 3px;
-        }
-
-        /* Next & previous buttons */
-        .prev, .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: 5%;
-            padding: 16px 0;
-            text-align: center;
-            margin-top: -22px;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            border-radius: 3px 0 0 3px;
-            user-select: none;
-            background-color: black;
-            display: none;
-        }
-
-        /* Position the "next button" to the right */
-        .next {
-            right: 0;
-            border-radius: 0 3px 3px 0;
-        }
-
-            /* On hover, add a black background color with a little bit see-through */
-            .prev:hover, .next:hover, .start:hover {
-                background-color: rgba(0,0,0,0.5);
-                color: black;
-            }
-
-        iframe {
-            width: 100%;
-            min-height: 100%;
-            left: 0;
-            top: 80px;
-            position: absolute;
-            border-style: none;
-        }
-
-
-        /* Slider Design */
-        .slider {
-            -webkit-appearance: none;
-            width: 200px;
-            height: 15px;
-            background: #d3d3d3;
-            outline: none;
-            opacity: 0.7;
-            -webkit-transition: .2s;
-            transition: opacity .2s;
-        }
-
-            .slider:hover {
-                opacity: 1;
-            }
-
-            .slider::-webkit-slider-thumb {
-                -webkit-appearance: none;
-                appearance: none;
-                width: 15px;
-                height: 25px;
-                background: black;
-                cursor: pointer;
-            }
-
-            .slider::-moz-range-thumb {
-                width: 15px;
-                height: 25px;
-                background: black;
-                cursor: pointer;
-            }            
-    </style>
 </head>
-<body onload="setup()">
+<body onload="setup()" onbeforeunload="return leaving()">
 
     <div class="slideshow-container">
 
@@ -227,7 +66,7 @@
                     <p>
                         Please enter some of your personal information below. These are required for analysing the study data. <br>
                     </p>
-                    <form name="submit-to-google-sheet" action="mailto:someone@example.com" method="post" enctype="text/plain" id="survey">
+                    <form name="submit-to-google-sheet" method="post" enctype="text/plain" id="survey">
                         <b id="gender">Gender</b><br>
                         <input type="radio" name="gender" id="male" value="male">
                         <label for="male">Male</label><br>
@@ -270,14 +109,14 @@
             <!-- BOT -->
             <div class="mySlides">
 
-                <div class="numbertext" id="bot1">1/3</div>
+                <div class="numbertext" id="bot1"></div>
 
                 <div class="start-text">
                     <table cellspacing="0" cellpadding="2" border="0" align="center" class="neurotoy">
                         <tbody>
                             <tr>
                                 <td bgcolor="#FFFFFF">
-                                    <form name="Eliza" onsubmit="return dialog();">
+                                    <form name="Eliza" onsubmit="return dialog();" autocomplete="off">
                                         <textarea rows="14" cols="55" name="log"></textarea>
                                         <center>
 
@@ -296,21 +135,12 @@
             <!-- SURVEY -->
             <div class="mySlides">
 
-                <div class="numbertext" id="survey1">1/3</div>
+                <div class="numbertext" id="survey1"></div>
                 <div class="start-text">
 
                     <b>Conversational ability score </b> <p> 0 = ‘poor’ machinelike, 50 = ‘good’ (but machinelike), 100 = humanlike)</p>
-                    <input form="survey" type="range" class="slider" name="scoreEliza" id="sliderEliza" min="0" max="100" value=""><p>Value: <span id="slideroutputEliza"></span></p><br>
+                    <input form="survey" type="range" class="slider" name="scoreEliza" id="sliderEliza" min="0" max="100" value="" oninput="sliderValue(0)"><p><span name="slideroutput">Please select a value!</span></p><br>
 
-                    <script>
-                        var sliderEliza = document.getElementById("sliderEliza");
-                        var outputEliza = document.getElementById("slideroutputEliza");
-                        outputEliza.innerHTML = sliderEliza.value;
-
-                        sliderEliza.oninput = function() {
-                        outputEliza.innerHTML = this.value;
-                            }
-                    </script>
 
                     <b>Did the entity express emotions appropriately? </b><br>
                     <input form="survey" type="radio" name="emotionEliza" id="yesEliza" value="yes">
@@ -331,7 +161,7 @@
             <!-- BOT -->
             <div class="mySlides">
 
-                <div class="numbertext" id="bot2">2/3</div>
+                <div class="numbertext" id="bot2"></div>
 
                 <iframe src="https://www.cleverbot.com/en/basic.php" style="margin-top: -200px">
                     <p>Your browser does not support iframes.</p>
@@ -341,21 +171,11 @@
             <!-- SURVEY -->
             <div class="mySlides">
 
-                <div class="numbertext" id="survey2">2/3</div>
+                <div class="numbertext" id="survey2"></div>
                 <div class="start-text">
 
                     <b>Conversational ability score </b> <p> 0 = ‘poor’ machinelike, 50 = ‘good’ (but machinelike), 100 = humanlike)</p>
-                    <input form="survey" type="range" class="slider" name="scoreClever" id="sliderClever" min="0" max="100" value=""><p>Value: <span id="slideroutputClever"></span></p><br>
-
-                    <script>
-                        var sliderClever = document.getElementById("sliderClever");
-                        var outputClever = document.getElementById("slideroutputClever");
-                        outputClever.innerHTML = sliderClever.value;
-
-                        sliderClever.oninput = function() {
-                        outputClever.innerHTML = this.value;
-                            }
-                    </script>
+                    <input form="survey" type="range" class="slider" name="scoreClever" id="sliderClever" min="0" max="100" value="" oninput="sliderValue(1)"><p><span name="slideroutput">Please select a value!</span></p><br>
 
                     <b>Did the entity express emotions appropriately? </b><br>
                     <input form="survey" type="radio" name="emotionClever" id="yesClever" value="yes">
@@ -378,7 +198,7 @@
             <!-- BOT -->
             <div class="mySlides">
 
-                <div class="numbertext" id="bot3">3/3</div>
+                <div class="numbertext" id="bot3"></div>
 
                 <iframe src="https://kakko.pandorabots.com/pandora/talk?botid=c51abb983e345a1d&skin=ucl">
                     <p>Your browser does not support iframes.</p>
@@ -388,21 +208,12 @@
             <!-- SURVEY -->
             <div class="mySlides">
 
-                <div class="numbertext" id="survey3">3/3</div>
+                <div class="numbertext" id="survey3"></div>
                 <div class="start-text">
 
                     <b>Conversational ability score </b> <p> 0 = ‘poor’ machinelike, 50 = ‘good’ (but machinelike), 100 = humanlike)</p>
-                    <input form="survey" type="range" class="slider" name="scoreMitsuku" id="sliderMitsuku" min="0" max="100" value=""><p>Value: <span id="slideroutputMitsuku"></span></p><br>
+                    <input form="survey" type="range" class="slider" name="scoreMitsuku" id="sliderMitsuku" min="0" max="100" value="" oninput="sliderValue(2)"><p><span name="slideroutput">Please select a value!</span></p><br>
 
-                    <script>
-                        var sliderMitsuku = document.getElementById("sliderMitsuku");
-                        var outputMitsuku = document.getElementById("slideroutputMitsuku");
-                        outputMitsuku.innerHTML = sliderMitsuku.value;
-
-                        sliderMitsuku.oninput = function() {
-                        outputMitsuku.innerHTML = this.value;
-                            }
-                    </script>
 
                     <b>Did the entity express emotions appropriately? </b><br>
                     <input form="survey" type="radio" name="emotionMitsuku" id="yesMitsuku" value="yes">
@@ -436,17 +247,8 @@
                 <div class="start-text">
 
                     <b>Conversational ability score </b> <p> 0 = ‘poor’ machinelike, 50 = ‘good’ (but machinelike), 100 = humanlike)</p>
-                    <input form="survey" type="range" class="slider" name="scoreHal" id="sliderHal" min="0" max="100" value=""><p>Value: <span id="slideroutputHal"></span></p><br>
+                    <input form="survey" type="range" class="slider" name="scoreHal" id="sliderHal" min="0" max="100" value="" oninput="sliderValue(3)"><p><span name="slideroutput">Please select a value!</span></p><br>
 
-                    <script>
-                        var sliderHal = document.getElementById("sliderHal");
-                        var outputHal = document.getElementById("slideroutputHal");
-                        outputHal.innerHTML = sliderHal.value;
-
-                        sliderHal.oninput = function() {
-                        outputHal.innerHTML = this.value;
-                            }
-                    </script>
 
                     <b>Did the entity express emotions appropriately? </b><br>
                     <input form="survey" type="radio" name="emotionHal" id="yesHal" value="yes">
@@ -481,6 +283,15 @@
         <div class="prev" onclick="plusSlides(-1)" id="prev">&#10094;</div>
         <div class="next" onclick="plusSlides(1)" id="next">&#10095;</div>
 
+        <!-- Quick navigation between bots -->
+        <div class="botnavi" id="botnavi">
+        <div class="navibutton" onclick="currentSlide(1)">Entity 1</div>
+        <div class="navibutton" onclick="currentSlide(3)">Entity 2</div>
+        <div class="navibutton" onclick="currentSlide(5)">Entity 3</div>
+        <div class="navibutton" onclick="currentSlide(7)">Entity 4</div>
+        <div class="navibutton" onclick="currentSlide(9)">Submit</div>
+    
+        </div>
 
         <div class="iframe-container" id="bye">
             <div class="myWelcome" id="byeText">
@@ -488,223 +299,16 @@
                 <div class="greeting">Thank You</div>
                 <div class="start-text">
                     <p>
-                       Thank you for taking part in our study and for submitting your survey data.
+                        Thank you for taking part in our study and for submitting your survey data.
                     </p>
                 </div>
             </div>
 
         </div>
 
-
-
         <!-- Script for dynamic behaviour -->
-        <script>
-        var slideIndex = 1;
-        var welcomeIndex = 1;
-        var random = new Array(document.getElementsByClassName("mySlides").length);
+        <script src="ChatbotsDynamic.js"></script>
 
-        //Setup Function
-        function setup() {
-            //display welcome screen
-                document.getElementById("welcome").style.display = "block";
-                document.getElementById("firstWelcome").style.display = "block";
-
-            //fill the random array
-            for (var i=0; i<random.length; i++) {
-                random[i] = i;
-            }
-
-            //initialise Eliza
-            start();
-
-            //randomise the chatbot order
-            shuffleBots();
-
-        }
-
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyB0hCRQiEMe6IHuIjDdh0vufIMDaG9xyag",
-            authDomain: "chatbotdatabase-da33b.firebaseapp.com",
-            databaseURL: "https://chatbotdatabase-da33b.firebaseio.com",
-            projectId: "chatbotdatabase-da33b",
-            storageBucket: "chatbotdatabase-da33b.appspot.com",
-            messagingSenderId: "510893789563"
-        };
-        firebase.initializeApp(config);
-
-        //Randomise the chatbot order
-        function shuffleBots() {
-            var slides = document.getElementsByClassName("mySlides");
-            var length = (slides.length - 1) / 2 ;
-            var renumber = document.getElementsByClassName("numbertext");
-            var j, x, i;
-
-
-            for (i = length - 1; i > 0; i--) {
-                j = Math.floor(Math.random() * (i + 1));
-                x = random[2*i];
-                random[2*i] = random[2*j];
-                random[2*i+1] = random[2*i]+1;
-                random[2*j] = x;
-                random[2*j+1] = random[2*j] + 1;
-                }
-
-            //Number the bots in the right order
-            for (i = 0; i<length; i++) {
-                var j = i + 1;
-                renumber[random[2*i]].innerHTML = "Entity " + j + "/" + length;
-                renumber[random[2*i+1]].innerHTML = "Survey " + j + "/" + length;
-            }
-
-        }
-
-        //Next Welcome screen
-        function nextWelcome() {
-            var i;
-            welcomeIndex++;
-            var slides = document.getElementsByClassName("myWelcome");
-
-            for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
-            slides[welcomeIndex-1].style.display = "block";
-
-        }
-
-        //Display the chat bots and survey
-        function startStudy() {
-
-        if(checkInfos()) {
-            document.getElementById("welcome").style.display = "none";
-            document.getElementById("warning1").style.display = "none";
-            document.getElementById("bots").style.display = "block";
-            document.getElementById("next").style.display = "block";
-            showSlides(slideIndex);
-        }
-        else {
-            document.getElementById("warning1").style.display = "block";
-        }
-
-        }
-
-        //Check if all personal information have been entered
-        function checkInfos() {
-
-            for(var i=0;i<4;i++) {
-                if(document.getElementById("survey").elements.item(i).checked == true) {
-                    if (document.getElementById("survey").elements.item(5).checked == true || document.getElementById("survey").elements.item(6).checked == true )
-                        {
-                            return true;
-                        }
-                    else {return false;};
-                }
-                else if (document.getElementById("survey").elements.item(i).checked == false && i == 3) {
-                    return false;
-                }
-            }
-
-
-            return false;
-        }
-
-
-        //Next slide
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-
-            }
-
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-            }
-
-        //Display Slides
-        function showSlides(n) {
-            var i;
-            var slides = document.getElementsByClassName("mySlides");
-
-            if (slideIndex > 1) {
-                document.getElementById("prev").style.display = "block";
-                }
-            else {
-                document.getElementById("prev").style.display = "none";
-            }
-
-           if (slideIndex < slides.length) {
-                document.getElementById("next").style.display = "block";
-                }
-            else {
-                document.getElementById("next").style.display = "none";
-            }
-
-            if (n > slides.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = slides.length}
-            for (i = 0; i < slides.length; i++) {
-                slides[random[i]].style.display = "none";
-                }
-
-            slides[random[slideIndex-1]].style.display = "block";
-
-            }
-
-        //Submit all survey forms at once
-
-        var messagesRef = firebase.database().ref('data');
-
-        function submitForms(){
-
-              //Define length of data array, only ticked elements should count but ...elements.length gets the number of all elements
-              var numberofelements = document.getElementById("survey").elements.length;
-              var data = new Array (numberofelements - (document.getElementsByClassName("mySlides").length-1)/2 - 4);
-              var j = 0;
-                    for (var i = 0; i<numberofelements; i++) {
-
-                        var currentItem = document.getElementById("survey").elements.item(i);
-                        var nextItem = document.getElementById("survey").elements.item(i+1);
-
-                        if(currentItem.checked == true || currentItem.tagName == "TEXTAREA" || currentItem.tagName == "SELECT") {
-                            data[j] = currentItem.value;
-                            if(!currentItem.value) {
-                                data[j] = "-";
-                            }
-                            j++;
-                        }
-                        else {
-                            if (currentItem.value >= 0)
-                                {
-                                    data[j] = currentItem.value;
-                                    j++;
-                                }
-                            else if (currentItem.checked == false && nextItem.checked == false && i>6) {
-                                    data[j] = "-";
-                                    j++;
-                                    i++;
-                            }
-                        }
-
-                    }
-
-            //Submit data to firebase
-            var newMessageRef = messagesRef.push();
-            newMessageRef.set(data);
-
-            //Hide last
-            document.getElementById("bots").style.display = "none";
-            document.getElementById("next").style.display = "none";
-            document.getElementById("prev").style.display = "none";
-
-
-            //Show submit confirmation
-            document.getElementById("bye").style.display = "block";
-            document.getElementById("byeText").style.display = "block";
-            
-        }
-
-
-
-
-        </script>
 </body>
 </html>
 
