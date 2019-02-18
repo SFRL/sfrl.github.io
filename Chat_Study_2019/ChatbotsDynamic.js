@@ -77,11 +77,9 @@
 
         //Get all the the bot Navigation buttons
         var naviButtons = document.getElementsByClassName("navibutton");
-        
+
+
         //Display the chat bots and survey
-
-
-        
         function startStudy() {
 
         if(checkInfos()) {
@@ -157,8 +155,6 @@
             
             naviButtons[Math.floor((slideIndex-1)/2)].style.display = "inline-block";
             }
-
-
 
         //Display slider values
         var sliders = document.getElementsByClassName("slider");
@@ -247,6 +243,10 @@
             
                 case 6:
                 botOrder = botOrder + " " + "UltraHal";
+                break;
+
+                case 8:
+                botOrder = botOrder + " " + "Colombina";
                 }
 
             }
@@ -259,7 +259,7 @@
                     a_Gender: data[0],
                     b_Age: data[1],
                     c_Native_English: data[2],
-                    d_Chatbot_Order: data[15],
+                    d_Chatbot_Order: data[18],
                     e_Eliza_Score: data[3],
                     f_Eliza_Emotion: data[4],
                     g_Eliza_Comment: data[5],
@@ -271,7 +271,10 @@
                     m_Mitsuku_Comment: data[11],
                     n_UltraHal_Score: data[12],
                     o_UltraHal_Emotion: data[13],
-                    p_UltraHal_Comment: data[14]
+                    p_UltraHal_Comment: data[14],
+                    q_Colombina_Score: data[15],
+                    r_Colombina_Emotion: data[16],
+                    s_Colombina_Comment: data[17]
 
                     });
 
