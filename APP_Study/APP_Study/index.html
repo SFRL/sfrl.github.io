@@ -1,0 +1,472 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>APP Study</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+
+</head>
+
+<body onload="setup()" onresize="sizeMain()">
+
+
+    <div class="header">
+        <img src="logo.gif" id="logo" alt="">
+        <h1>&nbsp;Audience Experience of New Media Dance Performances</h1>
+    </div>
+    
+    <!-- Pages -->
+    <!-- Introduction -->
+    <div class="page" id="introduction">
+        <div class="main">
+            <h1>Introduction</h1>
+            <p>
+                We would like to invite you to be part of this research project, if you would like to. You should only agree to take part if you want to, it is entirely up to you.
+                If you choose not to take part there won’t be any disadvantages for you and you will hear no more about it.<br>
+                Please read the following information carefully before you decide to take part;
+                this will tell you why the research is being done and what you will be asked to do if you take part. <br>
+                If you decide to take part, on the next page you will be asked that confirm your consent.<br>
+                You are still free to withdraw at any time and without giving a reason by simply leaving the study.<br><br>
+                We are conducting this research as part of the postgraduate course "Media and Arts Technology" at Queen Mary University London. <br><br><br>
+                <b>Instructions</b><br><br>
+
+                This study aims to find out more about the audience experience of dance performances that include new media.
+                You will be presented with a short video of a recorded performance. You will only be able to watch this performance once,
+                so please make sure that you are in a calm environment where you can focus on both video and sound.
+                During the video you will be asked to indicate which parts of the performance you find especially noteworthy by clicking a button.
+                After you have watched the video, you will be asked to answer a few questions about the performance.
+                This study should take about 5 minutes and it is advised to complete it on a desktop computer or laptop.
+                The survey might not function properly on a mobile device. <br><br>
+
+                It is up to you to decide whether or not to take part. If you do decide to take part please click “Next”. You will be asked to confirm your consent on the next page.<br><br>
+                If you have any questions or concerns about the manner in which the study was conducted please, in the first instance, contact the researcher responsible for the study
+
+                Sebastian L&ouml;bbers
+                - <a href="mailto:s.lobbers@qmul.ac.uk?Subject=New%20Media%20Dance%20Study%202019" target="_top">s.lobbers@qmul.ac.uk</a>
+            </p>
+
+        </div>
+        <div class="navi">
+            <div class="button" onclick="nextPage()">Next</div>
+        </div>
+
+    </div>
+
+    <!-- Consent -->
+    <div class="page" id="introduction">
+        <div class="main">
+            <h1>Consent</h1>
+            <p>
+                Please give your consent below after you have read the Participant Information about the research on the previous page. <br><br>
+                Title of Study: Audience Experience of New Media Dance Performance<br>
+                Queen Mary Ethics of Research Committee Ref: --------<br><br>
+
+                Thank you for considering taking part in this research. The people organising the research must explain the project to you before you agree to take part.
+                If you have any questions arising from the Participant Information  or other  explanation already given to you, please ask the researchers before you decide whether to join in.<br>
+                <ul>
+                    <li>I understand that if I decide at any other time during the research that I no longer wish to participate in this project, I can withdraw from it immediately by simply closing the page or leaving the survey.<br> </li>
+                    <li>I consent to the processing of my personal information for the purposes of this research study. I understand that such information will be treated as strictly confidential and handled in accordance with the provisions of the Data Protection Act 1998.<br></li>
+                    <li>I confirm to be age 18 or older.</li>
+                    <li>I agree that the research project named above has been explained to me to my satisfaction and I agree to take part in the study. I have read both the notes written above and the Participant Information on the previous page about the project, and understand what the research study involves.<br></li>
+                </ul>
+            </p>
+        </div>
+        <div class="navi">
+            <div class="button" onclick="nextPage()">Next</div>
+        </div>
+    </div>
+
+        <!-- Participant Information -->
+        <div class="page" id="participantInfo">
+            <div class="main">
+                <h1>Personal Information</h1>
+                <p>
+                    Please enter some of your personal information below. These are required for analysing the study data. <br>
+                </p>
+                <form name="submit-to-google-sheet" method="post" enctype="text/plain" id="survey">
+
+                        <b>Gender?</b>
+                        <div class="menuGroup">
+                            <div class="custom-select" style="width:200px;">
+                                <select name="gender">
+                                    <option value="0">Please select</option>
+                                    <option value="female">Female</option>
+                                    <option value="male">Male</option>
+                                    <option value="other">Other</option>
+                                    <option value="prefernottosay">Prefer not to say</option>
+                                </select>
+                            </div>
+                        </div>
+                        <b>Age?</b>
+                        <div class="menuGroup">
+                            <div class="custom-select" style="width:200px">
+                                <select name="age">
+                                    <option value="0">Please select</option>
+                                    <option value="18-25">18-25</option>
+                                    <option value="26-33">26-33</option>
+                                    <option value="34-41">34-41</option>
+                                    <option value="42-49">42-49</option>
+                                    <option value="50+">50+</option>
+                                </select>
+                            </div>
+                        </div>
+                        <b class="buttonGroup">How often do you engage with dance?</b><br>
+                        <i class="buttonGroup">e.g.: how often do you go to see performances or take dance lessons etc.</i><br>
+                        <div class=" = buttonGroup">
+                            <label class="container">
+                                Never
+                                <input type="radio" name="interestDance" form="survey" value="0">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container">
+                                Very Rarely
+                                <input type="radio" name="interestDance" form="survey" value="1">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container">
+                                Rarely
+                                <input type="radio" name="interestDance" form="survey" value="2">
+                                <span class="checkmark"></span>
+
+                            </label>
+                            <label class="container">
+                                Sometimes
+                                <input type="radio" name="interestDance" form="survey" value="3">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container">
+                                Often
+                                <input type="radio" name="interestDance" form="survey" value="4">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container">
+                                Very Often
+                                <input type="radio" name="interestDance" form="survey" value="5">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container">
+                                Regularly
+                                <input type="radio" name="interestDance" form="survey" value="6">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+
+                        <b class="buttonGroup">How often do you engage with new media?</b><br>
+                        <i class="buttonGroup">new media could be anything from virtual reality to spatial audio or interactive art etc.</i><br>
+                        <div class=" = buttonGroup">
+                            <label class="container">
+                                Never
+                                <input type="radio" name="interestMedia" form="survey" value="0">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container">
+                                Very Rarely
+                                <input type="radio" name="interestMedia" form="survey" value="1">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container">
+                                Rarely
+                                <input type="radio" name="interestMedia" form="survey" value="2">
+                                <span class="checkmark"></span>
+
+                            </label>
+                            <label class="container">
+                                Sometimes
+                                <input type="radio" name="interestMedia" form="survey" value="3">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container">
+                                Often
+                                <input type="radio" name="interestMedia" form="survey" value="4">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container">
+                                Very Often
+                                <input type="radio" name="interestMedia" form="survey" value="5">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container">
+                                Regularly
+                                <input type="radio" name="interestMedia" form="survey" value="6">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                </form>
+            </div>
+            <div class="navi">
+                <div class="button" onclick="nextPage()">Next</div>
+            </div>
+
+        </div>
+
+        <!-- Video Playback and live evaluation -->
+
+        <div class="page" id="liveEvaluation">
+
+            <div class="main" id="videoContainer">
+                <div class="video" id="player">
+                    <h1>Video and real-time assessment</h1>
+                    <p>
+                        This is the first part of the study. You will be presented with a 2:40 min long video of a dance performance.
+                        While watching the video please indicate that you find a specific moment in the performance noteworthy by clicking the button below the video.
+                        Noteworthy could be a moment that shows a pleasing movement, great synchronity between dance and music or anything else with a positive connotation.
+                        The video will start automatically once you press "start Video" and cannot be stopped or rewound, so please pay attention.
+                        Once the video stopped playing you can proceed to the next stage of the study by clicking the button.
+                    </p>
+                </div>
+                <table class="timeline">
+                    <tr id="row1">
+                        <!-- Fields are inserted with JS -->
+                    </tr>
+                </table>
+            </div>
+
+
+            <div class="navi" id="rating">
+                <div class="button" id="ratingButton" onclick="ratingButtonClicked()">Start</div>
+            </div>
+
+        </div>
+
+        <!-- Post-hoc survey-->
+        <div class="page" id="postEvaluation">
+
+            <div class="main">
+                <h1>Survey</h1>
+
+                <b class="buttonGroup">How did you enjoy the performance?</b><br>
+                <i class="buttonGroup">give an overall feedback on wether you liked the video or not</i><br>
+                <div class=" = buttonGroup">
+                    <label class="container">
+                        0 - not at all
+                        <input type="radio" name="enjoy" form="survey" value="0">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        1
+                        <input type="radio" name="enjoy" form="survey" value="1">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        2
+                        <input type="radio" name="enjoy" form="survey" value="2">
+                        <span class="checkmark"></span>
+
+                    </label>
+                    <label class="container">
+                        3 - neutral
+                        <input type="radio" name="enjoy" form="survey" value="3">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        4
+                        <input type="radio" name="enjoy" form="survey" value="4">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        5
+                        <input type="radio" name="enjoy" form="survey" value="5">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        6 - absolutely
+                        <input type="radio" name="enjoy" form="survey" value="6">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+
+                <b>What did you focus on the most?</b>
+                <div class="menuGroup">
+                    <div class="custom-select" style="width:200px">
+                        <select name="age" form="survey">
+                            <option value="0">Please select</option>
+                            <option value="dance">Dance</option>
+                            <option value="visual">Visual Interface</option>
+                            <option value="music">Music</option>
+                            <option value="all">Equal focus on all components</option>
+                        </select>
+                    </div>
+                </div>
+                
+
+                <b class="buttonGroup">Do you think that all components of the performances were connected well</b><br>
+                <i class="buttonGroup">Did the dance, the visual projection and the music all seem in-tune or did they seem unrelated to each other?</i><br>
+                <div class=" = buttonGroup">
+                    <label class="container">
+                        0 - not at all
+                        <input type="radio" name="connection" form="survey" value="0">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        1
+                        <input type="radio" name="connection" form="survey" value="1">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        2
+                        <input type="radio" name="connection" form="survey" value="2">
+                        <span class="checkmark"></span>
+
+                    </label>
+                    <label class="container">
+                        3 - neutral
+                        <input type="radio" name="connection" form="survey" value="3">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        4
+                        <input type="radio" name="connection" form="survey" value="4">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        5
+                        <input type="radio" name="connection" form="survey" value="5">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        6 - absolutely
+                        <input type="radio" name="connection" form="survey" value="6">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+                <b class="buttonGroup">Do you think the dance movements went along well with the projected visuals?</b><br>
+                <i class="buttonGroup">Were they in-tune witch each other, were they synchronised well or did they seem unlinked from each other</i><br>
+                <div class=" = buttonGroup">
+                    <label class="container">
+                        0 - not at all
+                        <input type="radio" name="syncVisual" form="survey" value="0">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        1
+                        <input type="radio" name="syncVisual" form="survey" value="1">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        2
+                        <input type="radio" name="syncVisual" form="survey" value="2">
+                        <span class="checkmark"></span>
+
+                    </label>
+                    <label class="container">
+                        3 - neutral
+                        <input type="radio" name="syncVisual" form="survey" value="3">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        4
+                        <input type="radio" name="syncVisual" form="survey" value="4">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        5
+                        <input type="radio" name="syncVisual" form="survey" value="5">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        6 - absolutely
+                        <input type="radio" name="syncVisual" form="survey" value="6">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+                <b class="buttonGroup">Do you think the dance movements went along well with the music?</b><br>
+                <i class="buttonGroup">Did movement and music match? </i><br>
+                <div class=" = buttonGroup">
+                    <label class="container">
+                        0 - not at all
+                        <input type="radio" name="syncMusic" form="survey" value="0">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        1
+                        <input type="radio" name="syncMusic" form="survey" value="1">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        2
+                        <input type="radio" name="syncMusic" form="survey" value="2">
+                        <span class="checkmark"></span>
+
+                    </label>
+                    <label class="container">
+                        3 - neutral
+                        <input type="radio" name="syncMusic" form="survey" value="3">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        4
+                        <input type="radio" name="syncMusic" form="survey" value="4">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        5
+                        <input type="radio" name="syncMusic" form="survey" value="5">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                        6 - absolutely
+                        <input type="radio" name="syncMusic" form="survey" value="6">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+
+
+
+
+
+            </div>
+
+            <div class="navi">
+                <div class="button" onclick="nextPage()">Next</div>
+
+            </div>
+
+        </div>
+
+        <!-- Comments -->
+        <div class="page">
+            <div class="main">
+                <h1>Survey</h1>
+                <b>Positive Feedback</b><br>
+                <i class="buttonGroup">Please name something that you liked about the performance</i><br>
+                <textarea form="survey" name="comments" rows="4" cols="55"></textarea><br>
+
+                <b>Negative Feeback</b><br>
+                <i class="buttonGroup">Please name something that you disliked about the performance or think that can be improved</i><br>
+                <textarea form="survey" name="comments" rows="4" cols="55"></textarea><br>
+
+                <b>General Comments</b><br>
+                <i class="buttonGroup">Any sort of additional feedback is very appreciated. You could comment on how well you think you understood the system.</i><br>
+                <textarea form="survey" name="comments" rows="14" cols="55"></textarea><br>
+
+            </div>
+
+            <div class="navi">
+                <div class="button" onclick="submit()">Submit</div>
+
+            </div>
+            
+        </div>
+
+        <!-- Thank you! -->
+        <div class="page" id="submission">
+            <div class="main">
+                <h1>Thank you!</h1>
+                Thank you for participating!
+            </div>
+            <div class="navi">
+
+            </div>
+
+        </div>
+        <script src="dynamic.js"></script>
+</body>
+
+</html>
