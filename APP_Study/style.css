@@ -26,8 +26,8 @@
 
 @font-face {
     font-family: 'StencilCreek-50';
-    src: url('http://www.mat.qmul.ac.uk/wp-content/themes/mat/webfonts/3249EE_0_0.eot');
-    src: url('http://www.mat.qmul.ac.uk/wp-content/themes/mat/webfonts/3249EE_0_0.eot?#iefix') format('embedded-opentype'),url('http://www.mat.qmul.ac.uk/wp-content/themes/mat/webfonts/3249EE_0_0.woff2') format('woff2'),url('http://www.mat.qmul.ac.uk/wp-content/themes/mat/webfonts/3249EE_0_0.woff') format('woff'),url('http://www.mat.qmul.ac.uk/wp-content/themes/mat/webfonts/3249EE_0_0.ttf') format('truetype');
+    src: url(3249EE_0_0.eot);
+    src: url(3249EE_0_0.eot?#iefix) format('embedded-opentype'),url(3249EE_0_0.woff2) format('woff2'),url(3249EE_0_0.woff) format('woff'),url(3249EE_0_0.ttf) format('truetype');
 }
 
 html {
