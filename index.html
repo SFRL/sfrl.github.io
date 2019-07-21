@@ -1,472 +1,767 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<html>
 <head>
-    <meta charset="utf-8" />
-    <title>APP Study</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="origin">
+<title>Sebastian L&ouml;bbers - Musician and Digital Artist</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+    <!-- Intro Animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+    <script src="cubes.js"></script>
 
 </head>
+<body>
 
-<body onload="setup()" onresize="sizeMain()">
+  <!-- Navigation Bar !-->
+  <div id="nav" class="topnav">
+          <a href="#home" class="left" style="padding: 6px 16px" onclick="navi()"><img class="logo" src="logo_thumb.png"></a>
+          <a href="#art" class="left" onclick="navi()">Projects</a>
+          <a href="#comp" class="left" onclick="navi()">Composition</a>
+          <a href="#bio" class="left" onclick="navi()">Bio</a>
+          <a href="#contact" class="left" onclick="navi()">Contact</a>
+          <a href="https://www.instagram.com/sebastianlobbers/" class="fa fa-instagram right" target="_blank" onclick="navi()"></a>
+          <a href="https://soundcloud.com/sebastian-l-bbers" class="fa fa-soundcloud right" target="_blank" onclick="navi()"></a>
+          <a href="https://vimeo.com/user66832951" class="fa fa-vimeo right" target="_blank" onclick="navi()"></a>
+          <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="navi()">&#9776;</a>
+</div>
+
+<script>
+function navi() {
+    var x = document.getElementById("nav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+    }
+
+</script>
+
+    <!-- Title Page !-->
+
+    <div class="page center" id="home">
+        <div style="display: block"> 
+            
+               <div id="cubes" class="canvas center"><div id="loading" class="loader"></div></div> 
 
 
-    <div class="header">
-        <img src="logo.gif" id="logo" alt="">
-        <h1>&nbsp;Audience Experience of New Media Dance Performances</h1>
-    </div>
-    
-    <!-- Pages -->
-    <!-- Introduction -->
-    <div class="page" id="introduction">
-        <div class="main">
-            <h1>Introduction</h1>
-            <p>
-                We would like to invite you to be part of this research project, if you would like to. You should only agree to take part if you want to, it is entirely up to you.
-                If you choose not to take part there won’t be any disadvantages for you and you will hear no more about it.<br>
-                Please read the following information carefully before you decide to take part;
-                this will tell you why the research is being done and what you will be asked to do if you take part. <br>
-                If you decide to take part, on the next page you will be asked that confirm your consent.<br>
-                You are still free to withdraw at any time and without giving a reason by simply leaving the study.<br><br>
-                We are conducting this research as part of the postgraduate course "Media and Arts Technology" at Queen Mary University London. <br><br><br>
-                <b>Instructions</b><br><br>
-
-                This study aims to find out more about the audience experience of dance performances that include new media.
-                You will be presented with a short video of a recorded performance. You will only be able to watch this performance once,
-                so please make sure that you are in a calm environment where you can focus on both video and sound.
-                During the video you will be asked to indicate which parts of the performance you find especially noteworthy by clicking a button.
-                After you have watched the video, you will be asked to answer a few questions about the performance.
-                This study should take about 5 minutes and it is advised to complete it on a desktop computer or laptop.
-                The survey might not function properly on a mobile device. <br><br>
-
-                It is up to you to decide whether or not to take part. If you do decide to take part please click “Next”. You will be asked to confirm your consent on the next page.<br><br>
-                If you have any questions or concerns about the manner in which the study was conducted please, in the first instance, contact the researcher responsible for the study
-
-                Sebastian L&ouml;bbers
-                - <a href="mailto:s.lobbers@qmul.ac.uk?Subject=New%20Media%20Dance%20Study%202019" target="_top">s.lobbers@qmul.ac.uk</a>
-            </p>
-
-        </div>
-        <div class="navi">
-            <div class="button" onclick="nextPage()">Next</div>
-        </div>
-
-    </div>
-
-    <!-- Consent -->
-    <div class="page" id="introduction">
-        <div class="main">
-            <h1>Consent</h1>
-            <p>
-                Please give your consent below after you have read the Participant Information about the research on the previous page. <br><br>
-                Title of Study: Audience Experience of New Media Dance Performance<br>
-                Queen Mary Ethics of Research Committee Ref: --------<br><br>
-
-                Thank you for considering taking part in this research. The people organising the research must explain the project to you before you agree to take part.
-                If you have any questions arising from the Participant Information  or other  explanation already given to you, please ask the researchers before you decide whether to join in.<br>
-                <ul>
-                    <li>I understand that if I decide at any other time during the research that I no longer wish to participate in this project, I can withdraw from it immediately by simply closing the page or leaving the survey.<br> </li>
-                    <li>I consent to the processing of my personal information for the purposes of this research study. I understand that such information will be treated as strictly confidential and handled in accordance with the provisions of the Data Protection Act 1998.<br></li>
-                    <li>I confirm to be age 18 or older.</li>
-                    <li>I agree that the research project named above has been explained to me to my satisfaction and I agree to take part in the study. I have read both the notes written above and the Participant Information on the previous page about the project, and understand what the research study involves.<br></li>
-                </ul>
-            </p>
-        </div>
-        <div class="navi">
-            <div class="button" onclick="nextPage()">Next</div>
+              <div class="headline"><p>Sebastian L&ouml;bbers - Musician and Digital Artist</p></div> 
         </div>
     </div>
 
-        <!-- Participant Information -->
-        <div class="page" id="participantInfo">
-            <div class="main">
-                <h1>Personal Information</h1>
-                <p>
-                    Please enter some of your personal information below. These are required for analysing the study data. <br>
-                </p>
-                <form name="submit-to-google-sheet" method="post" enctype="text/plain" id="survey">
+<!-- Art Projects !-->
+ 
+<div class="title" id="art">Projects</div>
 
-                        <b>Gender?</b>
-                        <div class="menuGroup">
-                            <div class="custom-select" style="width:200px;">
-                                <select name="gender">
-                                    <option value="0">Please select</option>
-                                    <option value="female">Female</option>
-                                    <option value="male">Male</option>
-                                    <option value="other">Other</option>
-                                    <option value="prefernottosay">Prefer not to say</option>
-                                </select>
-                            </div>
-                        </div>
-                        <b>Age?</b>
-                        <div class="menuGroup">
-                            <div class="custom-select" style="width:200px">
-                                <select name="age">
-                                    <option value="0">Please select</option>
-                                    <option value="18-25">18-25</option>
-                                    <option value="26-33">26-33</option>
-                                    <option value="34-41">34-41</option>
-                                    <option value="42-49">42-49</option>
-                                    <option value="50+">50+</option>
-                                </select>
-                            </div>
-                        </div>
-                        <b class="buttonGroup">How often do you engage with dance?</b><br>
-                        <i class="buttonGroup">e.g.: how often do you go to see performances or take dance lessons etc.</i><br>
-                        <div class=" = buttonGroup">
-                            <label class="container">
-                                Never
-                                <input type="radio" name="interestDance" form="survey" value="0">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container">
-                                Very Rarely
-                                <input type="radio" name="interestDance" form="survey" value="1">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container">
-                                Rarely
-                                <input type="radio" name="interestDance" form="survey" value="2">
-                                <span class="checkmark"></span>
+    <div class="page" >
 
-                            </label>
-                            <label class="container">
-                                Sometimes
-                                <input type="radio" name="interestDance" form="survey" value="3">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container">
-                                Often
-                                <input type="radio" name="interestDance" form="survey" value="4">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container">
-                                Very Often
-                                <input type="radio" name="interestDance" form="survey" value="5">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container">
-                                Regularly
-                                <input type="radio" name="interestDance" form="survey" value="6">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-
-                        <b class="buttonGroup">How often do you engage with new media?</b><br>
-                        <i class="buttonGroup">new media could be anything from virtual reality to spatial audio or interactive art etc.</i><br>
-                        <div class=" = buttonGroup">
-                            <label class="container">
-                                Never
-                                <input type="radio" name="interestMedia" form="survey" value="0">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container">
-                                Very Rarely
-                                <input type="radio" name="interestMedia" form="survey" value="1">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container">
-                                Rarely
-                                <input type="radio" name="interestMedia" form="survey" value="2">
-                                <span class="checkmark"></span>
-
-                            </label>
-                            <label class="container">
-                                Sometimes
-                                <input type="radio" name="interestMedia" form="survey" value="3">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container">
-                                Often
-                                <input type="radio" name="interestMedia" form="survey" value="4">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container">
-                                Very Often
-                                <input type="radio" name="interestMedia" form="survey" value="5">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container">
-                                Regularly
-                                <input type="radio" name="interestMedia" form="survey" value="6">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                </form>
-            </div>
-            <div class="navi">
-                <div class="button" onclick="nextPage()">Next</div>
-            </div>
-
-        </div>
-
-        <!-- Video Playback and live evaluation -->
-
-        <div class="page" id="liveEvaluation">
-
-            <div class="main" id="videoContainer">
-                <div class="video" id="player">
-                    <h1>Video and real-time assessment</h1>
-                    <p>
-                        This is the first part of the study. You will be presented with a 2:40 min long video of a dance performance.
-                        While watching the video please indicate that you find a specific moment in the performance noteworthy by clicking the button below the video.
-                        Noteworthy could be a moment that shows a pleasing movement, great synchronity between dance and music or anything else with a positive connotation.
-                        The video will start automatically once you press "start Video" and cannot be stopped or rewound, so please pay attention.
-                        Once the video stopped playing you can proceed to the next stage of the study by clicking the button.
-                    </p>
+        <!-- Blobbox !-->
+        <div class="container" onclick="">
+            <img src="blobbox.jpg" alt="Tile" class="image">
+            <div class="overlay">
+                <div class="text">
+                    <i>BLOBBOX</i> is an ongoing project that explores human-machine interaction. The user can place their hands inside of a physical box
+                    to interact with a digital blob-shaped object. This blob can be moved around, deformed, torn apart and reconstructed while producing sound according to its current state.
                 </div>
-                <table class="timeline">
-                    <tr id="row1">
-                        <!-- Fields are inserted with JS -->
-                    </tr>
-                </table>
+                <div class="link">
+                    <!-- Trigger/Open The Modal Blobbox !-->
+                    <a href="#art" id="blobbox" class="fa fa-youtube" onclick="blobboxmodal.style.display='block'"></a>
+
+
+                </div>
             </div>
-
-
-            <div class="navi" id="rating">
-                <div class="button" id="ratingButton" onclick="ratingButtonClicked()">Start</div>
-            </div>
-
         </div>
 
-        <!-- Post-hoc survey-->
-        <div class="page" id="postEvaluation">
-
-            <div class="main">
-                <h1>Survey</h1>
-
-                <b class="buttonGroup">How did you enjoy the performance?</b><br>
-                <i class="buttonGroup">give an overall feedback on wether you liked the video or not</i><br>
-                <div class=" = buttonGroup">
-                    <label class="container">
-                        0 - not at all
-                        <input type="radio" name="enjoy" form="survey" value="0">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        1
-                        <input type="radio" name="enjoy" form="survey" value="1">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        2
-                        <input type="radio" name="enjoy" form="survey" value="2">
-                        <span class="checkmark"></span>
-
-                    </label>
-                    <label class="container">
-                        3 - neutral
-                        <input type="radio" name="enjoy" form="survey" value="3">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        4
-                        <input type="radio" name="enjoy" form="survey" value="4">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        5
-                        <input type="radio" name="enjoy" form="survey" value="5">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        6 - absolutely
-                        <input type="radio" name="enjoy" form="survey" value="6">
-                        <span class="checkmark"></span>
-                    </label>
+        <!-- Dance !-->
+        <div class="container" onclick="">
+            <img src="Dance.jpg" alt="Tile" class="image">
+            <div class="overlay">
+                <div class="text">
+                    <i>`•†• ́</i> is an interactive dance and live-coding piece that explores various levels of computer communication.
+                    The piece attempts to ‘blur’ the boundaries between human and digital communication by embedding one within the other; 
+                    the human dancer becomes digitised while the live-coding triggers the sound composition, each component feeding off of each other to form a cohesive machine.
                 </div>
 
+                <div class="link">
 
-                <b>What did you focus on the most?</b>
-                <div class="menuGroup">
-                    <div class="custom-select" style="width:200px">
-                        <select name="age" form="survey">
-                            <option value="0">Please select</option>
-                            <option value="dance">Dance</option>
-                            <option value="visual">Visual Interface</option>
-                            <option value="music">Music</option>
-                            <option value="all">Equal focus on all components</option>
-                        </select>
+                    <!-- Trigger/Open The Modal Dance Korea!-->
+                    <a href="#art" id="dancekorea" class="fa fa-vimeo" onclick="dancekoreamodal.style.display='block'"></a>
+
+                    <!-- Trigger/Open The Modal Dance!-->
+                    <a href="#art" id="dance" class="fa fa-vimeo" onclick="dancemodal.style.display='block'"></a>
+                
+                
+                </div>
+            </div>
+        </div>
+
+            <!-- AQ=209 !-->
+            <div class="container" onclick="">
+                <img src="aq.jpg" alt="Tile" class="image">
+                <div class="overlay">
+                    <div class="text">
+                        <i>AQ=209</i> is an interactive audio-visual environment created in Max/MSP/Jitter based on an essay by Megan Miller. 
+                        Taking Reza Negarestani's definition of puppetry in 'Cyclonopedia: complicity with anonymous materials', the project seeks to excavate references to string theory and pataphysics, 
+                        illustrating the entanglment of fiction, theory, and science practice in Earthly narrations.
+                    </div>
+                    <!-- Trigger/Open The Modal Dorothy!-->
+                    <div class="link">
+                        <a href="#art" id="aq" class="fa fa-vimeo" onclick="aqmodal.style.display='block'"></a>
                     </div>
                 </div>
-                
-
-                <b class="buttonGroup">Do you think that all components of the performances were connected well</b><br>
-                <i class="buttonGroup">Did the dance, the visual projection and the music all seem in-tune or did they seem unrelated to each other?</i><br>
-                <div class=" = buttonGroup">
-                    <label class="container">
-                        0 - not at all
-                        <input type="radio" name="connection" form="survey" value="0">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        1
-                        <input type="radio" name="connection" form="survey" value="1">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        2
-                        <input type="radio" name="connection" form="survey" value="2">
-                        <span class="checkmark"></span>
-
-                    </label>
-                    <label class="container">
-                        3 - neutral
-                        <input type="radio" name="connection" form="survey" value="3">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        4
-                        <input type="radio" name="connection" form="survey" value="4">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        5
-                        <input type="radio" name="connection" form="survey" value="5">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        6 - absolutely
-                        <input type="radio" name="connection" form="survey" value="6">
-                        <span class="checkmark"></span>
-                    </label>
-                </div>
-
-                <b class="buttonGroup">Do you think the dance movements went along well with the projected visuals?</b><br>
-                <i class="buttonGroup">Were they in-tune witch each other, were they synchronised well or did they seem unlinked from each other</i><br>
-                <div class=" = buttonGroup">
-                    <label class="container">
-                        0 - not at all
-                        <input type="radio" name="syncVisual" form="survey" value="0">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        1
-                        <input type="radio" name="syncVisual" form="survey" value="1">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        2
-                        <input type="radio" name="syncVisual" form="survey" value="2">
-                        <span class="checkmark"></span>
-
-                    </label>
-                    <label class="container">
-                        3 - neutral
-                        <input type="radio" name="syncVisual" form="survey" value="3">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        4
-                        <input type="radio" name="syncVisual" form="survey" value="4">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        5
-                        <input type="radio" name="syncVisual" form="survey" value="5">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        6 - absolutely
-                        <input type="radio" name="syncVisual" form="survey" value="6">
-                        <span class="checkmark"></span>
-                    </label>
-                </div>
-
-                <b class="buttonGroup">Do you think the dance movements went along well with the music?</b><br>
-                <i class="buttonGroup">Did movement and music match? </i><br>
-                <div class=" = buttonGroup">
-                    <label class="container">
-                        0 - not at all
-                        <input type="radio" name="syncMusic" form="survey" value="0">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        1
-                        <input type="radio" name="syncMusic" form="survey" value="1">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        2
-                        <input type="radio" name="syncMusic" form="survey" value="2">
-                        <span class="checkmark"></span>
-
-                    </label>
-                    <label class="container">
-                        3 - neutral
-                        <input type="radio" name="syncMusic" form="survey" value="3">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        4
-                        <input type="radio" name="syncMusic" form="survey" value="4">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        5
-                        <input type="radio" name="syncMusic" form="survey" value="5">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">
-                        6 - absolutely
-                        <input type="radio" name="syncMusic" form="survey" value="6">
-                        <span class="checkmark"></span>
-                    </label>
-                </div>
-
-
-
-
-
-
             </div>
 
-            <div class="navi">
-                <div class="button" onclick="nextPage()">Next</div>
+
+                <!-- Dorothy !-->
+                <div class="container" onclick="">
+                    <img src="tile1.jpg" alt="Tile" class="image">
+                    <div class="overlay">
+                        <div class="text">
+                            This is a live visual experiment for the British rock band Dorothy Vallens.
+                            The system reacts to the live performance thus creating a synesthetic experience. 
+                            The psychedelic aesthetic reflects the band's musical style. 
+                        </div>
+                        <!-- Trigger/Open The Modal Dorothy!-->
+                        <div class="link">
+                            <a href="#art" id="dorothy" class="fa fa-vimeo" onclick="dorothymodal.style.display='block'"></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- SquareDance !-->
+                <div class="container" onclick="">
+                    <img src="tile5.jpg" alt="Tile" class="image">
+                    <div class="overlay">
+                        <div class="text">
+                            <i>Square_Dance</i> is an interactive dance piece. The dance movements are captured by a <i>Microsoft Kinect</i> and control a digital cube.
+                            Its surface is mapped out as a musical interface. The piece contrasts the traditional hierachy of dance following music and puts the dancer in charge of the
+                            composition.
+
+
+                        </div>
+                        <!-- Trigger/Open The Modal SquareDance-->
+                        <div class="link">
+                            <a href="#art" id="square" class="fa fa-vimeo" onclick="squaremodal.style.display='block'"></a>
+                            <a href="https://www.instagram.com/p/BTHsf81FXVg/?taken-by=sebastianlobbers" target="_blank" id="squareinsta" class="fa fa-instagram"></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Darkblue !-->
+                <div class="container" onclick="">
+                    <img src="tile3.jpg" alt="Tile" class="image">
+                    <div class="overlay">
+                        <div class="text">
+                            <i>D A R K B L U E</i> is an interactive music performance. The structure and individual tracks of a pre-recorded composition are modified with hand movements
+                            that are captured with a <i>Microsoft Kinect</i>. The performer is not bound to a physical interface with sliders and knobs but has a more intimate control over the sound.
+                        </div>
+                        <!-- Trigger/Open The Modal Darkblue!-->
+                        <div class="link">
+                            <a href="#art" id="darkblue" class="fa fa-vimeo" onclick="darkbluemodal.style.display='block'"></a>
+                            <a href="https://www.instagram.com/p/BS7oLF3F_EB/?taken-by=sebastianlobbers" target="_blank" id="darkblueinsta" class="fa fa-instagram"></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Piano Modulation !-->
+                <div class="container" onclick="">
+                    <img src="tile2.jpg" alt="Tile" class="image">
+                    <div class="overlay">
+                        <div class="text">
+                            <i>Piano Modulation</i> juxtaposes analogue and digital sounds.
+                            The source material – a recorded piano theme – is digitally modulated within a custom Max/MSP/Jitter patch.
+                            It explores a possible mode by which a simple sound recording deconstructs and re-arranges itself into a convoluted electronic soundscape.
+                        </div>
+                        <!-- Trigger/Open The Modal Piano!-->
+                        <div class="link">
+                            <a href="#art" id="pianovimeo" class="fa fa-vimeo" onclick="pianovimeomodal.style.display='block'"></a>
+                            <a href="#art" id="piano" class="fa fa-soundcloud" onclick="pianomodal.style.display='block'"></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Raute8x8 !-->
+                <div class="container" onclick="">
+                    <img src="tile4.jpg" alt="Tile" class="image">
+                    <div class="overlay">
+                        <div class="text">
+                            <i>RAUTE8X8</i> is an audio-visual art installation that explores the movement of sound within a modelled space inspired by physical systems. 
+                            It is generated live within Max/MSP/Jitter. 
+                            The composition takes Gy&ouml;rgy Ligeti’s concept of micropolyphony into a digital space where a combination of sine waves, 
+                            noise and live processing create sound in the aesthetics of Noise and Glitch.
+                        </div>
+                        <!-- Trigger/Open The Modal Raute8x8!-->
+                        <div class="link">
+                            <a href="#art" id="raute" class="fa fa-youtube" onclick="rautemodal.style.display='block'"></a>
+                        </div>
+                    </div>
+                </div>
+            <!-- Technosonggenerator !-->
+            <div class="container" onclick="">
+                <img src="techno.jpg" alt="Tile" class="image">
+                <div class="overlay">
+                    <div class="text">
+                        <i>Technosonggenerator</i> is a generative music system realised in Max/MSP. Based on a complex set of rules, the programme builds a song in the style of modern EDM music and
+                        explores the future of music making where composers might write down an algorithm rather than sheet music. 
+                    </div>
+                    <!-- Trigger/Open The Modal Raute8x8!-->
+                    <div class="link">
+                        <a href="#art" id="techno" class="fa fa-youtube" onclick="technomodal.style.display='block'"></a>
+                    </div>
+                </div>
+            </div>
+                </div>
+
+        <!-- Composition !-->
+        <div class="title" id="comp">Composition</div>
+        <div class="page">
+        <!-- The cold Red -->
+        <div class="container" onclick="">
+            <img src="red.jpg" alt="Tile" class="image">
+            <div class="overlay">
+                <div class="text">
+                    <i>The Cold Red</i> is a commissioned 30 minute composition for the dance performance <i>Finding Ego</i> by South Korean dancer and choreographer Yeonsoo Do. The piece consists of three parts that explore different styles of contemporary electronic music.
+                </div>
+
+
+                <div class="link">
+                    <!-- Open link to soundcloud playlist-->
+                    <a href="https://soundcloud.com/sebastian-l-bbers/sets/the-cold-red" target="_blank" id="redsoundcloud" class="fa fa-soundcloud"></a>
+                    <!-- Trigger/Open The Modal Red-->
+                    <a href="#comp" id="red" class="fa fa-youtube" onclick="redmodal.style.display='block'"></a>
+                </div>
+            </div>
+        </div>
+            <!-- You should know better !-->
+            <div class="container" onclick="">
+                <img src="know.jpg" alt="Tile" class="image">
+                <div class="overlay">
+                    <div class="text">
+                        <i>You should know better</i> is a commissioned composition for a short film of the same name by Rory Cargrill. It was first screened in July, 2017 at the Curzon Cinema in New Cross, London.  
+                    </div>
+                    <div class="link">
+                        <a href="#comp" id="piano" class="fa fa-soundcloud" onclick="youmodal.style.display='block'"></a>
+                    </div>
+                </div>
+            </div>
+                <!-- Production Music !-->
+                <div class="container" onclick="">
+                    <img src="production.jpg" alt="Tile" class="image">
+                    <div class="overlay">
+                        <div class="text">
+                            This is a portfolio of library music. It aims to be used in film, commercials or video games. 
+                        </div>
+                        <div class="link">
+                            <a href="https://soundcloud.com/sebastian-l-bbers/sets/production-music-show-reel" target="_blank" id="production" class="fa fa-soundcloud"></a>
+                        </div>
+
+                    </div>
+                </div>
+
+            <!-- It just sort of happens one day !-->
+            <div class="container" onclick="">
+                <img src="sarah.jpg" alt="Tile" class="image">
+                <div class="overlay">
+                    <div class="text">
+                        This piece was composed for the dance performance <i>It just sort of happens one day</i> by Sarah Poekert. The composition entangles ambient field recordings of the City of London 
+                        with a simple piano theme thus creating an myterious, ambient soundscape. 
+                    </div>
+                    <div class="link">
+                        <a href="https://www.instagram.com/p/BTM3qXKFfv_/?taken-by=sebastianlobbers" target="_blank" id="sarah" class="fa fa-instagram"></a>
+                    </div>
+                </div>
+            </div>
+
+                <!-- Nepenthis !-->
+                <div class="container" onclick="">
+                    <img src="tile.jpg" alt="Tile" class="image">
+                    <div class="overlay">
+                        <div class="text">
+                            <i>Nepenthis</i> is my musical side project. It takes a step back from Sonic Art and experiments with popular music. 
+                            All albums have been entirely composed, played and produced by myself with the help of guest musicians and producers. 
+                            In the process, I grew more accustomed to perceiving music production as a creative mean. The genres reach from metal, over shoegaze to experinemtal trip-hop.
+                          </div>
+                       
+                        <div class="link">
+                            <a href="https://nepenthis.bandcamp.com" target="_blank" id="nepenthis" class="fa fa-bandcamp"></a>
+                        </div>
+
+                        </div>
+                       
+                </div>
+
+                <!-- Enderal !-->
+                <div class="container" onclick="">
+                    <img src="enderal.jpg" alt="Tile" class="image">
+                    <div class="overlay">
+                        <div class="text">
+                            This is a piano composition for the award-winning game modifacation <i>Enderal</i> by SureAI. 
+                            It was created to play within the mansion of an old man that is located in a forest within the game.
+                            The piece has been praised by players for significantlly enhaning the game atmosphere.  
+                        </div>
+                        <!-- Trigger/Open The Modal Enderal-->
+                        <div class="link">
+                            <a href="#comp" id="enderal" class="fa fa-youtube" onclick="enderalmodal.style.display='block'"></a>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Videokills !-->
+                <div class="container" onclick="">
+                    <img src="videokills.jpg" alt="Tile" class="image">
+                    <div class="overlay">
+                        <div class="text">
+                            For the <i>Filmfest M&uuml;nchen</i> members of the German metal bands Waldwind and Nebelkr&auml;he formed the music project This Is Not Metal. 
+                            Together they composed a piece to the silent short film <i>Backwards</i> by Susanne Steinmassl and performed it during a screening at the filmfest. 
+                        </div>
+                        <!-- Trigger/Open The Modal Videokills-->
+                        <div class="link">
+                            <a href="#comp" id="videokills" class="fa fa-youtube" onclick="videokillsmodal.style.display='block'"></a>
+                        </div>
+
+                        </div>
+                    </div>
 
             </div>
+      
+        <!-- Biography !-->
+        <div class="title" id="bio">Bio</div>
+            
+    <div class="page flex">
+        <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'About')" id="defaultOpen">About</button>
+            <button class="tablinks" onclick="openCity(event, 'Education')">Education</button>
+            <button class="tablinks" onclick="openCity(event, 'Professional')">Professional</button>
+            <button class="tablinks" onclick="openCity(event, 'Performances')">Performances</button>
+        </div>
+        <div id="About" class="tabcontent">
+            <!-- <img src="bio.jpg" alt="Bio" class="bio"> Can be re-activated later -->
+            <div class="biobar">About</div>
+            <div class="biocontent">Sebastian L&ouml;bbers is a sound artist with a background in classical and jazz piano performance.
+            He attended the Dr. Hoch’s Conservatory in Frankfurt and later studied Music Technology and Electrical Engineering at the Technical University in Munich.
+            He holds a BA in Music Technology from the University of West London and a MMus in Sonic Arts at Goldsmiths, University of London.
+            He was the pianist and guitarist for Bavarian black metal band Waldwind, which toured through Europe and South America.
+            His current work explores music computing and audio-visual relationships with a focus on generative and interactive digital art.
+            In September 2018 he started his PhD in Media and Art Technology at Queen Mary University in London.<br></div>
+
 
         </div>
-
-        <!-- Comments -->
-        <div class="page">
-            <div class="main">
-                <h1>Survey</h1>
-                <b>Positive Feedback</b><br>
-                <i class="buttonGroup">Please name something that you liked about the performance</i><br>
-                <textarea form="survey" name="comments" rows="4" cols="55"></textarea><br>
-
-                <b>Negative Feeback</b><br>
-                <i class="buttonGroup">Please name something that you disliked about the performance or think that can be improved</i><br>
-                <textarea form="survey" name="comments" rows="4" cols="55"></textarea><br>
-
-                <b>General Comments</b><br>
-                <i class="buttonGroup">Any sort of additional feedback is very appreciated. You could comment on how well you think you understood the system.</i><br>
-                <textarea form="survey" name="comments" rows="14" cols="55"></textarea><br>
-
+        <div id="Education" class="tabcontent">
+            <div class="collapsible" id="defaultOpenEduButton">
+                PhD Media and Art Technology 
             </div>
-
-            <div class="navi">
-                <div class="button" onclick="submit()">Submit</div>
-
+            <div class="collapsecontent" id="defaultOpenEdu">
+                Queen Mary, University of London <br>
+                Sept. '18 - ongoing  <br><br>
+                Thesis: Augmented Movement: revealing the mechanisms behind human-machine interaction
+                Research conducted at the Centre for Digital Music (C4DM) that is part of the Department of Computer Science<br>
+            </div>
+            <div class="collapsible">
+                MMus Sonic Arts
+            </div>
+            <div class="collapsecontent">
+                Goldsmiths, University of London<br>
+                Sept. '16 - Oct. '17 <br><br>
+                Thesis: Human machine interaction in audio-visual systems <br>
+                Studies in contemporary sound art and theory, interactive and generative music and composition to moving image<br>
+            </div>
+            <div class="collapsible">
+                BA Music Technology
+            </div>
+            <div class="collapsecontent">
+                University of West London <br>
+                Sept. '15 - Sept. '16 <br><br>
+                Thesis: Generative electronic dance music <br>
+                Studies in future media, experimental music, acoustic and recording techniques, music industry and music education<br>
+            </div>
+            <div class="collapsible">
+                BSc Electrical Engineering
+            </div>
+            <div class="collapsecontent">
+                Technische Universit&auml;t M&uuml;nchen <br>
+                Oct. 2010 – Sept. 2015 <br><br>
+                Incomplete - proceeded to graduate from Music Technology <br>
+                Studies in higher algebra, circuit theory, algorithms and data structure<br>
             </div>
             
         </div>
-
-        <!-- Thank you! -->
-        <div class="page" id="submission">
-            <div class="main">
-                <h1>Thank you!</h1>
-                Thank you for participating!
+        <div id="Professional" class="tabcontent">
+            <div class="collapsible" id="defaultOpenProfButton">
+                Sound Designer and Electronics Developer 
             </div>
-            <div class="navi">
-
+            <div class="collapsecontent" id="defaultOpenProf">
+                Gebr. M&auml;rklin & Cie. GmbH <br>
+                G&ouml;ppingen <br>
+                Dec. '17 - Sept. '18  <br><br>
+                Sound design for model trains including research for authenticity, programming train decoders, 
+                improvement and development of playback logic, development of live synthesis for sound effects (Max/MSP), 
+                administration of the sound library, sound branding; working in a team of sound designer, engineers and programmers<br>
             </div>
+            <div class="collapsible">
+                Composition, Recording and Performance
+            </div>
+            <div class="collapsecontent">
+                Freelance <br>
+                UK and Germany <br>
+                Since 2013 <br><br>
+                Composition for film, dance and video games: live/studio recording and session musician; 
+                Pianist and guitarist for Bavarian Metal Band Waldwind touring through Europe; 
+                live session musician for Infinum and Dorothy Vallens
+                Solo and collaborative performances with custom digital musical instruments and human- machine interfaces<br>
+            </div>
+
 
         </div>
-        <script src="dynamic.js"></script>
-</body>
+        <div id="Performances" class="tabcontent">
 
+            <div class="collapsible" id="defaultOpenYearButton">2018</div>
+            <div class="collapsecontent" id="defaultOpenYear">
+                <table>
+                    <tr>
+                        <td>12/07/18 - </td>
+                        <td>Trinity Laban Graduate Show Case - London, UK - Composition for live dance performance by Yeonsoo Do</td>
+                    </tr>
+                    <tr>
+                        <td>04/05/18 - </td>
+                        <td>Butterfly Effect: 2018 Voices of Korean Contemporary Artists - London, UK - Composition for live dance performance by Yeonsoo Do</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="collapsible">2017</div>
+            <div class="collapsecontent">
+                <table>
+                    <tr>
+                        <td>16/12/17 - </td>
+                        <td>WeSA Festival - Seoul, South Korea - `•†• ́ performance with Yeonsoo Do</td>
+                    </tr>
+                    <tr>
+                        <td>11/09/17 - </td>
+                        <td>MMus Degree Show - London, UK - Audio-Visual collaboration with Ecem Ozkan and Chiyou Ding and `•†• ́ performance with Yeonsoo Do</td>
+                    </tr>
+                    <tr>
+                        <td>23/08/17 - </td>
+                        <td>Electrolights II - London, UK - Interactive dance performance with Megan Miller</td>
+                    </tr>
+                    <tr>
+                        <td>02/07/17 - </td>
+                        <td>Electronik Netwerk - London, UK - Electronic live performance with Ecem Ozkan</td>
+                    </tr>
+                    <tr>
+                        <td>27/05/17 - </td>
+                        <td>Dorothy Vallens Blues - London, UK - Live visual experiment</td>
+                    </tr>
+                    <tr>
+                        <td>10/05/17 - </td>
+                        <td>Interactive and Generative Music concert - London, UK - <i>Square_Dance</i> performance with Megan Miller</td>
+                    </tr>
+                    <tr>
+                        <td>29/04/17 - </td>
+                        <td>Overground Resistance - London, UK - <i>DARKBLUE</i> performance</td>
+                    </tr>
+                    <tr>
+                        <td>21/04-22/04/17 - </td>
+                        <td>The Rough Sketches Project - London, UK - composition for live dance performance by Sarah Poekert</td>
+                    </tr>
+                    <tr>
+                        <td>07/03/17 - </td>
+                        <td>Goldsmiths EMS concert - London, UK - <i>Piano Modulation</i> performance</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="collapsible">2016</div>
+            <div class="collapsecontent">
+                <table>
+                    <tr>
+                        <td>01/12/16 - </td>
+                        <td>Goldsmiths Sonic Art concert - London, UK - Audio-visual performance</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="collapsible">2014</div>
+            <div class="collapsecontent">
+                <table>
+                    <tr>
+                        <td>29/06/14 - </td>
+                        <td>Videokills presented by Filmfest M&uuml;nchen - Munich, Germany - Live performance for silent film with members of Waldwind and Nebelkr&auml;he</td>
+                    </tr>
+                    <tr>
+                        <td>09/05/14 - </td>
+                        <td>BBOA Festival - Bavaria, Germany - Live concert with Waldwind</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="collapsible">2013</div>
+            <div class="collapsecontent">
+                <table>
+                    <tr>
+                        <td>07/02/13 - </td>
+                        <td>Asyl der kleinen K&uuml;nste - Munich, Germany - Solo piano performance</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="collapsible">2012</div>
+            <div class="collapsecontent">
+                <table>
+                    <tr>
+                        <td>26/12-28/12/12 - </td>
+                        <td>Rauhnacht Tour - Munich, Germany | Travagliato, Italy | Lucerne, Switzerland - European tour with Waldwind</td>
+                    </tr>
+                    <tr>
+                        <td>01/06/12 - </td>
+                        <td>Metalfest Open Air - Mining, Austria - Live concert with Waldwind</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="collapsible">2011</div>
+            <div class="collapsecontent">
+                <table>
+                    <tr>
+                        <td>26/07/11 -</td>
+                        <td>Free&amp;Easy Festival - Munich, Germany - Live concert with Waldwind</td>
+                    </tr>
+                    <tr>
+                        <td>23/07/11 - </td>
+                        <td>BBOA Festival - Bavaria, Germany - Live concert with Waldwind</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+            <script>
+
+                    // Get the element with id="defaultOpen" and click on it
+                    document.getElementById("defaultOpen").click();
+                    document.getElementById("defaultOpenYear").style.display = "block";
+                    document.getElementById("defaultOpenYearButton").classList.toggle("collapseactive");
+                    document.getElementById("defaultOpenProf").style.display = "block";
+                    document.getElementById("defaultOpenProfButton").classList.toggle("collapseactive");
+                    document.getElementById("defaultOpenEdu").style.display = "block";
+                    document.getElementById("defaultOpenEduButton").classList.toggle("collapseactive");
+
+                    var coll = document.getElementsByClassName("collapsible");
+                    var i;
+
+                    for (i = 0; i < coll.length; i++) {
+                        coll[i].addEventListener("click", function() {
+                        this.classList.toggle("collapseactive");
+                        var content = this.nextElementSibling;
+                        if (content.style.display === "block") {
+                            content.style.display = "none";
+                        } else {
+                            content.style.display = "block";
+                        }
+                        });
+                        }
+
+
+
+
+                    function openCity(evt, cityName) {
+                    var i, tabcontent, tablinks;
+                    tabcontent = document.getElementsByClassName("tabcontent");
+                    for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                        }
+                    tablinks = document.getElementsByClassName("tablinks");
+                    for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                        }
+                    document.getElementById(cityName).style.display = "block";
+                    evt.currentTarget.className += " active";
+                        }
+
+
+        </script>
+        </div>
+
+            
+        
+   
+        <!-- Contact !-->
+    <div class="title" id="contact">Contact</div>
+   
+    <div class="page flex">
+        
+            <div class="form">
+                If you would like to know more about my work or have other general questions, please use this form to contact me. Thank you!
+            </div>
+        <div class="form">
+            <div class="border">
+                <form action="https://formspree.io/sebastian.lobbers@gmail.com" method="POST" target="_blank">
+                    <input type="text" id="name" name="name" placeholder="Your Name...">
+                    <input type="email" id="email" name="_replyto" placeholder="Your E-Mail...">
+                    <textarea id="subject" name="subject" placeholder="Your Message..." style="height:200px"></textarea>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+                </div>
+     </div>
+
+    
+
+
+        <div class="footer">
+            &copy; Sebastian L&ouml;bbers 2018
+        </div>
+
+
+    <!-- All Modals -->
+
+    <!-- The Modal Blobbox-->
+    <div id="blobboxmodal" class="modal">
+        <!-- Modal content Blobbox-->
+        <div class="modal-content">
+            <span class="close" onclick="stop('blobboxyoutube');blobboxmodal.style.display='none'">&times;</span>
+            <div class="video">
+                <iframe id="blobboxyoutube" width="80%" height="80%" src="https://www.youtube.com/embed/LvlyQzGB4rI" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal Dance-->
+    <div id="dancemodal" class="modal">
+        <!-- Modal content Dance-->
+        <div class="modal-content">
+            <span class="close" onclick="stop('dancevimeo');dancemodal.style.display='none'">&times;</span>
+            <div class="video">
+                <iframe id="dancevimeo" src="https://player.vimeo.com/video/234080192" width="80%" height="80%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- The Modal Dance Korea-->
+    <div id="dancekoreamodal" class="modal">
+        <!-- Modal content Dance-->
+        <div class="modal-content">
+            <span class="close" onclick="stop('dancekoreavimeo');dancekoreamodal.style.display='none'">&times;</span>
+            <div class="video">
+                <iframe id="dancekoreavimeo" src="https://player.vimeo.com/video/255499739" width="80%" height="80%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- The Modal AQ=209-->
+    <div id="aqmodal" class="modal">
+        <!-- Modal content AQ=209-->
+        <div class="modal-content">
+            <span class="close" onclick="stop('aqvimeo');aqmodal.style.display='none'">&times;</span>
+            <div class="video">
+                <iframe id="aqvimeo" src="https://player.vimeo.com/video/229718728" width="80%" height="80%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+        <!-- The Modal SquareDance-->
+        <div id="squaremodal" class="modal">
+            <!-- Modal content SqaureDance-->
+            <div class="modal-content">
+                <span class="close" onclick="stop('squarevimeo');squaremodal.style.display='none'">&times;</span>
+                <div class="video">
+                    <iframe id="squarevimeo" src="https://player.vimeo.com/video/221183260" width="80%" height="80%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <!-- The Modal Dorothy-->
+        <div id="dorothymodal" class="modal">
+            <!-- Modal content Dorothy-->
+            <div class="modal-content">
+                <span class="close" onclick="stop('dorothyvimeo');dorothymodal.style.display='none'">&times;</span>
+                <div class="video">
+                    <iframe id="dorothyvimeo" src="https://player.vimeo.com/video/219407564" width="80%" height="80%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <!-- The Modal Darkblue "-->
+        <div id="darkbluemodal" class="modal">
+            <!-- Modal content Darkblue -->
+            <div class="modal-content">
+                <span class="close" onclick="stop('darkbluevimeo');darkbluemodal.style.display='none'">&times;</span>
+                <div class="video">
+                    <iframe id="darkbluevimeo" src="https://player.vimeo.com/video/218237180" width="80%" height="80%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- The Modal Piano Modulation-->
+        <div id="pianomodal" class="modal">
+            <!-- Modal content Piano Modulation-->
+            <div class="modal-content">
+                <span class="close" onclick="stop('pianosoundcloud');pianomodal.style.display='none'">&times;</span>
+                <div class="video">
+                    <iframe id="pianosoundcloud" width="80%" height="80%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/319008701&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+                </div>
+            </div>
+        </div>
+    <!-- The Modal Piano Modulation Vimeo-->
+    <div id="pianovimeomodal" class="modal">
+        <!-- Modal content Piano Modulation Vimeo-->
+        <div class="modal-content">
+            <span class="close" onclick="stop('pvimeo');pianovimeomodal.style.display='none'">&times;</span>
+            <div class="video">
+                <iframe id="pvimeo" width="80%" height="80%" scrolling="no" frameborder="no" src="https://player.vimeo.com/video/230164800"></iframe>
+            </div>
+        </div>
+    </div>
+        <!-- The Modal Raute8x8-->
+        <div id="rautemodal" class="modal">
+            <!-- Modal content Piano Modulation-->
+            <div class="modal-content">
+                <span class="close" onclick="stop('rauteyoutube');rautemodal.style.display='none'">&times;</span>
+                <div class="video">
+                    <iframe id="rauteyoutube" width="80%" height="80%" src="https://www.youtube.com/embed/3I_tl_3LmlY" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    <!-- The Modal Technosonggenerator-->
+    <div id="technomodal" class="modal">
+        <!-- Modal content Piano Modulation-->
+        <div class="modal-content">
+            <span class="close" onclick="stop('technoyoutube');technomodal.style.display='none'">&times;</span>
+            <div class="video">
+                <iframe id="technoyoutube" width="80%" height="80%" src="https://www.youtube.com/embed/IxazMDFOIso" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- The Modal Red -->
+    <div id="redmodal" class="modal">
+        <!-- Modal Red-->
+        <div class="modal-content">
+            <span class="close" onclick="stop('redyoutube');redmodal.style.display='none'">&times;</span>
+            <div class="video">
+                <iframe id="redyoutube" width="80%" height="80%" src="https://www.youtube.com/embed/W0mIOXJaibI" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+        <!-- The Modal Enderal -->
+        <div id="enderalmodal" class="modal">
+            <!-- Modal content Piano Modulation-->
+            <div class="modal-content">
+                <span class="close" onclick="stop('enderalyoutube');enderalmodal.style.display='none'">&times;</span>
+                <div class="video">
+                    <iframe id="enderalyoutube" width="80%" height="80%" src="https://www.youtube.com/embed/badF7knDy8A" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <!-- The Modal Videokills -->
+        <div id="videokillsmodal" class="modal">
+            <!-- Modal content Piano Modulation-->
+            <div class="modal-content">
+                <span class="close" onclick="stop('videokillsyoutube');videokillsmodal.style.display='none'">&times;</span>
+                <div class="video">
+                    <iframe id="videokillsyoutube" width="80%" height="80%" src="https://www.youtube.com/embed/UwSiz4bL7cI" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    <!-- The Modal You should know better -->
+    <div id="youmodal" class="modal">
+        <!-- Modal content You should know better-->
+        <div class="modal-content">
+            <span class="close" onclick="stop('yousoundcloud');youmodal.style.display='none'">&times;</span>
+            <div class="video">
+                <iframe id="yousoundcloud" width="80%" height="80%" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/339486414&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+
+        <script>
+  function stop(videoname){
+    var iframe = document.getElementById(videoname);
+    iframe.src = iframe.src;
+}
+        </script>
+</body>
 </html>
