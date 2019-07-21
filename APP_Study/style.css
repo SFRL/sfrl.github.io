@@ -1,0 +1,109 @@
+﻿html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: lightgray;
+}
+
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    display: none;
+}
+
+
+.header {
+    height: 40px;
+    width: 98%;
+    max-width: 1500px;
+    border-bottom: 3px solid black;
+    margin: auto;
+    background-color: white;
+    padding-bottom: 10px;
+}
+
+.main {
+    width: 98%;
+    max-width: 1400px;
+    display: block;
+    margin: auto;
+    height: 700px;
+    background-color: white;
+    padding: 50px;
+}
+
+
+table.buttonGroup {
+    width: 490px;
+    text-align: center;
+    display: block;
+    margin-bottom: 20px;
+}
+
+td.buttonGroup {
+    width: 70px;
+}
+
+th.buttonGroup {
+    text-align: left;
+    font-weight: bold;
+}
+
+select {
+    display: block;
+    margin-bottom: 20px;
+}
+
+#videoContainer {
+    height: 700px;    
+}
+
+.navi {
+    width: 100%;
+    max-width: 1400px;
+    display: block;
+    background-color: white;
+    margin: auto;
+    padding: 0 50px;
+}
+
+
+
+.video {
+    width: 100%;
+    height: 95%;
+    margin: 0;
+}
+
+.timeline {
+    width: 100%;
+    height: 3%;
+
+}
+
+.timelineField {
+
+    border-style: solid;
+    border-width: 0;
+
+}
+
+.button {
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+    background-color: grey;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    line-height: 100px;
+    margin: auto;
+    display: block;
+
+}
+
