@@ -264,7 +264,7 @@ div.menuGroup {
     bottom: 0;
     box-sizing: border-box;
     width: 100%;
-    padding: 15px 0;
+    padding-top: 30px;
     height: 170px;
     max-width: 1500px;
     display: block;
@@ -273,6 +273,7 @@ div.menuGroup {
     margin-right: auto;
     left: 0;
     right: 0;
+    border-top: 3px solid black;
 }
 
 /* Video container */
