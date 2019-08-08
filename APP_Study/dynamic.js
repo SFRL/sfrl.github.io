@@ -149,9 +149,11 @@ function onPlayerReady(event) {
 function onPlayerStateChange(event) {
     if (event.data == 0) {
         //Hide rating Buttons
-        document.getElementById("likeButton").style.display = "none";
-        document.getElementById("dislikeButton").style.display = "none";
-        document.getElementById("toSurvey").style.display = "inline-block";
+        //document.getElementById("likeButton").style.display = "none";
+        //document.getElementById("dislikeButton").style.display = "none";
+        //document.getElementById("toSurvey").style.display = "inline-block";
+        //Automatically go to next page
+        nextPage();
         }
 }
 
@@ -327,20 +329,21 @@ function submit(){
     let newMessageRef = messagesRef.push();
     newMessageRef.set({
         a_Performance: data[0],
-        b_Gender: data[1],
-        c_Age: data[2],
-        d_Occupation: data[3],
-        e_Dance: data[4],
-        f_Media: data[5],
-        g_Enjoy: data[6],
-        h_Focus: data[7],
-        i_Connection: data[8],
-        j_VisualSync: data[9],
-        k_MusicSync: data[10],
-        l_positveFeedback: data[11],
-        m_negativeFeedback: data[12],
-        n_generalComments: data[13],
-        o_realtimeData: realtimeData
+        b_Consent: data[1],
+        c_Gender: data[2],
+        d_Age: data[3],
+        e_Occupation: data[4],
+        f_Dance: data[5],
+        g_Media: data[6],
+        h_Enjoy: data[7],
+        i_Focus: data[8],
+        j_Connection: data[9],
+        k_VisualSync: data[10],
+        l_MusicSync: data[11],
+        m_positveFeedback: data[12],
+        n_negativeFeedback: data[13],
+        o_generalComments: data[14],
+        p_realtimeData: realtimeData
 
     });
 
