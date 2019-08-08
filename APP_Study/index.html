@@ -13,11 +13,12 @@
 <body onload="setup()" onresize="sizeMain()">
 
 
-    <div class="header">
-        <img src="logo.gif" id="logo" alt="">
-        <h1>&nbsp;Audience Experience of New Media Dance Performances</h1>
+    <div class="header" id="topbar">
+        <img src="logo.gif" id="MATLogo" alt=""><img src="QMLogo_small.png" id="QMLogoSmall" alt=""><img src="QMLogo.png" id="QMLogo" alt="">
+        <h1 id="headerText">Audience Experience of New Media Dance Performances</h1>
+
     </div>
-    
+
     <!-- Pages -->
     <!-- Introduction -->
     <div class="page" id="introduction">
@@ -35,8 +36,8 @@
 
                 This study aims to find out more about the audience experience of dance performances that include new media.
                 You will be presented with a short video of a recorded performance. You will only be able to watch this performance once,
-                so please make sure that you are in a calm environment where you can focus on both video and sound.
-                During the video you will be asked to indicate which parts of the performance you find especially noteworthy by clicking a button.
+                so please make sure that you are in a calm environment where you can focus on both video and sound. It might be best to use headphones.
+                During the video you will be asked to indicate which parts of the performance you like or dislike by clicking the respective button.
                 After you have watched the video, you will be asked to answer a few questions about the performance.
                 This study should take about 5 minutes and it is advised to complete it on a desktop computer or laptop.
                 The survey might not function properly on a mobile device. <br><br>
@@ -50,7 +51,10 @@
 
         </div>
         <div class="navi">
+
             <div class="button" onclick="nextPage()">Next</div>
+            <div class="progress" style="float: left"></div>
+            <div class="progress" style="float: right"> Page 1/6</div>  
         </div>
 
     </div>
@@ -59,10 +63,11 @@
     <div class="page" id="introduction">
         <div class="main">
             <h1>Consent</h1>
+            <p class="alert">You have to give your consent to continue!</p><br>
             <p>
                 Please give your consent below after you have read the Participant Information about the research on the previous page. <br><br>
                 Title of Study: Audience Experience of New Media Dance Performance<br>
-                Queen Mary Ethics of Research Committee Ref: --------<br><br>
+                Queen Mary Ethics of Research Committee Ref: QMREC2170<br><br>
 
                 Thank you for considering taking part in this research. The people organising the research must explain the project to you before you agree to take part.
                 If you have any questions arising from the Participant Information  or other  explanation already given to you, please ask the researchers before you decide whether to join in.<br>
@@ -73,9 +78,21 @@
                     <li>I agree that the research project named above has been explained to me to my satisfaction and I agree to take part in the study. I have read both the notes written above and the Participant Information on the previous page about the project, and understand what the research study involves.<br></li>
                 </ul>
             </p>
+
+            <label class="container" id="consent">
+                I confirm that I understand the points mentioned above and that I agree with them
+                <input type="radio" name="consent" form="survey" value="0">
+                <span class="checkmark"></span>
+            </label>
+
         </div>
+
+
+
         <div class="navi">
-            <div class="button" onclick="nextPage()">Next</div>
+            <div class="button" onclick="checkRequired(1)">Next</div>
+            <div class="progress" style="float: left"></div>
+            <div class="progress" style="float: right"> Page 2/6</div>
         </div>
     </div>
 
@@ -86,12 +103,13 @@
                 <p>
                     Please enter some of your personal information below. These are required for analysing the study data. <br>
                 </p>
+                <p class="alert">Please fill in all the fields!</p><br>
                 <form name="submit-to-google-sheet" method="post" enctype="text/plain" id="survey">
 
                         <b>Gender?</b>
                         <div class="menuGroup">
                             <div class="custom-select" style="width:200px;">
-                                <select name="gender">
+                                <select name="gender" form="survey">
                                     <option value="0">Please select</option>
                                     <option value="female">Female</option>
                                     <option value="male">Male</option>
@@ -103,7 +121,7 @@
                         <b>Age?</b>
                         <div class="menuGroup">
                             <div class="custom-select" style="width:200px">
-                                <select name="age">
+                                <select name="age" form="survey">
                                     <option value="0">Please select</option>
                                     <option value="18-25">18-25</option>
                                     <option value="26-33">26-33</option>
@@ -113,6 +131,13 @@
                                 </select>
                             </div>
                         </div>
+
+                        <b>Occupation?</b><br>
+                        <i>In which field do you work or study? Type NA if not sure or if you wish not to answer</i><br>
+                        <div class="menuGroup">
+                            <textarea form="survey" name="occupation" rows="1" cols="55"></textarea><br>
+                        </div>
+
                         <b class="buttonGroup">How often do you engage with dance?</b><br>
                         <i class="buttonGroup">e.g.: how often do you go to see performances or take dance lessons etc.</i><br>
                         <div class=" = buttonGroup">
@@ -143,12 +168,12 @@
                                 <span class="checkmark"></span>
                             </label>
                             <label class="container">
-                                Very Often
+                                Regularly
                                 <input type="radio" name="interestDance" form="survey" value="5">
                                 <span class="checkmark"></span>
                             </label>
                             <label class="container">
-                                Regularly
+                                Always
                                 <input type="radio" name="interestDance" form="survey" value="6">
                                 <span class="checkmark"></span>
                             </label>
@@ -184,12 +209,12 @@
                                 <span class="checkmark"></span>
                             </label>
                             <label class="container">
-                                Very Often
+                                Regularly
                                 <input type="radio" name="interestMedia" form="survey" value="5">
                                 <span class="checkmark"></span>
                             </label>
                             <label class="container">
-                                Regularly
+                                Always
                                 <input type="radio" name="interestMedia" form="survey" value="6">
                                 <span class="checkmark"></span>
                             </label>
@@ -197,7 +222,9 @@
                 </form>
             </div>
             <div class="navi">
-                <div class="button" onclick="nextPage()">Next</div>
+                <div class="button" onclick="checkRequired(5)">Next</div>
+                <div class="progress" style="float: left"></div>
+                <div class="progress" style="float: right"> Page 3/6</div>
             </div>
 
         </div>
@@ -211,9 +238,12 @@
                     <h1>Video and real-time assessment</h1>
                     <p>
                         This is the first part of the study. You will be presented with a 2:40 min long video of a dance performance.
-                        While watching the video please indicate that you find a specific moment in the performance noteworthy by clicking the button below the video.
-                        Noteworthy could be a moment that shows a pleasing movement, great synchronity between dance and music or anything else with a positive connotation.
-                        The video will start automatically once you press "start Video" and cannot be stopped or rewound, so please pay attention.
+                        While watching the video please indicate that you find a specific moment especially good or bad. For this purpose two buttons will be displayed under the video. 
+                        A green button with a thumb-up for indicating a good moment and a red button with a thumb-down for a bad moment.
+                        A good moment could show a pleasing movement, great synchronity between dance and music or anything else with a positive connotation.
+                        A bad moment could show a disjunction between dance and music, a perceived error in movement or sound or anyhting else with a negative connotation.<br>
+                       
+                        The video will start automatically once you press "Start" and cannot be stopped or rewound, so please pay attention.
                         Once the video stopped playing you can proceed to the next stage of the study by clicking the button.
                     </p>
                 </div>
@@ -226,7 +256,15 @@
 
 
             <div class="navi" id="rating">
-                <div class="button" id="ratingButton" onclick="ratingButtonClicked()">Start</div>
+                <div class="button" id="startButton" onclick="startVideo()">Start</div>
+
+                <div class="button" id="likeButton" onclick="rate(1)"><img src="thumbsUp.png" alt="Like" class="thumbs"></div>
+                <div class="button" id="dislikeButton" onclick="rate(-1)"><img src="thumbsDown.png" alt="Dislike" class="thumbs"></div>
+
+                <div class="button" id="toSurvey" onclick="nextPage()">Next</div>
+
+                <div class="progress" style="float: left"></div>
+                <div class="progress" style="float: right"> Page 4/6</div>
             </div>
 
         </div>
@@ -237,8 +275,10 @@
             <div class="main">
                 <h1>Survey</h1>
 
+                <p class="alert">Please fill in all the fields!</p><br>
+
                 <b class="buttonGroup">How did you enjoy the performance?</b><br>
-                <i class="buttonGroup">give an overall feedback on wether you liked the video or not</i><br>
+                <i class="buttonGroup">Give an overall feedback on whether you liked the performance or not.</i><br>
                 <div class=" = buttonGroup">
                     <label class="container">
                         0 - not at all
@@ -291,9 +331,8 @@
                         </select>
                     </div>
                 </div>
-                
-
-                <b class="buttonGroup">Do you think that all components of the performances were connected well</b><br>
+               
+                <b class="buttonGroup">Do you think that all the components of the performance were well connected?</b><br>
                 <i class="buttonGroup">Did the dance, the visual projection and the music all seem in-tune or did they seem unrelated to each other?</i><br>
                 <div class=" = buttonGroup">
                     <label class="container">
@@ -334,8 +373,8 @@
                     </label>
                 </div>
 
-                <b class="buttonGroup">Do you think the dance movements went along well with the projected visuals?</b><br>
-                <i class="buttonGroup">Were they in-tune witch each other, were they synchronised well or did they seem unlinked from each other</i><br>
+                <b class="buttonGroup">Do you think that the dance movements went along well with the projected visuals?</b><br>
+                <i class="buttonGroup"> Were they in-tune with each other, were they well synchronised, or did they seem unlinked from each other? </i><br>
                 <div class=" = buttonGroup">
                     <label class="container">
                         0 - not at all
@@ -375,8 +414,8 @@
                     </label>
                 </div>
 
-                <b class="buttonGroup">Do you think the dance movements went along well with the music?</b><br>
-                <i class="buttonGroup">Did movement and music match? </i><br>
+                <b class="buttonGroup">Do you think that the dance movements went along well with the music?</b><br>
+                <i class="buttonGroup">Did movements and music variations match well? </i><br>
                 <div class=" = buttonGroup">
                     <label class="container">
                         0 - not at all
@@ -415,17 +454,13 @@
                         <span class="checkmark"></span>
                     </label>
                 </div>
-
-
-
-
-
-
+                
             </div>
 
             <div class="navi">
-                <div class="button" onclick="nextPage()">Next</div>
-
+                <div class="button" onclick="checkRequired(5)">Next</div>
+                <div class="progress" style="float: left"></div>
+                <div class="progress" style="float: right"> Page 5/6</div>
             </div>
 
         </div>
@@ -434,22 +469,32 @@
         <div class="page">
             <div class="main">
                 <h1>Survey</h1>
+                <p class="alert">Please fill in all the fields!</p><br>
                 <b>Positive Feedback</b><br>
-                <i class="buttonGroup">Please name something that you liked about the performance</i><br>
-                <textarea form="survey" name="comments" rows="4" cols="55"></textarea><br>
+                <i class="buttonGroup">Please express the things that you liked about the performance.</i><br>
+                <div class="menuGroup">
+                    <textarea form="survey" name="comments" rows="14" cols="55"></textarea><br>
+                </div>
 
                 <b>Negative Feeback</b><br>
-                <i class="buttonGroup">Please name something that you disliked about the performance or think that can be improved</i><br>
-                <textarea form="survey" name="comments" rows="4" cols="55"></textarea><br>
+                <i class="buttonGroup">Please express the things that you disliked about the performance and/or things that can be improved.</i><br>
+                <div class="menuGroup">
+                    <textarea form="survey" name="comments" rows="14" cols="55"></textarea><br>
+                </div>
 
                 <b>General Comments</b><br>
                 <i class="buttonGroup">Any sort of additional feedback is very appreciated. You could comment on how well you think you understood the system.</i><br>
-                <textarea form="survey" name="comments" rows="14" cols="55"></textarea><br>
+                <div class="menuGroup">
+                    <textarea form="survey" name="comments" rows="14" cols="55"></textarea><br>
+                </div>
 
             </div>
 
             <div class="navi">
-                <div class="button" onclick="submit()">Submit</div>
+                <div class="button" onclick="checkRequired(3)">Submit</div>
+
+                <div class="progress" style="float: left"></div>
+                <div class="progress" style="float: right"> Page 6/6</div>
 
             </div>
             
@@ -459,7 +504,10 @@
         <div class="page" id="submission">
             <div class="main">
                 <h1>Thank you!</h1>
-                Thank you for participating!
+                Thank you for participating! <br><br>
+                This project has been realised withint the <a href="http://www.mat.qmul.ac.uk">Media &amp; Arts Technology</a>  programme at Queen Mary University which is funded by the EPSRC and AHRC. <br><br>
+
+                Special thanks to <a href="https://www.thrivedance.co.uk">Sarah Poekert</a> for helping to develop this project and performing. 
             </div>
             <div class="navi">
 

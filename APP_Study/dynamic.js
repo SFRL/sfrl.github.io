@@ -10,7 +10,6 @@ let realtimeData;
 //Variables to track the progress of the study
 let pages;
 let currentPage = 0;
-let videoStage = 0;
 
 //Display Sliders
 let sliders = document.getElementsByClassName("slider");
@@ -34,17 +33,52 @@ firebase.initializeApp(config);
 function setup() {
      //Get page information
      pages = document.getElementsByClassName("page");
-    pages[0].style.display = "inline";
-    sizeMain();
+     pages[0].style.display = "inline";
+     sizeMain();
 }
 
 
 function sizeMain(){
     let height = window.innerHeight;
+    let width = window.innerWidth;
     let mainDIVs = document.getElementsByClassName("main");
+    let topBar = document.getElementById("topbar");
 
     for (let i = 0; i < mainDIVs.length; i++) {
-        mainDIVs[i].style.height = height - 250 + "px";
+        mainDIVs[i].style.height = height - 160 + "px";
+    }
+
+    //Resize the header
+    let headerText = document.getElementById("headerText");
+    let displayQMLogo = document.getElementById("QMLogo");
+    let displayQMLogoSmall = document.getElementById("QMLogoSmall");
+
+    if (width > 1300) {
+        headerText.style.fontSize = 40 + "px";
+        headerText.style.lineHeight = 80 + "px";
+        headerText.style.maxWidth = 1200 + "px";
+        displayQMLogo.style.display = "inline";
+        displayQMLogoSmall.style.display = "none";
+    }
+    else if (width >= 800) {
+        headerText.style.fontSize = 35 + "px";
+        headerText.style.lineHeight = 40 + "px";
+        headerText.style.maxWidth = 800 + "px";
+        displayQMLogo.style.display = "inline";
+        displayQMLogoSmall.style.display = "none";
+    }
+    else if (width >= 600) {
+        headerText.style.fontSize = 30 + "px";
+        headerText.style.lineHeight = 40 + "px";
+        headerText.style.maxWidth = 600 + "px";
+        displayQMLogo.style.display = "none";
+        displayQMLogoSmall.style.display = "inline";
+    }
+    else {
+        headerText.style.fontSize = Math.floor(40 * (800 / 1400.)) + "px";
+        headerText.style.lineHeight = 40 + "px";
+        displayQMLogo.style.display = "none";
+        displayQMLogoSmall.style.display = "inline";
     }
 }
 
@@ -75,7 +109,7 @@ function onYouTubeIframeAPIReady() {
           height: '390',
           width: '640',
           videoId: videoID,
-          playerVars: { 'autoplay': 1, 'controls': 0}, //let videoStage = 0;
+          playerVars: { 'autoplay': 1, 'controls': 0}, //let videoStage = 0; //
           events: {
               'onReady': onPlayerReady,
               'onStateChange': onPlayerStateChange
@@ -103,57 +137,98 @@ function onPlayerReady(event) {
         element.appendChild(field);
     }
 
-    //Construct array to save adhod data
+    //Construct array to save adhoc data
     realtimeData = new Array(numberOfFields);
+    for (let i = 0; i < realtimeData.length; i++) {
+        realtimeData[i] = 0;
+    }
+    
 }
 
 //What happens when the video has ended
 function onPlayerStateChange(event) {
-      if(event.data == 0) {
-      videoStage = 2;
-      document.getElementById("ratingButton").innerHTML = "Next";
-      }
+    if (event.data == 0) {
+        //Hide rating Buttons
+        document.getElementById("likeButton").style.display = "none";
+        document.getElementById("dislikeButton").style.display = "none";
+        document.getElementById("toSurvey").style.display = "inline-block";
+        }
 }
 
-    
+//Start Video
+function startVideo() {
+    //Start Video
+    loadYT();
 
+    //Display rating buttons
+    document.getElementById("likeButton").style.display = "inline-block";
+    document.getElementById("dislikeButton").style.display = "inline-block";
 
-function ratingButtonClicked() {
+    //Hide start button
+    document.getElementById("startButton").style.display = "none";
+}  
 
-   if(videoStage == 0) {
-        //Start Video
-        loadYT();
+function rate(value) {
 
-        //Change Caption of Button
-        document.getElementById("ratingButton").innerHTML = "Vote";
-
-        //Change Stage
-        videoStage = 1;
-   }
-   else if(videoStage == 1) {
-   
-        //Get current time of the video and change the color of the correlated timeline field
+    //Get current time of the video and change the color of the correlated timeline field
         let currentTime =  player.getCurrentTime();
         let index = Math.floor(currentTime/resolution);
         if(index > numberOfFields) {
             index = numberOfFields; }
 
-        //Add marker under the video at current playback point
+    //Add marker under the video at current playback point
+    let color;
+    if (value == 1) {
+        color = "green";
+    }
+    else {
+        color = "red";
+    }
         let currentField = document.getElementsByClassName("timelineField")[index];
-        currentField.style.backgroundColor = "green";
+        currentField.style.backgroundColor = color;
         currentField.style.borderColor = "black";
 
        //Add current playback point to evaluation data
-       realtimeData[index] = 1;
+       realtimeData[index] = value;
+}
 
-   }
-  else if(videoStage == 2) {
-   nextPage(); 
+
+
+
+//Check if all required elements are checked
+function checkRequired(checksum) {
+    let allElements = document.getElementsByClassName("main")[currentPage].querySelectorAll("input, select, textarea");   
+    let counter = 0;
+    for (let i = 0; i < allElements.length; i++) {
+        let currentItem = allElements[i];
+        if (currentItem.tagName == "TEXTAREA" || currentItem.tagName == "SELECT") {
+            if (currentItem.value != 0) {
+                counter++;
+                console.log(currentItem.value);
+            }
+        }
+        else if (currentItem.type = "radio") {
+            if (currentItem.checked == true) {
+                counter++;
+            }
+        }
+    }
+    let numberOfPages = document.getElementsByClassName("page").length;
+    if (counter == checksum) {
+        if (currentPage < numberOfPages - 2) {
+            nextPage();
+        }
+        else {
+            submit();
+        }
 
     }
-
-
+    else {
+        document.getElementsByClassName("main")[currentPage].querySelectorAll("p.alert")[0].style.display = "block";
+    }
 }
+
+
 
 //Go to the next page of the study
 function nextPage() {
@@ -254,17 +329,18 @@ function submit(){
         a_Performance: data[0],
         b_Gender: data[1],
         c_Age: data[2],
-        d_Dance: data[3],
-        e_Media: data[4],
-        f_Enjoy: data[5],
-        g_Focus: data[6],
-        h_Connection: data[7],
-        i_VisualSync: data[8],
-        j_MusicSync: data[9],
-        k_positveFeedback: data[10],
-        l_negativeFeedback: data[11],
-        m_generalComments: data[12],
-        n_realtimeData: realtimeData
+        d_Occupation: data[3],
+        e_Dance: data[4],
+        f_Media: data[5],
+        g_Enjoy: data[6],
+        h_Focus: data[7],
+        i_Connection: data[8],
+        j_VisualSync: data[9],
+        k_MusicSync: data[10],
+        l_positveFeedback: data[11],
+        m_negativeFeedback: data[12],
+        n_generalComments: data[13],
+        o_realtimeData: realtimeData
 
     });
 

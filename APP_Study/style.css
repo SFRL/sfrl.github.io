@@ -30,6 +30,8 @@
     src: url(3249EE_0_0.eot?#iefix) format('embedded-opentype'),url(3249EE_0_0.woff2) format('woff2'),url(3249EE_0_0.woff) format('woff'),url(3249EE_0_0.ttf) format('truetype');
 }
 
+
+
 html {
     height: 100%;
     font-family: 'Roboto', sans-serif;
@@ -44,22 +46,56 @@ body {
 
 }
 
+/* Scroll Bar */
+.main::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+    .frame::-webkit-scrollbar:vertical {
+        width: 10px;
+        background: #666;
+    }
+
+    .frame::-webkit-scrollbar:horizontal {
+        height: 11px;
+    }
+
+.main::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid white; /* should match background, can't be transparent */
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.main::-webkit-scrollbar-track {
+    background-color: #fff;
+    border-radius: 8px;
+} 
+
 /* Text */
 h1 {
     font-family: 'StencilCreek-50';
     font-weight: 100;
     font-style: normal;
     font-size: 40px;
-    line-height: 80px;
     margin: 0;
     padding: 0;
 }
+
+
 
 p {
     width: 100%;
     max-width: 1000px;
     text-align: justify;
 }
+
+p.alert { 
+    color: red;
+    display: none;
+
+}
+
+
 
 /* Page Layout */
 
@@ -78,11 +114,34 @@ p {
     background-color: white;
 }
 
-img {
+#headerText {
+    line-height: 80px;
+}
+
+#MATLogo {
     max-width: 100%;
     max-height: 100%;
+    display: inline-block;
+    padding-right: 10px;
     float: left;
 }
+
+#QMLogo {
+    height: 70px;
+    float: right;
+    display: inline;
+    padding: 5px 10px;
+}
+
+#QMLogoSmall {
+    height: 70px;
+    float: right;
+    display: inline-block;
+    padding: 5px 10px;
+    display: inline;
+}
+
+
 
 /* Main */
 .main {
@@ -91,10 +150,11 @@ img {
     max-width: 1500px;
     display: block;
     margin: auto;
-    height: 700px;
+    height: 500px;
     background-color: white;
     padding: 50px;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 /* Radio Button Style */
 
@@ -130,6 +190,11 @@ b.buttonGroup {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+#consent {
+    width: 100%;
+    text-align: justify;
 }
 
 /* Hide the browser's default radio button */
@@ -264,13 +329,14 @@ div.menuGroup {
     bottom: 0;
     box-sizing: border-box;
     width: 100%;
-    padding-top: 30px;
-    height: 170px;
+    padding-top: 10px;
+    height: 80px;
     max-width: 1500px;
     display: block;
     background-color: white;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
     left: 0;
     right: 0;
     border-top: 3px solid black;
@@ -298,35 +364,59 @@ div.menuGroup {
 }
 
 /* Navigation Button */
-.button {
+.button, .progress {
     font-family: 'StencilCreek-50';
     font-weight: 100;
     font-style: normal;
     width: 100px;
-    height: 100px;
-    border: 2px solid black;
+    height: 50px;
     background-color: white;
     color: black;
-    font-size: 30px;
+    font-size: 25px;
     text-align: center;
-    line-height: 100px;
+    line-height: 50px;
     margin: auto;
-    display: block;
+    display: inline-block;
+}
+
+.button {
+    border: 2px solid black;
 }
 
 .button:hover {
-    width: 110px;
-    height: 110px;
-    line-height: 110px;
-    box-shadow: 12px 12px #666;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    box-shadow: 5px 5px #666;
+    cursor: pointer;
 }
 
 .button:active {
     background-color: #666;
     color: white;
-    width: 110px;
-    height: 110px;
-    line-height: 110px;
-    box-shadow: 12px 12px;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    box-shadow: 5px 5px;
 }
+
+#likeButton, #dislikeButton, #toSurvey {
+    display: none;
+}
+
+.thumbs {
+    margin: auto;
+    padding-top: 5px;
+    height: 40px;
+}
+
+
+#likeButton {
+    background-color: green;
+}
+#dislikeButton {
+    background-color: red;
+}
+
+
 
