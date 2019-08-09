@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Happy Birthday Nudder</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script>
+
+        let size = 0;
+        let zoom;
+
+
+        function openImage() {
+            document.getElementById("button").style.display="none";
+            document.getElementById("banner").style.display="inline";
+            zoom = setInterval(resizeImage,30);
+        }
+
+        function resizeImage() {
+            size += 1;
+
+            document.getElementById("banner").style.width = size + "px";
+            document.getElementById("banner").style.height = size + "px";
+
+            if(size>800) {
+                clearInterval(zoom);
+            }
+        }
+    </script>
+    
+
+</head>
+
+<body>
+
+
+<div class="middle" id="button" onclick="openImage()"></div>
+<div class="middle" id="banner"></div>
+</body>
+
+</html>
