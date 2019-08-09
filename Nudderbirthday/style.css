@@ -1,0 +1,73 @@
+﻿
+
+/**
+ * @license
+ * MyFonts Webfont Build ID 3295726, 2016-10-14T05:47:10-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: StencilCreek-50 by Resistenza
+ * URL: http://www.myfonts.com/fonts/resistenza/stencil-creek/regular-50/
+ * Copyright: Copyright &#x00A9; 2014 by Giuseppe Salerno. All rights reserved.
+ * Licensed pageviews: 10,000
+ * 
+ * 
+ * License: http://www.myfonts.com/viewlicense?type=web&buildid=3295726
+ * 
+ * Â© 2016 MyFonts Inc
+*/
+/* @import must be at top of file, otherwise CSS will not work */
+
+
+
+html {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+body {
+    background-image: url("lobsterstuff.png");
+    background-repeat: repeat;
+    margin: 0;
+    padding: 0;
+    background-color: #666;
+    width: 100vw;
+    height: 100vh;
+}
+
+.middle {
+    border: 5px solid black;
+    background-size: cover;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#button {
+    background-image: url("pattern.png");
+    width: 300px;
+    height: 300px;
+
+}
+
+    #button:hover {
+        width: 320px;
+        height: 320px;
+        box-shadow: 5px 5px black;
+        cursor: pointer;
+
+    }
+
+#banner {
+    background-image: url("HappyBirthday.png");
+    height: 0px;
+    width: 0px;
+    display: none;
+}
